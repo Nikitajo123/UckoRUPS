@@ -1,0 +1,5 @@
+[
+  { "id": "mat", "name": "Matematika", "order": 1, "color": "#4F8EF7", "icon": "calculate" },
+  { "id": "ang", "name": "Angleščina", "order": 2, "color": "#F7A04F", "icon": "translate" },
+  { "id": "nar", "name": "Naravoslovje", "order": 3, "color": "#4FBF7A", "icon": "science" }
+]
