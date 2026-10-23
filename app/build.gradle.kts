@@ -10,6 +10,12 @@ android {
         version = release(37)
     }
 
+    sourceSets {
+        getByName("main") {
+            assets.srcDir("../content")
+        }
+    }
+
     defaultConfig {
         applicationId = "si.uckoquiz.app"
         minSdk = 26
@@ -56,4 +62,5 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
+    implementation(libs.kotlinx.coroutines.play.services)
 }
