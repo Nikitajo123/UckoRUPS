@@ -1,0 +1,62 @@
+{
+  "id": "mat_ulomki_01",
+  "subjectId": "mat",
+  "chapterId": "mat_ulomki",
+  "order": 1,
+  "title": "Kaj je ulomek?",
+  "boss": false,
+  "explanation": {
+    "title": "Ulomek je del celote",
+    "steps": [
+      "Pica ima 8 kosov.",
+      "Če pojemo 3 kose, smo pojedli 3/8 pice.",
+      "Spodnje število pove, na koliko delov je razdeljena celota."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "mat_ulomki_01_t1",
+      "type": "choice",
+      "prompt": "Luka je pojedel 3 od 8 kosov pice. Kolikšen del pice je pojedel?",
+      "answers": ["3/8", "8/3", "5/8"],
+      "correct": [0],
+      "explanation": "Pojedel je 3 od 8 kosov, torej 3/8.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_ulomki_01_t2",
+      "type": "match",
+      "prompt": "Poveži ulomek z besedo.",
+      "pairs": [
+        { "left": "1/2", "right": "polovica" },
+        { "left": "1/3", "right": "tretjina" },
+        { "left": "1/4", "right": "četrtina" }
+      ],
+      "explanation": "Imenovalec pove, na koliko delov delimo celoto.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_ulomki_01_t3",
+      "type": "drag",
+      "prompt": "Razvrsti ulomke.",
+      "categories": ["Manj kot 1/2", "Več kot 1/2"],
+      "items": [
+        { "text": "1/4", "category": "Manj kot 1/2" },
+        { "text": "1/3", "category": "Manj kot 1/2" },
+        { "text": "2/3", "category": "Več kot 1/2" },
+        { "text": "3/4", "category": "Več kot 1/2" }
+      ],
+      "explanation": "Ulomek je manjši od 1/2, če je števec manj kot polovica imenovalca.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_ulomki_01_t4",
+      "type": "game",
+      "game": "ulomki_kocke",
+      "prompt": "Sestavi ulomek 3/8.",
+      "config": { "numerator": "3", "denominator": "8" },
+      "explanation": "3 obarvane kocke od 8 so 3/8.",
+      "difficulty": 2
+    }
+  ]
+}

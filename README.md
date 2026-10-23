@@ -13,3 +13,5 @@ Android app (Kotlin, Jetpack Compose, Firebase) for 6th graders: Matematika, Ang
 - Pull `main` before starting: `git pull origin main`
 - One JSON file per lesson in `content/`
 - Reviews: M reviews F, F reviews Simona, Simona reviews M
+
+
