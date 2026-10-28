@@ -22,13 +22,16 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import si.uckoquiz.app.domain.ContentRepository
 import si.uckoquiz.app.domain.UserProfile
+import si.uckoquiz.app.ui.home.HomeRoute
+import si.uckoquiz.app.ui.lesson.LessonPlaceholder
 import si.uckoquiz.app.ui.onboarding.LocalProfileStore
 import si.uckoquiz.app.ui.onboarding.OnboardingScreen
+import si.uckoquiz.app.ui.sample.SampleContentRepository
 import si.uckoquiz.app.ui.theme.UckoBlue
 import si.uckoquiz.app.ui.theme.UckoQuizTheme
 
-/** Zavihki v spodnji vrstici (po Figmi). Lestvica in Prijatelji iz načrta sta v nadaljnjem razvoju. */
 enum class Tab(val label: String, val emoji: String) {
     HOME("Domov", "🏠"),
     SUBJECTS("Predmeti", "📚"),
@@ -53,41 +56,51 @@ fun UckoApp() {
     }
 }
 
-/** Glavni del aplikacije: spodnja vrstica in current tab */
 @Composable
 fun MainTabs(profile: UserProfile) {
     var currentTab by rememberSaveable { mutableStateOf(Tab.HOME) }
+    var openLessonId by rememberSaveable { mutableStateOf<String?>(null) }
 
-    Scaffold(
-        bottomBar = {
-            NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
-                Tab.entries.forEach { tab ->
-                    NavigationBarItem(
-                        selected = currentTab == tab,
-                        onClick = { currentTab = tab },
-                        icon = { Text(tab.emoji, fontSize = 22.sp) },
-                        label = { Text(tab.label) },
-                        colors = NavigationBarItemDefaults.colors(
-                            selectedTextColor = UckoBlue,
-                            unselectedTextColor = Color.Gray,
-                            indicatorColor = UckoBlue.copy(alpha = 0.15f),
-                        ),
-                    )
+    // Začasno vzorčna vsebina v pomnilniku. Ko bo vsa vsebina v Firestoru (UQ-20),
+    // to vrstico zamenjamo s FirestoreContentRepository().
+    val repository: ContentRepository = remember { SampleContentRepository() }
+
+    val lessonId = openLessonId
+    if (lessonId != null) {
+        LessonPlaceholder(lessonId, repository, onClose = { openLessonId = null })
+    } else {
+        Scaffold(
+            bottomBar = {
+                NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
+                    Tab.entries.forEach { tab ->
+                        NavigationBarItem(
+                            selected = currentTab == tab,
+                            onClick = { currentTab = tab },
+                            icon = { Text(tab.emoji, fontSize = 22.sp) },
+                            label = { Text(tab.label) },
+                            colors = NavigationBarItemDefaults.colors(
+                                selectedTextColor = UckoBlue,
+                                unselectedTextColor = Color.Gray,
+                                indicatorColor = UckoBlue.copy(alpha = 0.15f),
+                            ),
+                        )
+                    }
                 }
             }
-        }
-    ) { innerPadding ->
-        Box(Modifier.fillMaxSize().padding(innerPadding)) {
-            when (currentTab) {
-                Tab.HOME -> PlaceholderScreen("Živijo, ${profile.displayName}!\nDomov: učna pot (UQ-29)")
-                Tab.SUBJECTS -> PlaceholderScreen("Predmeti (UQ-30)")
-                Tab.PROFILE -> PlaceholderScreen("${profile.avatar} ${profile.displayName}\nCilj: ${profile.dailyGoal} min/dan\nProfil (UQ-36)")
-                Tab.SETTINGS -> PlaceholderScreen("Nastavitve (UQ-36)")
+        ) { innerPadding ->
+            Box(Modifier.fillMaxSize().padding(innerPadding)) {
+                when (currentTab) {
+                    Tab.HOME -> HomeRoute(profile, repository, onOpenLesson = { openLessonId = it })
+                    Tab.SUBJECTS -> PlaceholderScreen("Predmeti (UQ-30)")
+                    Tab.PROFILE -> PlaceholderScreen("${profile.displayName}\nCilj: ${profile.dailyGoal} min/dan\nProfil (UQ-36)")
+                    Tab.SETTINGS -> PlaceholderScreen("Nastavitve (UQ-36)")
+                }
             }
         }
     }
 }
 
+/** Začasni zaslon, dokler pravi zaslon ni narejen. */
 @Composable
 fun PlaceholderScreen(title: String) {
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -98,5 +111,5 @@ fun PlaceholderScreen(title: String) {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun MainTabsPreview() {
-    UckoQuizTheme { MainTabs(UserProfile(displayName = "Ana", avatar = "🦊", dailyGoal = 10)) }
+    UckoQuizTheme { MainTabs(UserProfile(displayName = "Maja", avatar = "blue", dailyGoal = 10)) }
 }
