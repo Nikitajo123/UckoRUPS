@@ -29,6 +29,7 @@ import si.uckoquiz.app.ui.lesson.LessonPlaceholder
 import si.uckoquiz.app.ui.onboarding.LocalProfileStore
 import si.uckoquiz.app.ui.onboarding.OnboardingScreen
 import si.uckoquiz.app.ui.sample.SampleContentRepository
+import si.uckoquiz.app.ui.subjects.SubjectsRoute
 import si.uckoquiz.app.ui.theme.UckoBlue
 import si.uckoquiz.app.ui.theme.UckoQuizTheme
 
@@ -60,6 +61,8 @@ fun UckoApp() {
 fun MainTabs(profile: UserProfile) {
     var currentTab by rememberSaveable { mutableStateOf(Tab.HOME) }
     var openLessonId by rememberSaveable { mutableStateOf<String?>(null) }
+    // Izbrani predmet si delita Domov in Predmeti (dotik kartice odpre pot tega predmeta).
+    var subjectId by rememberSaveable { mutableStateOf("mat") }
 
     // Začasno vzorčna vsebina v pomnilniku. Ko bo vsa vsebina v Firestoru (UQ-20),
     // to vrstico zamenjamo s FirestoreContentRepository().
@@ -90,8 +93,20 @@ fun MainTabs(profile: UserProfile) {
         ) { innerPadding ->
             Box(Modifier.fillMaxSize().padding(innerPadding)) {
                 when (currentTab) {
-                    Tab.HOME -> HomeRoute(profile, repository, onOpenLesson = { openLessonId = it })
-                    Tab.SUBJECTS -> PlaceholderScreen("Predmeti (UQ-30)")
+                    Tab.HOME -> HomeRoute(
+                        profile = profile,
+                        repository = repository,
+                        subjectId = subjectId,
+                        onSelectSubject = { subjectId = it },
+                        onOpenLesson = { openLessonId = it },
+                    )
+                    Tab.SUBJECTS -> SubjectsRoute(
+                        repository = repository,
+                        onOpenSubject = {
+                            subjectId = it
+                            currentTab = Tab.HOME
+                        },
+                    )
                     Tab.PROFILE -> PlaceholderScreen("${profile.displayName}\nCilj: ${profile.dailyGoal} min/dan\nProfil (UQ-36)")
                     Tab.SETTINGS -> PlaceholderScreen("Nastavitve (UQ-36)")
                 }

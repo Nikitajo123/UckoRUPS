@@ -32,7 +32,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -73,9 +72,10 @@ private val SideSlot = 64.dp
 fun HomeRoute(
     profile: UserProfile,
     repository: ContentRepository,
+    subjectId: String,
+    onSelectSubject: (String) -> Unit,
     onOpenLesson: (String) -> Unit,
 ) {
-    var subjectId by rememberSaveable { mutableStateOf("mat") }
 
     val subjects by produceState(initialValue = emptyList<Subject>(), repository) {
         value = runCatching { repository.getSubjects() }.getOrDefault(emptyList())
@@ -93,7 +93,7 @@ fun HomeRoute(
         profile = profile,
         subjects = subjects,
         selectedSubjectId = subjectId,
-        onSelectSubject = { subjectId = it },
+        onSelectSubject = onSelectSubject,
         sections = sections,
         onOpenLesson = onOpenLesson,
     )
