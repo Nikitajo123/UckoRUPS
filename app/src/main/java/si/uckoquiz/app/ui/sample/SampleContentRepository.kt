@@ -1,9 +1,12 @@
 package si.uckoquiz.app.ui.sample
 
 import si.uckoquiz.app.domain.Chapter
+import si.uckoquiz.app.domain.DragItem
+import si.uckoquiz.app.domain.Explanation
 import si.uckoquiz.app.domain.ContentRepository
 import si.uckoquiz.app.domain.Lesson
 import si.uckoquiz.app.domain.LessonProgress
+import si.uckoquiz.app.domain.MatchPair
 import si.uckoquiz.app.domain.Subject
 import si.uckoquiz.app.domain.Task
 
@@ -27,6 +30,47 @@ object SampleContent {
         Chapter(id = "nar_zmesi", subjectId = "nar", order = 2, title = "Zmesi in ločevanje"),
     )
 
+    /** Prva prava lekcija (enaka kot content/mat/mat_ulomki_01.json), da se zaslon lekcije lahko preizkusi. */
+    private val ulomki01 = Lesson(
+        id = "mat_ulomki_01", subjectId = "mat", chapterId = "mat_ulomki", order = 1, title = "Kaj je ulomek?",
+        explanation = Explanation(
+            title = "Ulomek je del celote",
+            steps = listOf(
+                "Pica ima 8 kosov.",
+                "Če pojemo 3 kose, smo pojedli 3/8 pice.",
+                "Spodnje število pove, na koliko delov je razdeljena celota.",
+            ),
+        ),
+        tasks = listOf(
+            Task(
+                id = "mat_ulomki_01_t1", type = "choice",
+                prompt = "Luka je pojedel 3 od 8 kosov pice. Kolikšen del pice je pojedel?",
+                answers = listOf("3/8", "8/3", "5/8"), correct = listOf(0),
+                explanation = "Pojedel je 3 od 8 kosov, torej 3/8.",
+            ),
+            Task(
+                id = "mat_ulomki_01_t2", type = "match", prompt = "Poveži ulomek z besedo.",
+                pairs = listOf(MatchPair("1/2", "polovica"), MatchPair("1/3", "tretjina"), MatchPair("1/4", "četrtina")),
+                explanation = "Imenovalec pove, na koliko delov delimo celoto.",
+            ),
+            Task(
+                id = "mat_ulomki_01_t3", type = "drag", prompt = "Razvrsti ulomke.",
+                categories = listOf("Manj kot 1/2", "Več kot 1/2"),
+                items = listOf(
+                    DragItem("1/4", "Manj kot 1/2"), DragItem("1/3", "Manj kot 1/2"),
+                    DragItem("2/3", "Več kot 1/2"), DragItem("3/4", "Več kot 1/2"),
+                ),
+                explanation = "Ulomek je manjši od 1/2, če je števec manj kot polovica imenovalca.",
+                difficulty = 2,
+            ),
+            Task(
+                id = "mat_ulomki_01_t4", type = "game", game = "ulomki_kocke", prompt = "Sestavi ulomek 3/8.",
+                config = mapOf("numerator" to "3", "denominator" to "8"),
+                explanation = "3 obarvane kocke od 8 so 3/8.", difficulty = 2,
+            ),
+        ),
+    )
+
     val lessons: List<Lesson> = buildList {
         addChapter("mat", "mat_ulomki", listOf("Del celote", "Ulomki s kockami", "Primerjanje", "Enakovredni ulomki"),
             "ulomki_kocke", "Ulomki s kockami")
@@ -40,7 +84,7 @@ object SampleContent {
             "plava_potone", "Plava ali potone")
         addChapter("nar", "nar_zmesi", listOf("Čiste snovi in zmesi", "Raztopine", "Ločevanje zmesi"),
             "laboratorij", "Laboratorij", boss = "Skrivnostni laboratorij")
-    }
+    }.map { if (it.id == ulomki01.id) ulomki01 else it }
 
     // Napredek za prikaz: nekaj opravljenih lekcij, da se vidijo vsa stanja krogcev
     val demoProgress = mapOf(
