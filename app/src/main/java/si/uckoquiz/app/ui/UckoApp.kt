@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -22,10 +23,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.launch
 import si.uckoquiz.app.domain.ContentRepository
 import si.uckoquiz.app.domain.UserProfile
+import si.uckoquiz.app.games.GameResult
+import si.uckoquiz.app.games.starsFor
 import si.uckoquiz.app.ui.home.HomeRoute
-import si.uckoquiz.app.ui.lesson.LessonPlaceholder
+import si.uckoquiz.app.ui.lesson.LessonRoute
 import si.uckoquiz.app.ui.onboarding.LocalProfileStore
 import si.uckoquiz.app.ui.onboarding.OnboardingScreen
 import si.uckoquiz.app.ui.sample.SampleContentRepository
@@ -67,10 +71,25 @@ fun MainTabs(profile: UserProfile) {
     // Začasno vzorčna vsebina v pomnilniku. Ko bo vsa vsebina v Firestoru (UQ-20),
     // to vrstico zamenjamo s FirestoreContentRepository().
     val repository: ContentRepository = remember { SampleContentRepository() }
+    val scope = rememberCoroutineScope()
 
     val lessonId = openLessonId
     if (lessonId != null) {
-        LessonPlaceholder(lessonId, repository, onClose = { openLessonId = null })
+        LessonRoute(
+            lessonId = lessonId,
+            repository = repository,
+            onClose = { openLessonId = null },
+            onFinished = { outcome ->
+                scope.launch {
+                    // Zvezdice po istem pravilu kot pri igrah; brez srčkov ni zvezdic. Zaslon rezultata pride z UQ-35.
+                    val stars = if (outcome.passed) {
+                        starsFor(GameResult(outcome.correct, outcome.total, outcome.seconds))
+                    } else 0
+                    repository.saveResult(lessonId, stars, xp = if (stars > 0) 10 + outcome.correct else 0, mistakes = outcome.mistakes)
+                    openLessonId = null
+                }
+            },
+        )
     } else {
         Scaffold(
             bottomBar = {

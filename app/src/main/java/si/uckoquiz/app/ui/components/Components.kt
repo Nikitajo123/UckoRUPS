@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.unit.dp
 import si.uckoquiz.app.ui.theme.LockedGrey
 import si.uckoquiz.app.ui.theme.TextDark
@@ -61,6 +62,7 @@ fun OptionCard(
     state: OptionState,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    selectedColor: Color = UckoOrange,
     content: @Composable () -> Unit,
 ) {
     val background: Color
@@ -73,9 +75,10 @@ fun OptionCard(
             textColor = MaterialTheme.colorScheme.onSurface
         }
         OptionState.SELECTED -> {
-            background = Color(0xFFFFF3E6)
-            border = UckoOrange
-            textColor = TextDark
+            // Figma: oranžna pri nalogah, modra pri izbiri dnevnega cilja
+            background = lerp(Color.White, selectedColor, 0.12f)
+            border = selectedColor
+            textColor = if (selectedColor == UckoOrange) TextDark else selectedColor
         }
         OptionState.CORRECT -> {
             background = Color(0xFFDDF7C8)
