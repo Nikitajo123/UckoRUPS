@@ -26,7 +26,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -35,8 +34,6 @@ import si.uckoquiz.app.domain.Lesson
 import si.uckoquiz.app.domain.Task
 import si.uckoquiz.app.games.MiniGame
 import si.uckoquiz.app.games.starsFor
-import si.uckoquiz.app.ui.components.OptionCard
-import si.uckoquiz.app.ui.components.OptionState
 import si.uckoquiz.app.ui.components.UckoButton
 import si.uckoquiz.app.ui.components.UckoMascot
 import si.uckoquiz.app.ui.sample.SampleContent
@@ -88,7 +85,7 @@ fun LessonScreen(lesson: Lesson, onClose: () -> Unit, onFinished: (LessonOutcome
     var correctCount by remember(lesson.id) { mutableIntStateOf(0) }
     var scoredCount by remember(lesson.id) { mutableIntStateOf(0) }
     var mistakes by remember(lesson.id) { mutableStateOf(listOf<String>()) }
-    var selected by remember(lesson.id) { mutableStateOf(setOf<Int>()) }
+    var answer by remember(lesson.id) { mutableStateOf<TaskAnswer>(TaskAnswer.None) }
     var feedback by remember(lesson.id) { mutableStateOf<Feedback?>(null) }
     val startMillis = remember(lesson.id) { System.currentTimeMillis() }
 
@@ -102,7 +99,7 @@ fun LessonScreen(lesson: Lesson, onClose: () -> Unit, onFinished: (LessonOutcome
             finish(hearts)
         } else {
             index++
-            selected = emptySet()
+            answer = TaskAnswer.None
             feedback = null
         }
     }
@@ -132,24 +129,26 @@ fun LessonScreen(lesson: Lesson, onClose: () -> Unit, onFinished: (LessonOutcome
                     ExplanationPage(page.title, page.step, page.index, page.count, color)
                 }
                 is LessonPage.TaskPage -> when (page.task.type) {
-                    "choice", "listen" -> ScrollablePage {
+                    "choice", "listen", "match", "drag" -> ScrollablePage {
                         TaskHeader(taskLabel(page.task), page.task.prompt, color)
                         if (page.task.type == "listen") {
                             Spacer(Modifier.height(8.dp))
                             Text("🔊 Poslušanje pride z UQ-33.", style = MaterialTheme.typography.bodyMedium, color = Color.Gray)
                         }
                         Spacer(Modifier.height(24.dp))
-                        ChoiceAnswers(
-                            task = page.task,
-                            selected = selected,
-                            checkedCorrect = feedback?.correct,
-                            color = color,
-                            onSelect = { i ->
-                                selected = if (page.task.correct.size > 1) {
-                                    if (i in selected) selected - i else selected + i
-                                } else setOf(i)
-                            },
-                        )
+                        val checked = feedback != null
+                        val onAnswer: (TaskAnswer) -> Unit = { answer = it }
+                        when (page.task.type) {
+                            "match" -> MatchTask(page.task, answer as? TaskAnswer.Match ?: TaskAnswer.Match(emptyMap()), checked, color, onAnswer)
+                            "drag" -> DragTask(page.task, answer as? TaskAnswer.Drag ?: TaskAnswer.Drag(emptyMap()), checked, color, onAnswer)
+                            else -> ChoiceTask(
+                                page.task,
+                                answer as? TaskAnswer.Choice ?: TaskAnswer.Choice(emptySet()),
+                                checkedCorrect = feedback?.correct,
+                                color = color,
+                                onAnswer = onAnswer,
+                            )
+                        }
                     }
                     "game" -> MiniGame(page.task) { result ->
                         val ok = starsFor(result) >= 2
@@ -164,7 +163,7 @@ fun LessonScreen(lesson: Lesson, onClose: () -> Unit, onFinished: (LessonOutcome
                         TaskHeader(taskLabel(page.task), page.task.prompt, color)
                         Spacer(Modifier.height(24.dp))
                         Text(
-                            "Ta vrsta naloge (${page.task.type}) pride z UQ-32.",
+                            "Te vrste naloge (${page.task.type}) aplikacija še ne pozna.",
                             style = MaterialTheme.typography.bodyLarge,
                             color = Color.Gray,
                         )
@@ -181,14 +180,20 @@ fun LessonScreen(lesson: Lesson, onClose: () -> Unit, onFinished: (LessonOutcome
             Box(Modifier.fillMaxWidth().padding(20.dp)) {
                 when {
                     page is LessonPage.Explanation -> ContinueButton(onClick = { goNext() })
-                    page is LessonPage.TaskPage && page.task.type in setOf("choice", "listen") ->
-                        CheckButton(enabled = selected.isNotEmpty()) {
-                            val ok = isChoiceCorrect(page.task, selected)
+                    page is LessonPage.TaskPage && page.task.type in setOf("choice", "listen", "match", "drag") ->
+                        CheckButton(enabled = isAnswerComplete(page.task, answer)) {
+                            val ok = isAnswerCorrect(page.task, answer)
                             score(page.task, ok)
+                            val isChoice = page.task.type == "choice" || page.task.type == "listen"
                             feedback = Feedback(
                                 correct = ok,
-                                title = if (ok) "Odlično!" else "Pravilni odgovor: ${correctAnswerText(page.task)}",
-                                text = page.task.explanation,
+                                title = when {
+                                    ok -> "Odlično!"
+                                    isChoice -> "Pravilni odgovor: ${correctAnswerText(page.task)}"
+                                    else -> "Skoraj!"
+                                },
+                                text = if (ok || isChoice) page.task.explanation
+                                else "Pravilno: ${correctAnswerText(page.task)}. ${page.task.explanation}".trim(),
                             )
                         }
                     page is LessonPage.TaskPage && page.task.type == "game" -> Unit // igra ima svoj konec
@@ -208,35 +213,6 @@ private fun ScrollablePage(content: @Composable () -> Unit) {
             .padding(horizontal = 20.dp, vertical = 12.dp)
     ) {
         content()
-    }
-}
-
-/** Odgovori kot kartice (Figma 08): izbran je v barvi predmeta; po preverjanju zelen ali rdeč. */
-@Composable
-private fun ChoiceAnswers(
-    task: Task,
-    selected: Set<Int>,
-    checkedCorrect: Boolean?,
-    color: Color,
-    onSelect: (Int) -> Unit,
-) {
-    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        task.answers.forEachIndexed { i, answer ->
-            val state = when {
-                i !in selected -> OptionState.DEFAULT
-                checkedCorrect == null -> OptionState.SELECTED
-                checkedCorrect -> OptionState.CORRECT
-                else -> OptionState.WRONG
-            }
-            OptionCard(
-                state = state,
-                onClick = { if (checkedCorrect == null) onSelect(i) },
-                selectedColor = color,
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(answer, fontWeight = FontWeight.Bold)
-            }
-        }
     }
 }
 
