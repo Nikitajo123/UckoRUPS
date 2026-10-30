@@ -71,6 +71,36 @@ object SampleContent {
         ),
     )
 
+    /** Angliska lekcija s poslušanjem (Figma 11), da se lahko preizkusi TTS. */
+    private val pozdravi = Lesson(
+        id = "ang_family_01", subjectId = "ang", chapterId = "ang_family", order = 1, title = "Pozdravi",
+        explanation = Explanation(
+            title = "Kako pozdravimo po angleško?",
+            steps = listOf(
+                "Hello! pomeni Živijo!",
+                "Good morning! rečemo zjutraj.",
+                "Goodbye! pomeni Nasvidenje!",
+            ),
+        ),
+        tasks = listOf(
+            Task(
+                id = "ang_family_01_t1", type = "listen", prompt = "Kaj slišiš?", audioText = "Good morning",
+                answers = listOf("Good night", "Good morning", "Goodbye"), correct = listOf(1),
+                explanation = "Good morning pomeni dobro jutro.",
+            ),
+            Task(
+                id = "ang_family_01_t2", type = "choice", prompt = "Kako rečeš Nasvidenje po angleško?",
+                answers = listOf("Hello", "Goodbye", "Thank you"), correct = listOf(1),
+                explanation = "Goodbye pomeni nasvidenje.",
+            ),
+            Task(
+                id = "ang_family_01_t3", type = "listen", prompt = "Kaj slišiš?", audioText = "my brother",
+                answers = listOf("my sister", "my brother", "my mother"), correct = listOf(1),
+                explanation = "Brother je brat.",
+            ),
+        ),
+    )
+
     val lessons: List<Lesson> = buildList {
         addChapter("mat", "mat_ulomki", listOf("Del celote", "Ulomki s kockami", "Primerjanje", "Enakovredni ulomki"),
             "ulomki_kocke", "Ulomki s kockami")
@@ -84,7 +114,13 @@ object SampleContent {
             "plava_potone", "Plava ali potone")
         addChapter("nar", "nar_zmesi", listOf("Čiste snovi in zmesi", "Raztopine", "Ločevanje zmesi"),
             "laboratorij", "Laboratorij", boss = "Skrivnostni laboratorij")
-    }.map { if (it.id == ulomki01.id) ulomki01 else it }
+    }.map {
+        when (it.id) {
+            ulomki01.id -> ulomki01
+            pozdravi.id -> pozdravi
+            else -> it
+        }
+    }
 
     // Napredek za prikaz: nekaj opravljenih lekcij, da se vidijo vsa stanja krogcev
     val demoProgress = mapOf(

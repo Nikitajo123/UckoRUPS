@@ -132,8 +132,8 @@ fun LessonScreen(lesson: Lesson, onClose: () -> Unit, onFinished: (LessonOutcome
                     "choice", "listen", "match", "drag" -> ScrollablePage {
                         TaskHeader(taskLabel(page.task), page.task.prompt, color)
                         if (page.task.type == "listen") {
-                            Spacer(Modifier.height(8.dp))
-                            Text("🔊 Poslušanje pride z UQ-33.", style = MaterialTheme.typography.bodyMedium, color = Color.Gray)
+                            Spacer(Modifier.height(16.dp))
+                            ListenPlayer(page.task, color)
                         }
                         Spacer(Modifier.height(24.dp))
                         val checked = feedback != null
