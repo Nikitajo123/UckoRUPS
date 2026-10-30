@@ -50,7 +50,7 @@ fun MiniGame(task: Task, onFinish: (GameResult) -> Unit) {
 
     when (task.game) {
         "sentence_builder" -> SentenceBuilderGame(task, finishOnce)   // UQ-49
-        // "wordle_en" -> WordleGame(task, finishOnce)                   // UQ-50
+        "wordle_en" -> WordleGame(task, finishOnce)                   // UQ-50
         // "plava_potone" -> FloatOrSinkGame(task, finishOnce)           // UQ-51
         // "laboratorij" -> LabGame(task, finishOnce)                    // UQ-52
         // "decimalke_2048" -> Decimal2048Game(task, finishOnce)         // UQ-53
