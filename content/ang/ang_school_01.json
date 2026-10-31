@@ -1,0 +1,141 @@
+{
+  "id": "ang_school_01",
+  "subjectId": "ang",
+  "chapterId": "ang_school",
+  "order": 1,
+  "title": "Šolske potrebščine",
+  "boss": false,
+  "explanation": {
+    "title": "In my schoolbag",
+    "steps": [
+      "pencil = svinčnik, pen = kemični svinčnik",
+      "ruler = ravnilo, rubber = radirka",
+      "schoolbag = šolska torba, book = knjiga"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_school_01_t1",
+      "type": "match",
+      "prompt": "Poveži angleško in slovensko besedo.",
+      "pairs": [
+        {
+          "left": "pencil",
+          "right": "svinčnik"
+        },
+        {
+          "left": "ruler",
+          "right": "ravnilo"
+        },
+        {
+          "left": "rubber",
+          "right": "radirka"
+        },
+        {
+          "left": "schoolbag",
+          "right": "šolska torba"
+        }
+      ],
+      "explanation": "To so stvari iz šolske torbe.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_01_t2",
+      "type": "choice",
+      "prompt": "S čim narišemo ravno črto?",
+      "answers": [
+        "a book",
+        "a ruler",
+        "a rubber"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Ravno črto narišemo z ravnilom (ruler).",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_01_t3",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "I have got two pencils.",
+        "I have got two pens.",
+        "I have got ten pencils."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Two pencils pomeni dva svinčnika.",
+      "difficulty": 1,
+      "audioText": "I have got two pencils."
+    },
+    {
+      "id": "ang_school_01_t4",
+      "type": "drag",
+      "prompt": "Ali pred besedo pišemo a ali an?",
+      "categories": [
+        "a",
+        "an"
+      ],
+      "items": [
+        {
+          "text": "pencil",
+          "category": "a"
+        },
+        {
+          "text": "ruler",
+          "category": "a"
+        },
+        {
+          "text": "notebook",
+          "category": "a"
+        },
+        {
+          "text": "eraser",
+          "category": "an"
+        },
+        {
+          "text": "English book",
+          "category": "an"
+        },
+        {
+          "text": "orange pen",
+          "category": "an"
+        }
+      ],
+      "explanation": "An pišemo pred besedo, ki se začne s samoglasnikom (a, e, i, o, u).",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_school_01_t5",
+      "type": "choice",
+      "prompt": "Kaj pomeni »scissors«?",
+      "answers": [
+        "lepilo",
+        "barvice",
+        "škarje"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Scissors so škarje.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_01_t6",
+      "type": "choice",
+      "prompt": "Množina od »pencil case« je ...",
+      "answers": [
+        "pencil casees",
+        "pencil cases",
+        "pencils case"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Množino dobi zadnja beseda: pencil cases.",
+      "difficulty": 2
+    }
+  ]
+}

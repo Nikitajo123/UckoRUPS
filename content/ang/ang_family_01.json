@@ -1,0 +1,141 @@
+{
+  "id": "ang_family_01",
+  "subjectId": "ang",
+  "chapterId": "ang_family",
+  "order": 1,
+  "title": "Pozdravi",
+  "boss": false,
+  "explanation": {
+    "title": "Hello!",
+    "steps": [
+      "Hello! / Hi! = Zdravo!",
+      "Good morning = dobro jutro, good afternoon = dober dan (popoldne), good evening = dober večer",
+      "Goodbye! / Bye! = Nasvidenje! Adijo!"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_family_01_t1",
+      "type": "match",
+      "prompt": "Poveži pozdrav in prevod.",
+      "pairs": [
+        {
+          "left": "Good morning",
+          "right": "Dobro jutro"
+        },
+        {
+          "left": "Good evening",
+          "right": "Dober večer"
+        },
+        {
+          "left": "Goodbye",
+          "right": "Nasvidenje"
+        },
+        {
+          "left": "Good night",
+          "right": "Lahko noč"
+        }
+      ],
+      "explanation": "Good night rečemo, ko gremo spat.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_01_t2",
+      "type": "choice",
+      "prompt": "Ura je 8 zjutraj. Kako pozdraviš učiteljico?",
+      "answers": [
+        "Good night!",
+        "Good morning!",
+        "Good evening!"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Zjutraj rečemo good morning.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_01_t3",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "Hi, my name is Tim. Nice to meet you.",
+        "Hi, my name is Tom. Nice to meet you.",
+        "Bye, my name is Tim. See you."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Nice to meet you = me veseli.",
+      "difficulty": 1,
+      "audioText": "Hi, my name is Tim. Nice to meet you."
+    },
+    {
+      "id": "ang_family_01_t4",
+      "type": "choice",
+      "prompt": "Kako vprašaš »Kako si?«",
+      "answers": [
+        "Who are you?",
+        "Where are you?",
+        "How are you?"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "How are you? pomeni Kako si?",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_01_t5",
+      "type": "choice",
+      "prompt": "Prijatelj vpraša: »How are you?« Kaj odgovoriš?",
+      "answers": [
+        "I'm from Maribor.",
+        "I'm fine, thanks.",
+        "I'm twelve."
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Na How are you? odgovorimo, kako se počutimo.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_01_t6",
+      "type": "drag",
+      "prompt": "Pozdrav ob prihodu ali odhodu?",
+      "categories": [
+        "Prihod",
+        "Odhod"
+      ],
+      "items": [
+        {
+          "text": "Hello!",
+          "category": "Prihod"
+        },
+        {
+          "text": "Good morning!",
+          "category": "Prihod"
+        },
+        {
+          "text": "Hi!",
+          "category": "Prihod"
+        },
+        {
+          "text": "Goodbye!",
+          "category": "Odhod"
+        },
+        {
+          "text": "See you later!",
+          "category": "Odhod"
+        },
+        {
+          "text": "Bye!",
+          "category": "Odhod"
+        }
+      ],
+      "explanation": "See you later pomeni se vidimo kasneje.",
+      "difficulty": 1
+    }
+  ]
+}

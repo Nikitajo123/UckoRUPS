@@ -1,0 +1,141 @@
+{
+  "id": "ang_family_03",
+  "subjectId": "ang",
+  "chapterId": "ang_family",
+  "order": 3,
+  "title": "Družina",
+  "boss": false,
+  "explanation": {
+    "title": "My family",
+    "steps": [
+      "mother = mama, father = oče",
+      "sister = sestra, brother = brat",
+      "grandma = babica, grandpa = dedek"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_family_03_t1",
+      "type": "match",
+      "prompt": "Poveži angleško in slovensko besedo.",
+      "pairs": [
+        {
+          "left": "mother",
+          "right": "mama"
+        },
+        {
+          "left": "father",
+          "right": "oče"
+        },
+        {
+          "left": "sister",
+          "right": "sestra"
+        },
+        {
+          "left": "brother",
+          "right": "brat"
+        }
+      ],
+      "explanation": "To so osnovne besede za družino.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_03_t2",
+      "type": "choice",
+      "prompt": "Kako se reče »babica« po angleško?",
+      "answers": [
+        "grandma",
+        "grandpa",
+        "aunt"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Grandma je babica, grandpa je dedek.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_03_t3",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "This is my mother.",
+        "This is my sister.",
+        "This is my brother."
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Brother pomeni brat.",
+      "difficulty": 1,
+      "audioText": "This is my brother."
+    },
+    {
+      "id": "ang_family_03_t4",
+      "type": "drag",
+      "prompt": "Razvrsti besede.",
+      "categories": [
+        "Moški",
+        "Ženske"
+      ],
+      "items": [
+        {
+          "text": "father",
+          "category": "Moški"
+        },
+        {
+          "text": "brother",
+          "category": "Moški"
+        },
+        {
+          "text": "uncle",
+          "category": "Moški"
+        },
+        {
+          "text": "mother",
+          "category": "Ženske"
+        },
+        {
+          "text": "sister",
+          "category": "Ženske"
+        },
+        {
+          "text": "aunt",
+          "category": "Ženske"
+        }
+      ],
+      "explanation": "Uncle je stric, aunt je teta.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_family_03_t5",
+      "type": "choice",
+      "prompt": "My mother's mother is my ___.",
+      "answers": [
+        "sister",
+        "grandma",
+        "aunt"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Mamina mama je tvoja babica.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_family_03_t6",
+      "type": "choice",
+      "prompt": "Ana is my father's sister. She is my ___.",
+      "answers": [
+        "aunt",
+        "cousin",
+        "grandma"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Očetova sestra je teta (aunt).",
+      "difficulty": 2
+    }
+  ]
+}

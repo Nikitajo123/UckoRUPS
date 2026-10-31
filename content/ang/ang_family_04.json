@@ -1,0 +1,122 @@
+{
+  "id": "ang_family_04",
+  "subjectId": "ang",
+  "chapterId": "ang_family",
+  "order": 4,
+  "title": "my / your / his / her",
+  "boss": false,
+  "explanation": {
+    "title": "Čigavo je?",
+    "steps": [
+      "my = moj, moja (jaz)",
+      "your = tvoj, tvoja (ti)",
+      "his = njegov (on), her = njen (ona)"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_family_04_t1",
+      "type": "match",
+      "prompt": "Poveži osebo in svojilni zaimek.",
+      "pairs": [
+        {
+          "left": "I",
+          "right": "my"
+        },
+        {
+          "left": "you",
+          "right": "your"
+        },
+        {
+          "left": "he",
+          "right": "his"
+        },
+        {
+          "left": "she",
+          "right": "her"
+        }
+      ],
+      "explanation": "Vsaka oseba ima svoj svojilni zaimek.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_04_t2",
+      "type": "choice",
+      "prompt": "Tom has a dog. ___ dog is brown.",
+      "answers": [
+        "Her",
+        "My",
+        "His"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Tom je on, zato his.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_04_t3",
+      "type": "choice",
+      "prompt": "Ana has a cat. ___ cat is white.",
+      "answers": [
+        "Your",
+        "Her",
+        "His"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Ana je ona, zato her.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_04_t4",
+      "type": "choice",
+      "prompt": "I am Maja. ___ name is Maja.",
+      "answers": [
+        "My",
+        "Your",
+        "Her"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Ko govorim o sebi, rečem my.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_04_t5",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "What is his name?",
+        "What is her name?",
+        "What is your name?"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Your pomeni tvoj.",
+      "difficulty": 1,
+      "audioText": "What is your name?"
+    },
+    {
+      "id": "ang_family_04_t6",
+      "type": "game",
+      "game": "sentence_builder",
+      "prompt": "Build the sentence.",
+      "explanation": "My, your, his in her stojijo pred samostalnikom.",
+      "difficulty": 2,
+      "answers": [
+        "My sister is twelve years old.",
+        "His name is Luka.",
+        "Her brother is tall.",
+        "This is my family."
+      ],
+      "config": {
+        "hints": "Moja sestra je stara 12 let.|Njegovo ime je Luka.|Njen brat je visok.|To je moja družina.",
+        "extra": "your,are,he,am"
+      }
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "ang_school_03",
+  "subjectId": "ang",
+  "chapterId": "ang_school",
+  "order": 3,
+  "title": "Present simple",
+  "boss": false,
+  "explanation": {
+    "title": "Kaj delamo vsak dan",
+    "steps": [
+      "Present simple uporabljamo za stvari, ki jih delamo redno: I play football every day.",
+      "Pri he, she, it dodamo -s: she plays, he reads.",
+      "Zanikanje: I don't play, she doesn't play."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_school_03_t1",
+      "type": "choice",
+      "prompt": "He ___ football every Saturday.",
+      "answers": [
+        "play",
+        "playing",
+        "plays"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Pri he dodamo -s.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_03_t2",
+      "type": "choice",
+      "prompt": "We ___ to school by bus.",
+      "answers": [
+        "going",
+        "go",
+        "goes"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Pri we ostane osnovna oblika.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_03_t3",
+      "type": "choice",
+      "prompt": "She ___ like milk.",
+      "answers": [
+        "doesn't",
+        "don't",
+        "isn't"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pri she je zanikanje doesn't.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_school_03_t4",
+      "type": "drag",
+      "prompt": "Ali glagolu dodamo -s?",
+      "categories": [
+        "I / you / we / they",
+        "he / she / it"
+      ],
+      "items": [
+        {
+          "text": "I read",
+          "category": "I / you / we / they"
+        },
+        {
+          "text": "they swim",
+          "category": "I / you / we / they"
+        },
+        {
+          "text": "you play",
+          "category": "I / you / we / they"
+        },
+        {
+          "text": "she reads",
+          "category": "he / she / it"
+        },
+        {
+          "text": "he swims",
+          "category": "he / she / it"
+        },
+        {
+          "text": "it plays",
+          "category": "he / she / it"
+        }
+      ],
+      "explanation": "Končnico -s dobi samo 3. oseba ednine.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_school_03_t5",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "My dad watched TV in the evening.",
+        "My mum watches TV in the morning.",
+        "My dad watches TV in the evening."
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Watch dobi -es: he watches.",
+      "difficulty": 1,
+      "audioText": "My dad watches TV in the evening."
+    },
+    {
+      "id": "ang_school_03_t6",
+      "type": "choice",
+      "prompt": "Katero vprašanje je pravilno?",
+      "answers": [
+        "You like pizza?",
+        "Do you like pizza?",
+        "Does you like pizza?"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Pri you vprašamo z do.",
+      "difficulty": 2
+    }
+  ]
+}
