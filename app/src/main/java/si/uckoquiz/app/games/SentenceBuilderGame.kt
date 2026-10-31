@@ -185,7 +185,7 @@ fun SentenceBuilderGame(task: Task, onFinish: (GameResult) -> Unit) {
 private data class WordTile(val id: Int, val text: String)
 
 /** "My sister is twelve years old." -> [My, sister, is, twelve, years, old] */
-private fun splitWords(sentence: String): List<String> =
+internal fun splitWords(sentence: String): List<String> =
     sentence.trim().trimEnd('.', '?', '!').split(Regex("\\s+")).filter { it.isNotEmpty() }
 
 @Composable
