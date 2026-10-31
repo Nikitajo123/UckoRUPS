@@ -198,14 +198,14 @@ fun FloatOrSinkGame(task: Task, onFinish: (GameResult) -> Unit) {
     }
 }
 
-private const val FLOATS = "plava"
-private const val SINKS = "potone"
+internal const val FLOATS = "plava"
+internal const val SINKS = "potone"
 
-private fun defaultReason(floats: Boolean) =
+internal fun defaultReason(floats: Boolean) =
     if (floats) "Ima manjšo gostoto kot voda, zato plava." else "Ima večjo gostoto kot voda, zato potone."
 
 /** Used when the task has no items, so the game always works. */
-private val DEFAULT_OBJECTS = listOf(
+internal val DEFAULT_OBJECTS = listOf(
     DragItem("🔩 žebelj", SINKS),
     DragItem("🍎 jabolko", FLOATS),
     DragItem("🪙 kovanec", SINKS),
