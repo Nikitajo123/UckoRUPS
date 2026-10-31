@@ -1,0 +1,144 @@
+{
+  "id": "ang_school_04",
+  "subjectId": "ang",
+  "chapterId": "ang_school",
+  "order": 4,
+  "title": "Moj dan",
+  "boss": false,
+  "explanation": {
+    "title": "My day",
+    "steps": [
+      "I get up at seven o'clock.",
+      "V 3. osebi ednine dodamo -s: he gets up, she goes.",
+      "I have breakfast. I go to school."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_school_04_t1",
+      "type": "choice",
+      "prompt": "She ___ up at seven.",
+      "answers": [
+        "gets",
+        "get",
+        "getting"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pri she dodamo -s: she gets.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_04_t2",
+      "type": "choice",
+      "prompt": "I ___ breakfast at home.",
+      "answers": [
+        "has",
+        "having",
+        "have"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Pri I ostane osnovna oblika: I have.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_04_t3",
+      "type": "drag",
+      "prompt": "Kdaj to delaš?",
+      "categories": [
+        "Zjutraj",
+        "Zvečer"
+      ],
+      "items": [
+        {
+          "text": "get up",
+          "category": "Zjutraj"
+        },
+        {
+          "text": "have breakfast",
+          "category": "Zjutraj"
+        },
+        {
+          "text": "go to school",
+          "category": "Zjutraj"
+        },
+        {
+          "text": "have dinner",
+          "category": "Zvečer"
+        },
+        {
+          "text": "watch TV",
+          "category": "Zvečer"
+        },
+        {
+          "text": "go to bed",
+          "category": "Zvečer"
+        }
+      ],
+      "explanation": "Get up in have breakfast sta zjutraj, go to bed zvečer.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_04_t4",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "He goes home at eight.",
+        "He goes to school at eight.",
+        "He goes to school at nine."
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Eight pomeni osem.",
+      "difficulty": 1,
+      "audioText": "He goes to school at eight."
+    },
+    {
+      "id": "ang_school_04_t5",
+      "type": "match",
+      "prompt": "Poveži izraz in prevod.",
+      "pairs": [
+        {
+          "left": "get up",
+          "right": "vstati"
+        },
+        {
+          "left": "go to bed",
+          "right": "iti spat"
+        },
+        {
+          "left": "have lunch",
+          "right": "kositi"
+        },
+        {
+          "left": "do homework",
+          "right": "delati domačo nalogo"
+        }
+      ],
+      "explanation": "To so izrazi za dnevno rutino.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_04_t6",
+      "type": "game",
+      "game": "wordle_en",
+      "prompt": "Guess the 5-letter word.",
+      "explanation": "Besede iz šole in dneva.",
+      "difficulty": 2,
+      "answers": [
+        "LUNCH",
+        "CLOCK",
+        "SLEEP",
+        "MUSIC",
+        "CLASS"
+      ],
+      "config": {
+        "hints": "kosilo|ura|spati|glasba|razred"
+      }
+    }
+  ]
+}

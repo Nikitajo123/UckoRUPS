@@ -1,0 +1,134 @@
+{
+  "id": "ang_family_02",
+  "subjectId": "ang",
+  "chapterId": "ang_family",
+  "order": 2,
+  "title": "Glagol to be",
+  "boss": false,
+  "explanation": {
+    "title": "I am, you are",
+    "steps": [
+      "I am (I'm), you are (you're)",
+      "he is, she is, it is (he's, she's, it's)",
+      "we are, you are, they are (we're, they're)"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_family_02_t1",
+      "type": "match",
+      "prompt": "Poveži osebo in obliko glagola to be.",
+      "pairs": [
+        {
+          "left": "I",
+          "right": "am"
+        },
+        {
+          "left": "she",
+          "right": "is"
+        },
+        {
+          "left": "we",
+          "right": "are"
+        },
+        {
+          "left": "they",
+          "right": "are"
+        }
+      ],
+      "explanation": "Am je samo pri I, is pri he, she, it.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_02_t2",
+      "type": "choice",
+      "prompt": "I ___ twelve years old.",
+      "answers": [
+        "am",
+        "is",
+        "are"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pri I uporabimo am.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_02_t3",
+      "type": "choice",
+      "prompt": "My brother ___ tall.",
+      "answers": [
+        "am",
+        "are",
+        "is"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "My brother je on (he), zato is.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_02_t4",
+      "type": "choice",
+      "prompt": "Ana and Luka ___ friends.",
+      "answers": [
+        "am",
+        "are",
+        "is"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Ana in Luka sta oni (they), zato are.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_family_02_t5",
+      "type": "choice",
+      "prompt": "Kratka oblika od »she is« je ...",
+      "answers": [
+        "she's",
+        "she'm",
+        "shes"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "She is skrajšamo v she's.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_02_t6",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "We were in the classroom.",
+        "They are in the classroom.",
+        "We are in the classroom."
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "We are pomeni mi smo.",
+      "difficulty": 1,
+      "audioText": "We are in the classroom."
+    },
+    {
+      "id": "ang_family_02_t7",
+      "type": "choice",
+      "prompt": "Kaj je pravilno vprašanje?",
+      "answers": [
+        "Is you happy?",
+        "Are you happy?",
+        "You are happy?"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "V vprašanju are pride pred osebo.",
+      "difficulty": 2
+    }
+  ]
+}

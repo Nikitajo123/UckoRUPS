@@ -1,0 +1,141 @@
+{
+  "id": "ang_school_02",
+  "subjectId": "ang",
+  "chapterId": "ang_school",
+  "order": 2,
+  "title": "Ura in dnevi",
+  "boss": false,
+  "explanation": {
+    "title": "What time is it?",
+    "steps": [
+      "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+      "It's seven o'clock = ura je sedem.",
+      "half past seven = pol osmih, quarter past seven = sedem in petnajst"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_school_02_t1",
+      "type": "match",
+      "prompt": "Poveži dan in prevod.",
+      "pairs": [
+        {
+          "left": "Monday",
+          "right": "ponedeljek"
+        },
+        {
+          "left": "Wednesday",
+          "right": "sreda"
+        },
+        {
+          "left": "Friday",
+          "right": "petek"
+        },
+        {
+          "left": "Sunday",
+          "right": "nedelja"
+        }
+      ],
+      "explanation": "Dneve v angleščini pišemo z veliko začetnico.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_02_t2",
+      "type": "choice",
+      "prompt": "Kateri dan je za ponedeljkom (Monday)?",
+      "answers": [
+        "Tuesday",
+        "Thursday",
+        "Sunday"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Za Monday pride Tuesday.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_02_t3",
+      "type": "choice",
+      "prompt": "Ura je 7:30. Kako to rečemo?",
+      "answers": [
+        "half past eight",
+        "seven o'clock",
+        "half past seven"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Half past seven je 7:30, pri nas pol osmih.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_school_02_t4",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "4:15",
+        "3:15",
+        "3:45"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Quarter past three je 15 minut čez tri.",
+      "difficulty": 1,
+      "audioText": "It's quarter past three."
+    },
+    {
+      "id": "ang_school_02_t5",
+      "type": "drag",
+      "prompt": "Šolski dan ali vikend?",
+      "categories": [
+        "Šola",
+        "Vikend"
+      ],
+      "items": [
+        {
+          "text": "Monday",
+          "category": "Šola"
+        },
+        {
+          "text": "Tuesday",
+          "category": "Šola"
+        },
+        {
+          "text": "Thursday",
+          "category": "Šola"
+        },
+        {
+          "text": "Friday",
+          "category": "Šola"
+        },
+        {
+          "text": "Saturday",
+          "category": "Vikend"
+        },
+        {
+          "text": "Sunday",
+          "category": "Vikend"
+        }
+      ],
+      "explanation": "Saturday in Sunday sta vikend.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_02_t6",
+      "type": "choice",
+      "prompt": "Kako vprašaš, koliko je ura?",
+      "answers": [
+        "What time is it?",
+        "How old is it?",
+        "What day is it?"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "What time is it? pomeni Koliko je ura?",
+      "difficulty": 1
+    }
+  ]
+}
