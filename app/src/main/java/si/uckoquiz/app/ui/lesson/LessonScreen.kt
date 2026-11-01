@@ -17,11 +17,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,11 +31,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import si.uckoquiz.app.domain.ContentRepository
 import si.uckoquiz.app.domain.Lesson
-import si.uckoquiz.app.domain.Task
+import si.uckoquiz.app.games.GameResult
 import si.uckoquiz.app.games.MiniGame
-import si.uckoquiz.app.games.starsFor
 import si.uckoquiz.app.ui.components.UckoButton
 import si.uckoquiz.app.ui.components.UckoMascot
 import si.uckoquiz.app.ui.sample.SampleContent
@@ -41,11 +43,6 @@ import si.uckoquiz.app.ui.theme.LockedGrey
 import si.uckoquiz.app.ui.theme.UckoOrange
 import si.uckoquiz.app.ui.theme.UckoQuizTheme
 import si.uckoquiz.app.ui.theme.subjectColor
-
-private const val START_HEARTS = 5
-
-/** Kaj pokaže spodnja plošča po preverjanju. */
-private data class Feedback(val correct: Boolean, val title: String, val text: String)
 
 /** Naloži lekcijo iz repozitorija in jo pokaže. */
 @Composable
@@ -56,6 +53,9 @@ fun LessonRoute(
     onFinished: (LessonOutcome) -> Unit,
 ) {
     BackHandler(onBack = onClose)
+    // Nov ključ ob vsakem odprtju lekcije = nov ViewModel (ponovno reševanje začne od začetka),
+    // ob obračanju zaslona pa ostane isti, zato se stanje ohrani.
+    val sessionKey = rememberSaveable(lessonId) { "$lessonId-${System.nanoTime()}" }
     val lesson by produceState<Lesson?>(initialValue = null, lessonId) {
         value = runCatching { repository.getLesson(lessonId) }.getOrNull() ?: Lesson(id = lessonId)
     }
@@ -64,63 +64,62 @@ fun LessonRoute(
         if (current == null) {
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { CircularProgressIndicator() }
         } else {
-            LessonScreen(current, onClose, onFinished)
+            LessonSession(current, sessionKey, onClose, onFinished)
         }
     }
+}
+
+/** Poveže zaslon z LessonViewModel; ko je lekcije konec, pošlje izid naprej. */
+@Composable
+private fun LessonSession(
+    lesson: Lesson,
+    sessionKey: String,
+    onClose: () -> Unit,
+    onFinished: (LessonOutcome) -> Unit,
+) {
+    val viewModel: LessonViewModel = viewModel(key = sessionKey, factory = LessonViewModel.factory(lesson))
+    val state = viewModel.state
+    val currentOnFinished by rememberUpdatedState(onFinished)
+    LaunchedEffect(state.outcome) {
+        state.outcome?.let { currentOnFinished(it) }
+    }
+    LessonScreen(
+        lesson = lesson,
+        state = state,
+        onClose = onClose,
+        onAnswer = viewModel::onAnswer,
+        onCheck = viewModel::onCheck,
+        onGameFinished = viewModel::onGameFinished,
+        onContinue = viewModel::onContinue,
+        onSkipEmpty = { onFinished(LessonOutcome(1, 1, emptyList(), 0, LESSON_HEARTS, stars = 3, xp = 10)) },
+    )
 }
 
 /**
  * Zaslon lekcije (Figma 07, 08, 12a, 12b): zgoraj X, napredek in srčki; na sredini razlaga ali naloga;
  * spodaj NAPREJ (razlaga), PREVERI (naloga) ali plošča s povratno informacijo.
- * Napačen odgovor vzame srček; ko srčkov zmanjka, se lekcija komča.
- * Zahtevnejša logika (zvezdice, boss level) pride z UQ-34, ostale vrste nalog z UQ-32 in UQ-33.
+ * Zaslon samo prikazuje [state]; vsa pravila so v LessonEngine (prek LessonViewModel).
  */
 @Composable
-fun LessonScreen(lesson: Lesson, onClose: () -> Unit, onFinished: (LessonOutcome) -> Unit) {
-    val pages = remember(lesson) { lessonPages(lesson) }
+fun LessonScreen(
+    lesson: Lesson,
+    state: LessonState,
+    onClose: () -> Unit,
+    onAnswer: (TaskAnswer) -> Unit,
+    onCheck: () -> Unit,
+    onGameFinished: (GameResult) -> Unit,
+    onContinue: () -> Unit,
+    onSkipEmpty: () -> Unit,
+) {
     val color = subjectColor(lesson.subjectId)
-
-    var index by remember(lesson.id) { mutableIntStateOf(0) }
-    var hearts by remember(lesson.id) { mutableIntStateOf(START_HEARTS) }
-    var correctCount by remember(lesson.id) { mutableIntStateOf(0) }
-    var scoredCount by remember(lesson.id) { mutableIntStateOf(0) }
-    var mistakes by remember(lesson.id) { mutableStateOf(listOf<String>()) }
-    var answer by remember(lesson.id) { mutableStateOf<TaskAnswer>(TaskAnswer.None) }
-    var feedback by remember(lesson.id) { mutableStateOf<Feedback?>(null) }
-    val startMillis = remember(lesson.id) { System.currentTimeMillis() }
-
-    fun finish(heartsLeft: Int) {
-        val seconds = ((System.currentTimeMillis() - startMillis) / 1000).toInt()
-        onFinished(LessonOutcome(correctCount, scoredCount, mistakes, seconds, heartsLeft))
-    }
-
-    fun goNext() {
-        if (hearts <= 0 || index >= pages.lastIndex) {
-            finish(hearts)
-        } else {
-            index++
-            answer = TaskAnswer.None
-            feedback = null
-        }
-    }
-
-    fun score(task: Task, ok: Boolean) {
-        scoredCount++
-        if (ok) correctCount++ else {
-            hearts--
-            mistakes = mistakes + task.id
-        }
-    }
-
-    if (pages.isEmpty()) {
-        EmptyLesson(onClose = onClose, onSkip = { onFinished(LessonOutcome(1, 1, emptyList(), 0, START_HEARTS)) })
+    val page = state.page
+    if (page == null) {
+        EmptyLesson(onClose = onClose, onSkip = onSkipEmpty)
         return
     }
-    val page = pages[index]
-    val progress = (index + if (feedback != null) 1 else 0) / pages.size.toFloat()
 
     Column(Modifier.fillMaxSize().safeDrawingPadding()) {
-        LessonTopBar(progress = progress, hearts = hearts, color = color, onClose = onClose)
+        LessonTopBar(progress = state.progress, hearts = state.hearts, color = color, onClose = onClose)
 
         // Sredina: razlaga, naloga ali mini igra
         Box(Modifier.weight(1f).fillMaxWidth()) {
@@ -129,36 +128,32 @@ fun LessonScreen(lesson: Lesson, onClose: () -> Unit, onFinished: (LessonOutcome
                     ExplanationPage(page.title, page.step, page.index, page.count, color)
                 }
                 is LessonPage.TaskPage -> when (page.task.type) {
-                    "choice", "listen", "match", "drag" -> ScrollablePage {
-                        TaskHeader(taskLabel(page.task), page.task.prompt, color)
+                    in CHECKABLE_TYPES -> ScrollablePage {
+                        TaskHeader(
+                            if (page.retry) "Poskusi še enkrat" else taskLabel(page.task),
+                            page.task.prompt,
+                            color,
+                        )
                         if (page.task.type == "listen") {
                             Spacer(Modifier.height(16.dp))
                             ListenPlayer(page.task, color)
                         }
                         Spacer(Modifier.height(24.dp))
-                        val checked = feedback != null
-                        val onAnswer: (TaskAnswer) -> Unit = { answer = it }
+                        val checked = state.feedback != null
+                        val answer = state.answer
                         when (page.task.type) {
                             "match" -> MatchTask(page.task, answer as? TaskAnswer.Match ?: TaskAnswer.Match(emptyMap()), checked, color, onAnswer)
                             "drag" -> DragTask(page.task, answer as? TaskAnswer.Drag ?: TaskAnswer.Drag(emptyMap()), checked, color, onAnswer)
                             else -> ChoiceTask(
                                 page.task,
                                 answer as? TaskAnswer.Choice ?: TaskAnswer.Choice(emptySet()),
-                                checkedCorrect = feedback?.correct,
+                                checkedCorrect = state.feedback?.correct,
                                 color = color,
                                 onAnswer = onAnswer,
                             )
                         }
                     }
-                    "game" -> MiniGame(page.task) { result ->
-                        val ok = starsFor(result) >= 2
-                        score(page.task, ok)
-                        feedback = Feedback(
-                            correct = ok,
-                            title = if (ok) "Odlično!" else "Skoraj!",
-                            text = "${result.correct} od ${result.total} pravilnih. ${page.task.explanation}".trim(),
-                        )
-                    }
+                    "game" -> MiniGame(page.task, onGameFinished)
                     else -> ScrollablePage {
                         TaskHeader(taskLabel(page.task), page.task.prompt, color)
                         Spacer(Modifier.height(24.dp))
@@ -173,31 +168,17 @@ fun LessonScreen(lesson: Lesson, onClose: () -> Unit, onFinished: (LessonOutcome
         }
 
         // Spodaj: povratna informacija ali gumb
-        val currentFeedback = feedback
-        if (currentFeedback != null) {
-            FeedbackPanel(currentFeedback.correct, currentFeedback.title, currentFeedback.text, onContinue = { goNext() })
+        val feedback = state.feedback
+        if (feedback != null) {
+            FeedbackPanel(feedback.correct, feedback.title, feedback.text, onContinue = onContinue)
         } else {
             Box(Modifier.fillMaxWidth().padding(20.dp)) {
                 when {
-                    page is LessonPage.Explanation -> ContinueButton(onClick = { goNext() })
-                    page is LessonPage.TaskPage && page.task.type in setOf("choice", "listen", "match", "drag") ->
-                        CheckButton(enabled = isAnswerComplete(page.task, answer)) {
-                            val ok = isAnswerCorrect(page.task, answer)
-                            score(page.task, ok)
-                            val isChoice = page.task.type == "choice" || page.task.type == "listen"
-                            feedback = Feedback(
-                                correct = ok,
-                                title = when {
-                                    ok -> "Odlično!"
-                                    isChoice -> "Pravilni odgovor: ${correctAnswerText(page.task)}"
-                                    else -> "Skoraj!"
-                                },
-                                text = if (ok || isChoice) page.task.explanation
-                                else "Pravilno: ${correctAnswerText(page.task)}. ${page.task.explanation}".trim(),
-                            )
-                        }
+                    page is LessonPage.Explanation -> ContinueButton(onClick = onContinue)
+                    page is LessonPage.TaskPage && page.task.type in CHECKABLE_TYPES ->
+                        CheckButton(enabled = state.canCheck, onClick = onCheck)
                     page is LessonPage.TaskPage && page.task.type == "game" -> Unit // igra ima svoj konec
-                    else -> UckoButton(text = "Preskoči", onClick = { goNext() }, color = LockedGrey)
+                    else -> UckoButton(text = "Preskoči", onClick = onContinue, color = LockedGrey)
                 }
             }
         }
@@ -233,9 +214,22 @@ private fun EmptyLesson(onClose: () -> Unit, onSkip: () -> Unit) {
     }
 }
 
+/** Predogled brez ViewModela: stanje je kar v predogledu, pravila pa so ista (LessonEngine). */
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun LessonScreenPreview() {
     val lesson = SampleContent.lessons.first { it.id == "mat_ulomki_01" }
-    UckoQuizTheme { LessonScreen(lesson, onClose = {}, onFinished = {}) }
+    var state by remember { mutableStateOf(LessonEngine.start(lesson, now = 0L)) }
+    UckoQuizTheme {
+        LessonScreen(
+            lesson = lesson,
+            state = state,
+            onClose = {},
+            onAnswer = { state = LessonEngine.answer(state, it) },
+            onCheck = { state = LessonEngine.check(state) },
+            onGameFinished = { state = LessonEngine.gameFinished(state, it.correct, it.total) },
+            onContinue = { state = LessonEngine.next(state, now = 0L) },
+            onSkipEmpty = {},
+        )
+    }
 }
