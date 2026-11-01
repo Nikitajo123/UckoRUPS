@@ -27,9 +27,11 @@ import kotlinx.coroutines.launch
 import si.uckoquiz.app.domain.ContentRepository
 import si.uckoquiz.app.domain.UserProfile
 import si.uckoquiz.app.ui.home.HomeRoute
+import si.uckoquiz.app.ui.lesson.LessonOutcome
 import si.uckoquiz.app.ui.lesson.LessonRoute
 import si.uckoquiz.app.ui.onboarding.LocalProfileStore
 import si.uckoquiz.app.ui.onboarding.OnboardingScreen
+import si.uckoquiz.app.ui.result.ResultScreen
 import si.uckoquiz.app.ui.sample.SampleContentRepository
 import si.uckoquiz.app.ui.subjects.SubjectsRoute
 import si.uckoquiz.app.ui.theme.UckoBlue
@@ -71,16 +73,31 @@ fun MainTabs(profile: UserProfile) {
     val repository: ContentRepository = remember { SampleContentRepository() }
     val scope = rememberCoroutineScope()
 
+    // Izid zadnje lekcije (id lekcije in izid); dokler ni null, se kaže zaslon rezultata.
+    var result by remember { mutableStateOf<Pair<String, LessonOutcome>?>(null) }
+
     val lessonId = openLessonId
-    if (lessonId != null) {
+    val finished = result
+    if (finished != null) {
+        ResultScreen(
+            outcome = finished.second,
+            streak = profile.streak,
+            onContinue = { result = null },
+            onRetry = {
+                result = null
+                openLessonId = finished.first
+            },
+        )
+    } else if (lessonId != null) {
         LessonRoute(
             lessonId = lessonId,
             repository = repository,
             onClose = { openLessonId = null },
             onFinished = { outcome ->
                 scope.launch {
-                    // Zvezdice in XP izračuna LessonEngine (UQ-34). Zaslon rezultata pride z UQ-35.
+                    // Zvezdice in XP izračuna LessonEngine (UQ-34); nato zaslon rezultata (UQ-35).
                     repository.saveResult(lessonId, outcome.stars, outcome.xp, outcome.mistakes)
+                    result = lessonId to outcome
                     openLessonId = null
                 }
             },
