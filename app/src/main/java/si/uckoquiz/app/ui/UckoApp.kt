@@ -26,8 +26,6 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 import si.uckoquiz.app.domain.ContentRepository
 import si.uckoquiz.app.domain.UserProfile
-import si.uckoquiz.app.games.GameResult
-import si.uckoquiz.app.games.starsFor
 import si.uckoquiz.app.ui.home.HomeRoute
 import si.uckoquiz.app.ui.lesson.LessonRoute
 import si.uckoquiz.app.ui.onboarding.LocalProfileStore
@@ -81,11 +79,8 @@ fun MainTabs(profile: UserProfile) {
             onClose = { openLessonId = null },
             onFinished = { outcome ->
                 scope.launch {
-                    // Zvezdice po istem pravilu kot pri igrah; brez srčkov ni zvezdic. Zaslon rezultata pride z UQ-35.
-                    val stars = if (outcome.passed) {
-                        starsFor(GameResult(outcome.correct, outcome.total, outcome.seconds))
-                    } else 0
-                    repository.saveResult(lessonId, stars, xp = if (stars > 0) 10 + outcome.correct else 0, mistakes = outcome.mistakes)
+                    // Zvezdice in XP izračuna LessonEngine (UQ-34). Zaslon rezultata pride z UQ-35.
+                    repository.saveResult(lessonId, outcome.stars, outcome.xp, outcome.mistakes)
                     openLessonId = null
                 }
             },

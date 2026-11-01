@@ -2,16 +2,18 @@ package si.uckoquiz.app.ui.lesson
 
 import si.uckoquiz.app.domain.Lesson
 import si.uckoquiz.app.domain.Task
+import si.uckoquiz.app.ui.home.STARS_TO_UNLOCK_CHAPTER
 
 /** Ena stran lekcije: korak Učkove razlage ali naloga. */
 sealed interface LessonPage {
     data class Explanation(val title: String, val step: String, val index: Int, val count: Int) : LessonPage
-    data class TaskPage(val task: Task, val number: Int, val count: Int) : LessonPage
+    /** [retry] = naloga se ponovi na koncu lekcije, ker je bil prvi odgovor napačen. */
+    data class TaskPage(val task: Task, val number: Int, val count: Int, val retry: Boolean = false) : LessonPage
 }
 
-/** Lekcija se začne z razlago (vsak korak svoja stran), sledijo naloge. */
+/** Lekcija se začne z razlago (vsak korak svoja stran), sledijo naloge. Boss level nima razlage. */
 fun lessonPages(lesson: Lesson): List<LessonPage> {
-    val steps = lesson.explanation.steps
+    val steps = if (lesson.boss) emptyList() else lesson.explanation.steps
     val explanation = steps.mapIndexed { i, step ->
         LessonPage.Explanation(lesson.explanation.title, step, i, steps.size)
     }
@@ -92,6 +94,12 @@ data class LessonOutcome(
     val mistakes: List<String>,
     val seconds: Int,
     val heartsLeft: Int,
+    val stars: Int = 0,
+    val xp: Int = 0,
+    val boss: Boolean = false,
 ) {
     val passed: Boolean get() = heartsLeft > 0
+
+    /** Z vsaj 2 od 3 zvezdic se odklene naslednje poglavje (pravilo iz načrta, enako kot na učni poti). */
+    val unlocksNextChapter: Boolean get() = stars >= STARS_TO_UNLOCK_CHAPTER
 }
