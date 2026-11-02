@@ -8,8 +8,10 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -31,8 +33,13 @@ import si.uckoquiz.app.ui.lesson.LessonOutcome
 import si.uckoquiz.app.ui.lesson.LessonRoute
 import si.uckoquiz.app.ui.onboarding.LocalProfileStore
 import si.uckoquiz.app.ui.onboarding.OnboardingScreen
+import si.uckoquiz.app.ui.profile.ProfileRoute
+import si.uckoquiz.app.ui.profile.SettingsScreen
 import si.uckoquiz.app.ui.result.ResultScreen
 import si.uckoquiz.app.ui.sample.SampleContentRepository
+import si.uckoquiz.app.ui.settings.AppSettings
+import si.uckoquiz.app.ui.settings.LocalAppSettings
+import si.uckoquiz.app.ui.settings.SettingsStore
 import si.uckoquiz.app.ui.subjects.SubjectsRoute
 import si.uckoquiz.app.ui.theme.UckoBlue
 import si.uckoquiz.app.ui.theme.UckoQuizTheme
@@ -44,25 +51,50 @@ enum class Tab(val label: String, val emoji: String) {
     SETTINGS("Nastavitve", "⚙️"),
 }
 
+// Vstop v aplikacijo: ob prvem zagonu uvod, nato zavihki. Nastavitve (temni način, zvok) veljajo za vse zaslone.
 @Composable
 fun UckoApp() {
     val context = LocalContext.current
     val store = remember { LocalProfileStore(context) }
+    val settingsStore = remember { SettingsStore(context) }
     var profile by remember { mutableStateOf(store.load()) }
+    var settings by remember { mutableStateOf(settingsStore.load()) }
 
-    val current = profile
-    if (current == null) {
-        OnboardingScreen(onFinish = { newProfile ->
-            store.save(newProfile)
-            profile = newProfile
-        })
-    } else {
-        MainTabs(current)
+    UckoQuizTheme(darkTheme = settings.darkMode) {
+        CompositionLocalProvider(LocalAppSettings provides settings) {
+            Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+                val current = profile
+                if (current == null) {
+                    OnboardingScreen(onFinish = { newProfile ->
+                        store.save(newProfile)
+                        profile = newProfile
+                    })
+                } else {
+                    MainTabs(
+                        profile = current,
+                        settings = settings,
+                        onSettingsChange = {
+                            settingsStore.save(it)
+                            settings = it
+                        },
+                        onProfileChange = {
+                            store.save(it)
+                            profile = it
+                        },
+                    )
+                }
+            }
+        }
     }
 }
 
 @Composable
-fun MainTabs(profile: UserProfile) {
+fun MainTabs(
+    profile: UserProfile,
+    settings: AppSettings = AppSettings(),
+    onSettingsChange: (AppSettings) -> Unit = {},
+    onProfileChange: (UserProfile) -> Unit = {},
+) {
     var currentTab by rememberSaveable { mutableStateOf(Tab.HOME) }
     var openLessonId by rememberSaveable { mutableStateOf<String?>(null) }
     // Izbrani predmet si delita Domov in Predmeti (dotik kartice odpre pot tega predmeta).
@@ -138,8 +170,8 @@ fun MainTabs(profile: UserProfile) {
                             currentTab = Tab.HOME
                         },
                     )
-                    Tab.PROFILE -> PlaceholderScreen("${profile.displayName}\nCilj: ${profile.dailyGoal} min/dan\nProfil (UQ-36)")
-                    Tab.SETTINGS -> PlaceholderScreen("Nastavitve (UQ-36)")
+                    Tab.PROFILE -> ProfileRoute(profile, settings, repository, onSettingsChange, onProfileChange)
+                    Tab.SETTINGS -> SettingsScreen(profile, settings, onSettingsChange, onProfileChange)
                 }
             }
         }
@@ -157,5 +189,16 @@ fun PlaceholderScreen(title: String) {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun MainTabsPreview() {
-    UckoQuizTheme { MainTabs(UserProfile(displayName = "Maja", avatar = "blue", dailyGoal = 10)) }
+    var settings by remember { mutableStateOf(AppSettings()) }
+    var profile by remember { mutableStateOf(UserProfile(displayName = "Maja", avatar = "blue", dailyGoal = 10)) }
+    UckoQuizTheme(darkTheme = settings.darkMode) {
+        Surface(color = MaterialTheme.colorScheme.background) {
+            MainTabs(
+                profile = profile,
+                settings = settings,
+                onSettingsChange = { settings = it },
+                onProfileChange = { profile = it },
+            )
+        }
+    }
 }
