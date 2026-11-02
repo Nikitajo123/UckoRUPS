@@ -1,0 +1,155 @@
+{
+  "id": "mat_koti_01",
+  "subjectId": "mat",
+  "chapterId": "mat_koti",
+  "order": 1,
+  "title": "Vrste kotov",
+  "boss": false,
+  "explanation": {
+    "title": "Kakšen je kot?",
+    "steps": [
+      "Kot, ki meri manj kot 90°, je ostri kot. Kot, ki meri natanko 90°, je pravi kot.",
+      "Kot med 90° in 180° je topi kot. Kot, ki meri 180°, je iztegnjeni kot.",
+      "Kote merimo s kotomerom v stopinjah (°)."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "mat_koti_01_t1",
+      "type": "choice",
+      "prompt": "Kot meri 35°. Kakšen kot je to?",
+      "answers": [
+        "ostri",
+        "pravi",
+        "topi"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "35° je manj kot 90°.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_01_t2",
+      "type": "choice",
+      "prompt": "Kakšen kot oklepata urna kazalca ob 3.00?",
+      "answers": [
+        "ostri",
+        "pravi",
+        "iztegnjeni"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Ob 3.00 kazalca oklepata 90°.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_01_t3",
+      "type": "drag",
+      "prompt": "Razvrsti kote.",
+      "categories": [
+        "Ostri kot",
+        "Topi kot"
+      ],
+      "items": [
+        {
+          "text": "45°",
+          "category": "Ostri kot"
+        },
+        {
+          "text": "120°",
+          "category": "Topi kot"
+        },
+        {
+          "text": "89°",
+          "category": "Ostri kot"
+        },
+        {
+          "text": "91°",
+          "category": "Topi kot"
+        },
+        {
+          "text": "10°",
+          "category": "Ostri kot"
+        },
+        {
+          "text": "170°",
+          "category": "Topi kot"
+        }
+      ],
+      "explanation": "Ostri koti so manjši od 90°, topi med 90° in 180°.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_koti_01_t4",
+      "type": "match",
+      "prompt": "Poveži kot z njegovo vrsto.",
+      "pairs": [
+        {
+          "left": "60°",
+          "right": "ostri kot"
+        },
+        {
+          "left": "90°",
+          "right": "pravi kot"
+        },
+        {
+          "left": "135°",
+          "right": "topi kot"
+        },
+        {
+          "left": "180°",
+          "right": "iztegnjeni kot"
+        }
+      ],
+      "explanation": "Primerjaj s 90° in 180°.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_01_t5",
+      "type": "choice",
+      "prompt": "Kakšen kot oklepata urna kazalca ob 6.00?",
+      "answers": [
+        "pravi",
+        "topi",
+        "iztegnjeni"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Ob 6.00 kazalca kažeta v nasprotni smeri: 180°.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_01_t6",
+      "type": "choice",
+      "prompt": "Kot α meri 50°, kot β pa 40°. Koliko meri α + β?",
+      "answers": [
+        "90°",
+        "10°",
+        "100°"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "50° + 40° = 90°, to je pravi kot.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_01_t7",
+      "type": "choice",
+      "prompt": "Koliko stopinj manjka kotu 70°, da bo pravi kot?",
+      "answers": [
+        "20°",
+        "30°",
+        "110°"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "90° − 70° = 20°.",
+      "difficulty": 2
+    }
+  ]
+}
