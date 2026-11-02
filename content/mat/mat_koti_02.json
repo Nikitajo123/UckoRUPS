@@ -1,0 +1,133 @@
+{
+  "id": "mat_koti_02",
+  "subjectId": "mat",
+  "chapterId": "mat_koti",
+  "order": 2,
+  "title": "Vzporednice in pravokotnice",
+  "boss": false,
+  "explanation": {
+    "title": "Vzporedno ali pravokotno?",
+    "steps": [
+      "Premici sta pravokotni, če oklepata pravi kot (90°). Pišemo p ⊥ q.",
+      "Premici sta vzporedni, če se nikoli ne sekata. Pišemo p ∥ q.",
+      "Razdaljo točke od premice merimo po pravokotnici od točke do premice."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "mat_koti_02_t1",
+      "type": "choice",
+      "prompt": "Premici oklepata kot 90°. Kakšni sta?",
+      "answers": [
+        "vzporedni",
+        "pravokotni",
+        "enaki"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Pravi kot pomeni pravokotni premici.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_02_t2",
+      "type": "choice",
+      "prompt": "Kaj pomeni zapis a ∥ b?",
+      "answers": [
+        "a in b sta vzporedni.",
+        "a in b sta pravokotni.",
+        "a in b se sekata."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Znak ∥ pomeni vzporedno.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_02_t3",
+      "type": "match",
+      "prompt": "Poveži zapis in pomen.",
+      "pairs": [
+        {
+          "left": "p ⊥ q",
+          "right": "pravokotni premici"
+        },
+        {
+          "left": "p ∥ q",
+          "right": "vzporedni premici"
+        },
+        {
+          "left": "90°",
+          "right": "pravi kot"
+        },
+        {
+          "left": "180°",
+          "right": "iztegnjeni kot"
+        }
+      ],
+      "explanation": "⊥ je znak za pravokotno, ∥ za vzporedno.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_02_t4",
+      "type": "choice",
+      "prompt": "Kateri par je vzporeden?",
+      "answers": [
+        "tirnici železniške proge",
+        "kazalca ure ob 3.00",
+        "rob mize in noga mize"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Tirnici se nikoli ne sekata.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_02_t5",
+      "type": "choice",
+      "prompt": "Kateri par je pravokoten?",
+      "answers": [
+        "črte v zvezku",
+        "sosednja robova lista papirja",
+        "nasprotna robova lista papirja"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Sosednja robova lista oklepata pravi kot.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_02_t6",
+      "type": "choice",
+      "prompt": "Premica a je pravokotna na c in premica b je pravokotna na c. Kakšni sta a in b?",
+      "answers": [
+        "pravokotni",
+        "vzporedni",
+        "se sekata pod 45°"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Dve pravokotnici na isto premico sta med seboj vzporedni.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_koti_02_t7",
+      "type": "choice",
+      "prompt": "Točka T je 3 cm od premice p. Kako izmerimo to razdaljo?",
+      "answers": [
+        "po pravokotnici od T do p",
+        "po katerikoli črti od T do p",
+        "vzdolž premice p"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Razdalja je najkrajša pot, to je pravokotnica.",
+      "difficulty": 2
+    }
+  ]
+}

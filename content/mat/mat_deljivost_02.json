@@ -1,0 +1,154 @@
+{
+  "id": "mat_deljivost_02",
+  "subjectId": "mat",
+  "chapterId": "mat_deljivost",
+  "order": 2,
+  "title": "Deljivost z 2, 5 in 10",
+  "boss": false,
+  "explanation": {
+    "title": "Pogledaj zadnjo števko",
+    "steps": [
+      "Število je deljivo z 2, če je zadnja števka soda (0, 2, 4, 6 ali 8).",
+      "Število je deljivo s 5, če je zadnja števka 0 ali 5.",
+      "Število je deljivo z 10, če je zadnja števka 0."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "mat_deljivost_02_t1",
+      "type": "choice",
+      "prompt": "Katero število je deljivo z 2?",
+      "answers": [
+        "357",
+        "418",
+        "625"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "418 se konča s sodo števko 8.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_deljivost_02_t2",
+      "type": "choice",
+      "prompt": "Katero število je deljivo s 5?",
+      "answers": [
+        "452",
+        "731",
+        "905"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "905 se konča s 5.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_deljivost_02_t3",
+      "type": "drag",
+      "prompt": "Razvrsti števila.",
+      "categories": [
+        "Deljivo z 10",
+        "Ni deljivo z 10"
+      ],
+      "items": [
+        {
+          "text": "120",
+          "category": "Deljivo z 10"
+        },
+        {
+          "text": "305",
+          "category": "Ni deljivo z 10"
+        },
+        {
+          "text": "1000",
+          "category": "Deljivo z 10"
+        },
+        {
+          "text": "99",
+          "category": "Ni deljivo z 10"
+        },
+        {
+          "text": "470",
+          "category": "Deljivo z 10"
+        },
+        {
+          "text": "501",
+          "category": "Ni deljivo z 10"
+        }
+      ],
+      "explanation": "Z 10 so deljiva števila, ki se končajo z 0.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_deljivost_02_t4",
+      "type": "choice",
+      "prompt": "Katero število je deljivo z 2, s 5 in z 10 hkrati?",
+      "answers": [
+        "250",
+        "255",
+        "252"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "250 se konča z 0, zato je deljivo z 2, 5 in 10.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_deljivost_02_t5",
+      "type": "match",
+      "prompt": "Poveži število s pravilom, ki zanj velja.",
+      "pairs": [
+        {
+          "left": "74",
+          "right": "deljivo samo z 2"
+        },
+        {
+          "left": "35",
+          "right": "deljivo samo s 5"
+        },
+        {
+          "left": "60",
+          "right": "deljivo z 2, 5 in 10"
+        },
+        {
+          "left": "13",
+          "right": "ni deljivo z 2, 5 ali 10"
+        }
+      ],
+      "explanation": "Odloča zadnja števka: soda, 5 ali 0.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_deljivost_02_t6",
+      "type": "choice",
+      "prompt": "Ali je 3456 deljivo z 2?",
+      "answers": [
+        "Da, ker je zadnja števka 6.",
+        "Ne, ker se ne konča z 0.",
+        "Ne, ker je vsota števk liha."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Zadnja števka 6 je soda.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_deljivost_02_t7",
+      "type": "choice",
+      "prompt": "Razred ima 25 učencev. Ali se lahko vsi razdelijo v pare?",
+      "answers": [
+        "Da",
+        "Ne"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "25 ni deljivo z 2, ker je zadnja števka 5 liha. En učenec ostane sam.",
+      "difficulty": 1
+    }
+  ]
+}

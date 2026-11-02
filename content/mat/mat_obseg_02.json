@@ -1,0 +1,155 @@
+{
+  "id": "mat_obseg_02",
+  "subjectId": "mat",
+  "chapterId": "mat_obseg",
+  "order": 2,
+  "title": "Ploščina",
+  "boss": false,
+  "explanation": {
+    "title": "Ploščina pravokotnika in kvadrata",
+    "steps": [
+      "Ploščina pove, koliko prostora pokriva lik. Merimo jo v kvadratnih enotah, npr. cm² ali m².",
+      "Pravokotnik: p = a · b. Kvadrat: p = a · a.",
+      "Primer: pravokotnik s stranicama 5 cm in 3 cm ima ploščino 15 cm²."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "mat_obseg_02_t1",
+      "type": "choice",
+      "prompt": "Kvadrat ima stranico 4 cm. Koliko meri ploščina?",
+      "answers": [
+        "16 cm²",
+        "16 cm",
+        "8 cm²"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "p = 4 · 4 = 16 cm². Ploščina ima enoto cm².",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_02_t2",
+      "type": "choice",
+      "prompt": "Pravokotnik ima stranici 8 cm in 3 cm. Koliko meri ploščina?",
+      "answers": [
+        "24 cm²",
+        "22 cm²",
+        "11 cm²"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "p = 8 · 3 = 24 cm².",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_02_t3",
+      "type": "match",
+      "prompt": "Poveži lik z njegovo ploščino.",
+      "pairs": [
+        {
+          "left": "kvadrat, a = 2 cm",
+          "right": "4 cm²"
+        },
+        {
+          "left": "kvadrat, a = 10 cm",
+          "right": "100 cm²"
+        },
+        {
+          "left": "pravokotnik 5 cm × 4 cm",
+          "right": "20 cm²"
+        },
+        {
+          "left": "pravokotnik 9 cm × 1 cm",
+          "right": "9 cm²"
+        }
+      ],
+      "explanation": "Kvadrat: a · a. Pravokotnik: a · b.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_02_t4",
+      "type": "choice",
+      "prompt": "Soba meri 5 m × 4 m. Koliko m² parketa potrebujemo?",
+      "answers": [
+        "20 m²",
+        "18 m²",
+        "9 m²"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "p = 5 · 4 = 20 m².",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_02_t5",
+      "type": "choice",
+      "prompt": "Kaj merimo v cm²?",
+      "answers": [
+        "ploščino",
+        "obseg",
+        "dolžino daljice"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Kvadratne enote (cm², m²) so za ploščino.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_02_t6",
+      "type": "choice",
+      "prompt": "Pravokotnik ima ploščino 24 cm², ena stranica meri 6 cm. Koliko meri druga stranica?",
+      "answers": [
+        "4 cm",
+        "18 cm",
+        "30 cm"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "24 : 6 = 4 cm.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_obseg_02_t7",
+      "type": "drag",
+      "prompt": "Kaj sodi k obsegu in kaj k ploščini?",
+      "categories": [
+        "Obseg",
+        "Ploščina"
+      ],
+      "items": [
+        {
+          "text": "cm",
+          "category": "Obseg"
+        },
+        {
+          "text": "cm²",
+          "category": "Ploščina"
+        },
+        {
+          "text": "m",
+          "category": "Obseg"
+        },
+        {
+          "text": "m²",
+          "category": "Ploščina"
+        },
+        {
+          "text": "2a + 2b",
+          "category": "Obseg"
+        },
+        {
+          "text": "a · b",
+          "category": "Ploščina"
+        }
+      ],
+      "explanation": "Obseg merimo v cm ali m, ploščino v cm² ali m².",
+      "difficulty": 2
+    }
+  ]
+}
