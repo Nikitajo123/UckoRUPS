@@ -16,10 +16,11 @@ import si.uckoquiz.app.games.GameResult
  */
 class LessonViewModel(
     lesson: Lesson,
+    startHearts: Int = LESSON_HEARTS,
     private val clock: () -> Long = { System.currentTimeMillis() },
 ) : ViewModel() {
 
-    var state by mutableStateOf(LessonEngine.start(lesson, clock()))
+    var state by mutableStateOf(LessonEngine.start(lesson, clock(), startHearts))
         private set
 
     fun onAnswer(answer: TaskAnswer) {
@@ -39,8 +40,8 @@ class LessonViewModel(
     }
 
     companion object {
-        fun factory(lesson: Lesson): ViewModelProvider.Factory = viewModelFactory {
-            initializer { LessonViewModel(lesson) }
+        fun factory(lesson: Lesson, startHearts: Int = LESSON_HEARTS): ViewModelProvider.Factory = viewModelFactory {
+            initializer { LessonViewModel(lesson, startHearts) }
         }
     }
 }
