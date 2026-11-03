@@ -109,6 +109,11 @@ fun ResultScreen(
     onRetry: () -> Unit,
 ) {
     BackHandler(onBack = onContinue)
+    // Zmaga nad bossom ima svoj zaslon (Figma 15b); poraz je enak kot pri navadni lekciji.
+    if (outcome.boss && outcome.passed) {
+        BossWinScreen(outcome, onContinue)
+        return
+    }
     Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
         Column(
             Modifier
