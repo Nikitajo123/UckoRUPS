@@ -101,6 +101,28 @@ object SampleContent {
         ),
     )
 
+    /** Boss level matematike (Svet 2): mešane naloge iz ulomkov in decimalnih števil, 3 srčki, brez namigov. */
+    private val mathBoss = Lesson(
+        id = "mat_decimalna_boss", subjectId = "mat", chapterId = "mat_decimalna", order = 5, title = "2048 – ulomki", boss = true,
+        tasks = listOf(
+            Task(id = "mat_decimalna_boss_t1", type = "choice", prompt = "Kolikšen del pice so 3 od 4 kosov?",
+                answers = listOf("3/4", "4/3", "1/4"), correct = listOf(0)),
+            Task(id = "mat_decimalna_boss_t2", type = "choice", prompt = "Kateri ulomek je večji?",
+                answers = listOf("2/5", "4/5"), correct = listOf(1)),
+            Task(id = "mat_decimalna_boss_t3", type = "match", prompt = "Poveži ulomek in decimalno število.",
+                pairs = listOf(MatchPair("1/2", "0,5"), MatchPair("1/4", "0,25"), MatchPair("3/10", "0,3"), MatchPair("3/4", "0,75"))),
+            Task(id = "mat_decimalna_boss_t4", type = "choice", prompt = "Okrajšaj 4/8 do konca.",
+                answers = listOf("1/2", "2/4", "4/2"), correct = listOf(0), difficulty = 2),
+            Task(id = "mat_decimalna_boss_t5", type = "choice", prompt = "0,6 + 0,25 = ?",
+                answers = listOf("0,85", "0,31", "8,5"), correct = listOf(0)),
+            Task(id = "mat_decimalna_boss_t6", type = "drag", prompt = "Razvrsti števila.",
+                categories = listOf("Manj kot 1/2", "Več kot 1/2"),
+                items = listOf(DragItem("0,3", "Manj kot 1/2"), DragItem("3/4", "Več kot 1/2"), DragItem("0,7", "Več kot 1/2"), DragItem("1/5", "Manj kot 1/2"))),
+            Task(id = "mat_decimalna_boss_t7", type = "choice", prompt = "Katero število je največje?",
+                answers = listOf("0,9", "0,89", "0,099"), correct = listOf(0), difficulty = 2),
+        ),
+    )
+
     val lessons: List<Lesson> = buildList {
         addChapter("mat", "mat_ulomki", listOf("Del celote", "Ulomki s kockami", "Primerjanje", "Enakovredni ulomki"),
             "ulomki_kocke", "Ulomki s kockami")
@@ -118,6 +140,7 @@ object SampleContent {
         when (it.id) {
             ulomki01.id -> ulomki01
             pozdravi.id -> pozdravi
+            mathBoss.id -> mathBoss
             else -> it
         }
     }

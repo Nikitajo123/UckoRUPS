@@ -120,67 +120,73 @@ fun LessonScreen(
         return
     }
 
-    Column(Modifier.fillMaxSize().safeDrawingPadding()) {
-        LessonTopBar(progress = state.progress, hearts = state.hearts, color = color, onClose = onClose)
+    // Boss level (UQ-39): temno ozadje in oznaka BOSS; pravila (3 srčki, brez namigov) so v LessonEngine.
+    BossTheme(enabled = lesson.boss) {
+        Column(Modifier.fillMaxSize().safeDrawingPadding()) {
+            LessonTopBar(progress = state.progress, hearts = state.hearts, color = color, onClose = onClose)
+            if (lesson.boss) {
+                Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) { BossBadge() }
+            }
 
-        // Sredina: razlaga, naloga ali mini igra
-        Box(Modifier.weight(1f).fillMaxWidth()) {
-            when (page) {
-                is LessonPage.Explanation -> ScrollablePage {
-                    ExplanationPage(page.title, page.step, page.index, page.count, color)
-                }
-                is LessonPage.TaskPage -> when (page.task.type) {
-                    in CHECKABLE_TYPES -> ScrollablePage {
-                        TaskHeader(
-                            if (page.retry) "Poskusi še enkrat" else taskLabel(page.task),
-                            page.task.prompt,
-                            color,
-                        )
-                        if (page.task.type == "listen") {
-                            Spacer(Modifier.height(16.dp))
-                            ListenPlayer(page.task, color)
+            // Sredina: razlaga, naloga ali mini igra
+            Box(Modifier.weight(1f).fillMaxWidth()) {
+                when (page) {
+                    is LessonPage.Explanation -> ScrollablePage {
+                        ExplanationPage(page.title, page.step, page.index, page.count, color)
+                    }
+                    is LessonPage.TaskPage -> when (page.task.type) {
+                        in CHECKABLE_TYPES -> ScrollablePage {
+                            TaskHeader(
+                                if (page.retry) "Poskusi še enkrat" else taskLabel(page.task),
+                                page.task.prompt,
+                                color,
+                            )
+                            if (page.task.type == "listen") {
+                                Spacer(Modifier.height(16.dp))
+                                ListenPlayer(page.task, color)
+                            }
+                            Spacer(Modifier.height(24.dp))
+                            val checked = state.feedback != null
+                            val answer = state.answer
+                            when (page.task.type) {
+                                "match" -> MatchTask(page.task, answer as? TaskAnswer.Match ?: TaskAnswer.Match(emptyMap()), checked, color, onAnswer)
+                                "drag" -> DragTask(page.task, answer as? TaskAnswer.Drag ?: TaskAnswer.Drag(emptyMap()), checked, color, onAnswer)
+                                else -> ChoiceTask(
+                                    page.task,
+                                    answer as? TaskAnswer.Choice ?: TaskAnswer.Choice(emptySet()),
+                                    checkedCorrect = state.feedback?.correct,
+                                    color = color,
+                                    onAnswer = onAnswer,
+                                )
+                            }
                         }
-                        Spacer(Modifier.height(24.dp))
-                        val checked = state.feedback != null
-                        val answer = state.answer
-                        when (page.task.type) {
-                            "match" -> MatchTask(page.task, answer as? TaskAnswer.Match ?: TaskAnswer.Match(emptyMap()), checked, color, onAnswer)
-                            "drag" -> DragTask(page.task, answer as? TaskAnswer.Drag ?: TaskAnswer.Drag(emptyMap()), checked, color, onAnswer)
-                            else -> ChoiceTask(
-                                page.task,
-                                answer as? TaskAnswer.Choice ?: TaskAnswer.Choice(emptySet()),
-                                checkedCorrect = state.feedback?.correct,
-                                color = color,
-                                onAnswer = onAnswer,
+                        "game" -> MiniGame(page.task, onGameFinished)
+                        else -> ScrollablePage {
+                            TaskHeader(taskLabel(page.task), page.task.prompt, color)
+                            Spacer(Modifier.height(24.dp))
+                            Text(
+                                "Te vrste naloge (${page.task.type}) aplikacija še ne pozna.",
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = Color.Gray,
                             )
                         }
                     }
-                    "game" -> MiniGame(page.task, onGameFinished)
-                    else -> ScrollablePage {
-                        TaskHeader(taskLabel(page.task), page.task.prompt, color)
-                        Spacer(Modifier.height(24.dp))
-                        Text(
-                            "Te vrste naloge (${page.task.type}) aplikacija še ne pozna.",
-                            style = MaterialTheme.typography.bodyLarge,
-                            color = Color.Gray,
-                        )
-                    }
                 }
             }
-        }
 
-        // Spodaj: povratna informacija ali gumb
-        val feedback = state.feedback
-        if (feedback != null) {
-            FeedbackPanel(feedback.correct, feedback.title, feedback.text, onContinue = onContinue)
-        } else {
-            Box(Modifier.fillMaxWidth().padding(20.dp)) {
-                when {
-                    page is LessonPage.Explanation -> ContinueButton(onClick = onContinue)
-                    page is LessonPage.TaskPage && page.task.type in CHECKABLE_TYPES ->
-                        CheckButton(enabled = state.canCheck, onClick = onCheck)
-                    page is LessonPage.TaskPage && page.task.type == "game" -> Unit // igra ima svoj konec
-                    else -> UckoButton(text = "Preskoči", onClick = onContinue, color = LockedGrey)
+            // Spodaj: povratna informacija ali gumb
+            val feedback = state.feedback
+            if (feedback != null) {
+                FeedbackPanel(feedback.correct, feedback.title, feedback.text, onContinue = onContinue)
+            } else {
+                Box(Modifier.fillMaxWidth().padding(20.dp)) {
+                    when {
+                        page is LessonPage.Explanation -> ContinueButton(onClick = onContinue)
+                        page is LessonPage.TaskPage && page.task.type in CHECKABLE_TYPES ->
+                            CheckButton(enabled = state.canCheck, onClick = onCheck)
+                        page is LessonPage.TaskPage && page.task.type == "game" -> Unit // igra ima svoj konec
+                        else -> UckoButton(text = "Preskoči", onClick = onContinue, color = LockedGrey)
+                    }
                 }
             }
         }
@@ -221,6 +227,25 @@ private fun EmptyLesson(onClose: () -> Unit, onSkip: () -> Unit) {
 @Composable
 private fun LessonScreenPreview() {
     val lesson = SampleContent.lessons.first { it.id == "mat_ulomki_01" }
+    var state by remember { mutableStateOf(LessonEngine.start(lesson, now = 0L)) }
+    UckoQuizTheme {
+        LessonScreen(
+            lesson = lesson,
+            state = state,
+            onClose = {},
+            onAnswer = { state = LessonEngine.answer(state, it) },
+            onCheck = { state = LessonEngine.check(state) },
+            onGameFinished = { state = LessonEngine.gameFinished(state, it.correct, it.total) },
+            onContinue = { state = LessonEngine.next(state, now = 0L) },
+            onSkipEmpty = {},
+        )
+    }
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+private fun BossLessonPreview() {
+    val lesson = SampleContent.lessons.first { it.id == "mat_decimalna_boss" }
     var state by remember { mutableStateOf(LessonEngine.start(lesson, now = 0L)) }
     UckoQuizTheme {
         LessonScreen(
