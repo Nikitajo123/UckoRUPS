@@ -35,6 +35,8 @@ import si.uckoquiz.app.ui.onboarding.LocalProfileStore
 import si.uckoquiz.app.ui.onboarding.OnboardingScreen
 import si.uckoquiz.app.ui.profile.ProfileRoute
 import si.uckoquiz.app.ui.profile.SettingsScreen
+import si.uckoquiz.app.ui.progress.NoHeartsScreen
+import si.uckoquiz.app.ui.progress.ProgressRules
 import si.uckoquiz.app.ui.result.ResultScreen
 import si.uckoquiz.app.ui.sample.SampleContentRepository
 import si.uckoquiz.app.ui.settings.AppSettings
@@ -43,6 +45,7 @@ import si.uckoquiz.app.ui.settings.SettingsStore
 import si.uckoquiz.app.ui.subjects.SubjectsRoute
 import si.uckoquiz.app.ui.theme.UckoBlue
 import si.uckoquiz.app.ui.theme.UckoQuizTheme
+import java.time.LocalDate
 
 enum class Tab(val label: String, val emoji: String) {
     HOME("Domov", "🏠"),
@@ -57,7 +60,10 @@ fun UckoApp() {
     val context = LocalContext.current
     val store = remember { LocalProfileStore(context) }
     val settingsStore = remember { SettingsStore(context) }
-    var profile by remember { mutableStateOf(store.load()) }
+    // Ob odprtju: nov dan napolni srčke, niz se prekine, če včeraj ni bilo učenja (UQ-38).
+    var profile by remember {
+        mutableStateOf(store.load()?.let { ProgressRules.refreshForToday(it, LocalDate.now()) }?.also { store.save(it) })
+    }
     var settings by remember { mutableStateOf(settingsStore.load()) }
 
     UckoQuizTheme(darkTheme = settings.darkMode) {
@@ -107,28 +113,49 @@ fun MainTabs(
 
     // Izid zadnje lekcije (id lekcije in izid); dokler ni null, se kaže zaslon rezultata.
     var result by remember { mutableStateOf<Pair<String, LessonOutcome>?>(null) }
+    // Vaja = ponavljanje že opravljene lekcije (srčki iz profila se ne porabijo).
+    var practice by rememberSaveable { mutableStateOf(false) }
+    var noHearts by remember { mutableStateOf(false) }
+
+    // Odpre lekcijo, če ima učenec srčke ali če lekcijo samo ponavlja.
+    val openLesson: (String) -> Unit = { id ->
+        scope.launch {
+            val done = (repository.getProgress()[id]?.stars ?: 0) > 0
+            if (ProgressRules.canStart(profile, lessonAlreadyDone = done)) {
+                practice = done
+                openLessonId = id
+            } else {
+                noHearts = true
+            }
+        }
+    }
 
     val lessonId = openLessonId
     val finished = result
-    if (finished != null) {
+    if (noHearts) {
+        NoHeartsScreen(onBack = { noHearts = false })
+    } else if (finished != null) {
         ResultScreen(
             outcome = finished.second,
             streak = profile.streak,
             onContinue = { result = null },
             onRetry = {
                 result = null
-                openLessonId = finished.first
+                openLesson(finished.first)
             },
         )
     } else if (lessonId != null) {
         LessonRoute(
             lessonId = lessonId,
             repository = repository,
+            startHearts = ProgressRules.startHearts(profile, practice),
             onClose = { openLessonId = null },
             onFinished = { outcome ->
                 scope.launch {
                     // Zvezdice in XP izračuna LessonEngine (UQ-34); nato zaslon rezultata (UQ-35).
                     repository.saveResult(lessonId, outcome.stars, outcome.xp, outcome.mistakes)
+                    // UQ-38: XP, niz in srčki se shranijo v profil, zato jih Domov, Rezultat in Profil pokažejo.
+                    onProfileChange(ProgressRules.afterLesson(profile, outcome, LocalDate.now(), practice))
                     result = lessonId to outcome
                     openLessonId = null
                 }
@@ -161,7 +188,7 @@ fun MainTabs(
                         repository = repository,
                         subjectId = subjectId,
                         onSelectSubject = { subjectId = it },
-                        onOpenLesson = { openLessonId = it },
+                        onOpenLesson = openLesson,
                     )
                     Tab.SUBJECTS -> SubjectsRoute(
                         repository = repository,

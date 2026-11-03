@@ -43,7 +43,7 @@ data class LessonState(
 }
 
 /**
- * Pravila lekcije (UQ-34), brez Androida, zato jih lahko testiramo:
+ * Pravila lekcije (UQ-34):
  * - vrstni red: najprej razlaga, nato naloge po vrsti; napačno rešena naloga se enkrat ponovi na koncu
  * - srčki: napaka vzame srček; brez srčkov je lekcije konec (0 zvezdic)
  * - zvezdice: šteje samo prvi poskus vsake naloge (90 % = 3, 60 % = 2, vsaj en pravilen = 1)
@@ -52,9 +52,12 @@ data class LessonState(
  */
 object LessonEngine {
 
-    fun start(lesson: Lesson, now: Long): LessonState = LessonState(
+    /**
+     * Začetek lekcije. [hearts] = srčki, ki jih ima učenec v profilu (UQ-38); boss level ima vedno 3.
+     */
+    fun start(lesson: Lesson, now: Long, hearts: Int = LESSON_HEARTS): LessonState = LessonState(
         pages = lessonPages(lesson),
-        hearts = if (lesson.boss) BOSS_HEARTS else LESSON_HEARTS,
+        hearts = if (lesson.boss) BOSS_HEARTS else hearts.coerceIn(1, LESSON_HEARTS),
         boss = lesson.boss,
         startMillis = now,
     )

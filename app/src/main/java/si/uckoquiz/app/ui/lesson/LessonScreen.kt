@@ -51,6 +51,7 @@ fun LessonRoute(
     repository: ContentRepository,
     onClose: () -> Unit,
     onFinished: (LessonOutcome) -> Unit,
+    startHearts: Int = LESSON_HEARTS,
 ) {
     BackHandler(onBack = onClose)
     // Nov ključ ob vsakem odprtju lekcije = nov ViewModel (ponovno reševanje začne od začetka),
@@ -64,7 +65,7 @@ fun LessonRoute(
         if (current == null) {
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { CircularProgressIndicator() }
         } else {
-            LessonSession(current, sessionKey, onClose, onFinished)
+            LessonSession(current, sessionKey, startHearts, onClose, onFinished)
         }
     }
 }
@@ -74,10 +75,11 @@ fun LessonRoute(
 private fun LessonSession(
     lesson: Lesson,
     sessionKey: String,
+    startHearts: Int,
     onClose: () -> Unit,
     onFinished: (LessonOutcome) -> Unit,
 ) {
-    val viewModel: LessonViewModel = viewModel(key = sessionKey, factory = LessonViewModel.factory(lesson))
+    val viewModel: LessonViewModel = viewModel(key = sessionKey, factory = LessonViewModel.factory(lesson, startHearts))
     val state = viewModel.state
     val currentOnFinished by rememberUpdatedState(onFinished)
     LaunchedEffect(state.outcome) {
