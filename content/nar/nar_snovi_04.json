@@ -1,0 +1,137 @@
+{
+  "id": "nar_snovi_04",
+  "subjectId": "nar",
+  "chapterId": "nar_snovi",
+  "order": 4,
+  "title": "Prevodnost toplote in elektrike",
+  "boss": false,
+  "explanation": {
+    "title": "Prevodniki in izolatorji",
+    "steps": [
+      "Snovi, ki dobro prevajajo toploto, so toplotni prevodniki, na primer kovine.",
+      "Snovi, ki toploto slabo prevajajo, so toplotni izolatorji, na primer les, plastika in polistiren.",
+      "Električni prevodniki prepuščajo električni tok, na primer baker in železo. Izolatorji ga ne, na primer guma in plastika.",
+      "Zato so električni kabli iz kovine, obdani s plastiko."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_snovi_04_t1",
+      "type": "choice",
+      "prompt": "Katera snov dobro prevaja toploto?",
+      "answers": [
+        "baker",
+        "les",
+        "polistiren"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Kovine, med njimi baker, dobro prevajajo toploto.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_04_t2",
+      "type": "choice",
+      "prompt": "Zakaj je ročaj kuhalne žlice pogosto narejen iz plastike ali lesa?",
+      "answers": [
+        "ker ti snovi slabo prevajata toploto",
+        "ker sta težji od kovine",
+        "ker prevajata elektriko"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Plastika in les sta toplotna izolatorja, zato se ročaj ne segreje.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_04_t3",
+      "type": "drag",
+      "prompt": "Razvrsti med prevodnike in izolatorje električnega toka.",
+      "categories": [
+        "Prevodnik",
+        "Izolator"
+      ],
+      "items": [
+        {
+          "text": "baker",
+          "category": "Prevodnik"
+        },
+        {
+          "text": "železo",
+          "category": "Prevodnik"
+        },
+        {
+          "text": "aluminij",
+          "category": "Prevodnik"
+        },
+        {
+          "text": "guma",
+          "category": "Izolator"
+        },
+        {
+          "text": "plastika",
+          "category": "Izolator"
+        },
+        {
+          "text": "steklo",
+          "category": "Izolator"
+        }
+      ],
+      "explanation": "Kovine prevajajo električni tok, guma, plastika in steklo pa ne.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_snovi_04_t4",
+      "type": "choice",
+      "prompt": "Zakaj so električni kabli obdani s plastiko?",
+      "answers": [
+        "ker nas plastika zaščiti pred električnim tokom",
+        "ker je tako lepše",
+        "ker je kabel potem težji"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Plastika je električni izolator, zato se ne dotaknemo žice, po kateri teče tok.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_04_t5",
+      "type": "match",
+      "prompt": "Poveži predmet z lastnostjo.",
+      "pairs": [
+        {
+          "left": "bakrena žica",
+          "right": "električni prevodnik"
+        },
+        {
+          "left": "gumijasta podlaga",
+          "right": "električni izolator"
+        },
+        {
+          "left": "kovinska žlica",
+          "right": "toplotni prevodnik"
+        }
+      ],
+      "explanation": "Baker prevaja električni tok, guma ga ne prevaja, kovinska žlica pa dobro prevaja toploto.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_04_t6",
+      "type": "choice",
+      "prompt": "Kaj se zgodi s kovinsko žlico v vroči juhi?",
+      "answers": [
+        "segreje se",
+        "ostane hladna",
+        "postane lažja"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Kovina dobro prevaja toploto, zato se žlica hitro segreje.",
+      "difficulty": 1
+    }
+  ]
+}

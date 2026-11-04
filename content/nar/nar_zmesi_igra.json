@@ -1,0 +1,27 @@
+{
+  "id": "nar_zmesi_igra",
+  "subjectId": "nar",
+  "chapterId": "nar_zmesi",
+  "order": 4,
+  "title": "Laboratorij",
+  "boss": false,
+  "explanation": {
+    "title": "",
+    "steps": []
+  },
+  "tasks": [
+    {
+      "id": "nar_zmesi_igra_t1",
+      "type": "game",
+      "game": "laboratorij",
+      "prompt": "Izberi pravilne korake za ločevanje zmesi.",
+      "config": {
+        "mixtures": "Pesek + voda|Sol + voda|Železni opilki + pesek|Kamenčki + pesek|Olje + voda|Sol + pesek",
+        "steps": "filtriranje|izhlapevanje|magnet|sejanje|ločilni lij|raztapljanje v vodi,filtriranje,izhlapevanje",
+        "why": "Pesek ostane na filtrirnem papirju, voda steče skozi.|Voda izhlapi, sol ostane v posodi.|Magnet privlači železo, pesek ne.|Drobna zrna gredo skozi sito, kamenčki ostanejo.|Olje plava na vodi, vodo spustimo skozi pipico lija.|Sol se raztopi, pesek odfiltriramo, nato vodo izhlapimo in dobimo sol."
+      },
+      "explanation": "Postopek izberemo glede na lastnosti snovi v zmesi.",
+      "difficulty": 2
+    }
+  ]
+}

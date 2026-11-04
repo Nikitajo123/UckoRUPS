@@ -1,0 +1,133 @@
+{
+  "id": "nar_snovi_05",
+  "subjectId": "nar",
+  "chapterId": "nar_snovi",
+  "order": 5,
+  "title": "Magnetnost",
+  "boss": false,
+  "explanation": {
+    "title": "Magneti in njihovi poli",
+    "steps": [
+      "Magnet privlači predmete iz železa, niklja in kobalta.",
+      "Les, steklo, plastika in aluminij se na magnet ne odzivajo.",
+      "Vsak magnet ima dva pola: severni in južni.",
+      "Različna pola se privlačita, enaka pa odbijata."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_snovi_05_t1",
+      "type": "choice",
+      "prompt": "Kateri predmet privlači magnet?",
+      "answers": [
+        "železen žebelj",
+        "lesena žlica",
+        "stekleni kozarec"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Magnet privlači železo.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_05_t2",
+      "type": "choice",
+      "prompt": "Dva magneta obrnemo tako, da sta enaka pola drug proti drugemu. Kaj se zgodi?",
+      "answers": [
+        "odbijata se",
+        "privlačita se",
+        "nič se ne zgodi"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Enaka pola se odbijata, različna pa privlačita.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_05_t3",
+      "type": "drag",
+      "prompt": "Ali magnet predmet privlači?",
+      "categories": [
+        "Privlači",
+        "Ne privlači"
+      ],
+      "items": [
+        {
+          "text": "železen žebelj",
+          "category": "Privlači"
+        },
+        {
+          "text": "jeklena sponka",
+          "category": "Privlači"
+        },
+        {
+          "text": "lesen svinčnik",
+          "category": "Ne privlači"
+        },
+        {
+          "text": "stekleni kozarec",
+          "category": "Ne privlači"
+        },
+        {
+          "text": "aluminijasta folija",
+          "category": "Ne privlači"
+        }
+      ],
+      "explanation": "Magnet privlači železo in jeklo. Les, steklo in aluminij se na magnet ne odzivajo.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_snovi_05_t4",
+      "type": "choice",
+      "prompt": "Koliko polov ima magnet?",
+      "answers": [
+        "2",
+        "1",
+        "3"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Vsak magnet ima severni in južni pol.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_05_t5",
+      "type": "match",
+      "prompt": "Poveži.",
+      "pairs": [
+        {
+          "left": "severni in južni pol",
+          "right": "privlačita se"
+        },
+        {
+          "left": "dva severna pola",
+          "right": "odbijata se"
+        },
+        {
+          "left": "magnet in les",
+          "right": "ni privlaka"
+        }
+      ],
+      "explanation": "Različna pola se privlačita, enaka se odbijata, les pa magnet ne privlači.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_05_t6",
+      "type": "choice",
+      "prompt": "Kako iz zmesi železnih opilkov in peska ločimo opilke?",
+      "answers": [
+        "z magnetom",
+        "s filtrom",
+        "z izhlapevanjem"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Magnet privlači železne opilke, pesek pa ostane.",
+      "difficulty": 2
+    }
+  ]
+}

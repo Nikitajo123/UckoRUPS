@@ -1,0 +1,141 @@
+{
+  "id": "nar_snovi_01",
+  "subjectId": "nar",
+  "chapterId": "nar_snovi",
+  "order": 1,
+  "title": "Kaj je snov?",
+  "boss": false,
+  "explanation": {
+    "title": "Vse okoli nas je snov",
+    "steps": [
+      "Snov je vse, iz česar so narejena telesa. Voda, zrak, les in železo so snovi.",
+      "Telo je predmet, ki ga lahko opišemo z obliko, na primer kamen, žlica ali kozarec.",
+      "Telo je narejeno iz ene ali več snovi: žlica je iz kovine, kozarec pa iz stekla.",
+      "Snovi se med seboj razlikujejo po lastnostih, na primer po barvi, trdoti in vonju."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_snovi_01_t1",
+      "type": "choice",
+      "prompt": "Kaj od naštetega je snov?",
+      "answers": [
+        "zrak",
+        "svetloba",
+        "glasba"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Zrak zavzema prostor in ima maso, zato je snov. Svetloba in glasba nista snov.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_01_t2",
+      "type": "choice",
+      "prompt": "Žlica je narejena iz kovine. Kaj je v tem primeru telo?",
+      "answers": [
+        "žlica",
+        "kovina",
+        "trdota"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Žlica je telo, kovina pa je snov, iz katere je narejena.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_01_t3",
+      "type": "match",
+      "prompt": "Poveži telo s snovjo, iz katere je narejeno.",
+      "pairs": [
+        {
+          "left": "kozarec",
+          "right": "steklo"
+        },
+        {
+          "left": "stol",
+          "right": "les"
+        },
+        {
+          "left": "ključ",
+          "right": "kovina"
+        },
+        {
+          "left": "vrečka",
+          "right": "plastika"
+        }
+      ],
+      "explanation": "Telesa so narejena iz snovi.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_01_t4",
+      "type": "drag",
+      "prompt": "Razvrsti med telesa in snovi.",
+      "categories": [
+        "Telo",
+        "Snov"
+      ],
+      "items": [
+        {
+          "text": "ključ",
+          "category": "Telo"
+        },
+        {
+          "text": "kozarec",
+          "category": "Telo"
+        },
+        {
+          "text": "žoga",
+          "category": "Telo"
+        },
+        {
+          "text": "železo",
+          "category": "Snov"
+        },
+        {
+          "text": "steklo",
+          "category": "Snov"
+        },
+        {
+          "text": "voda",
+          "category": "Snov"
+        }
+      ],
+      "explanation": "Telo ima obliko (ključ, kozarec, žoga), snov pa je to, iz česar je telo narejeno.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_snovi_01_t5",
+      "type": "choice",
+      "prompt": "Zakaj sta železo in les različni snovi?",
+      "answers": [
+        "ker imata različne lastnosti",
+        "ker imata isto obliko",
+        "ker imata isto barvo"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Snovi ločimo po lastnostih, na primer po trdoti, barvi in gostoti.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_01_t6",
+      "type": "choice",
+      "prompt": "Kaj od naštetega je lastnost snovi?",
+      "answers": [
+        "trdota",
+        "kozarec",
+        "ključ"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Trdota je lastnost snovi. Kozarec in ključ sta telesi.",
+      "difficulty": 1
+    }
+  ]
+}

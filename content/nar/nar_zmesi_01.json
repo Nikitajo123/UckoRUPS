@@ -1,0 +1,137 @@
+{
+  "id": "nar_zmesi_01",
+  "subjectId": "nar",
+  "chapterId": "nar_zmesi",
+  "order": 1,
+  "title": "Čiste snovi in zmesi",
+  "boss": false,
+  "explanation": {
+    "title": "Čista snov ali zmes?",
+    "steps": [
+      "Čista snov je sestavljena samo iz ene vrste snovi, na primer destilirana voda ali železo.",
+      "Zmes je sestavljena iz dveh ali več snovi, ki so pomešane, na primer zrak ali morska voda.",
+      "Pri enotni zmesi (raztopini) posameznih snovi ne vidimo, na primer sladkana voda.",
+      "Pri neenotni zmesi vidimo posamezne snovi, na primer pesek v vodi."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_zmesi_01_t1",
+      "type": "choice",
+      "prompt": "Katera od naštetih je čista snov?",
+      "answers": [
+        "destilirana voda",
+        "morska voda",
+        "zelenjavna juha"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Destilirana voda vsebuje samo vodo.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_01_t2",
+      "type": "choice",
+      "prompt": "Kaj je zmes?",
+      "answers": [
+        "dve ali več snovi, ki so pomešane",
+        "ena sama snov",
+        "samo tekočina"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Zmes je sestavljena iz več snovi.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_01_t3",
+      "type": "drag",
+      "prompt": "Razvrsti med čiste snovi in zmesi.",
+      "categories": [
+        "Čista snov",
+        "Zmes"
+      ],
+      "items": [
+        {
+          "text": "železo",
+          "category": "Čista snov"
+        },
+        {
+          "text": "destilirana voda",
+          "category": "Čista snov"
+        },
+        {
+          "text": "zrak",
+          "category": "Zmes"
+        },
+        {
+          "text": "morska voda",
+          "category": "Zmes"
+        },
+        {
+          "text": "limonada",
+          "category": "Zmes"
+        },
+        {
+          "text": "pesek in voda",
+          "category": "Zmes"
+        }
+      ],
+      "explanation": "Železo in destilirana voda sta čisti snovi, ostalo so zmesi.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_zmesi_01_t4",
+      "type": "choice",
+      "prompt": "Voda s peskom je …",
+      "answers": [
+        "neenotna zmes",
+        "enotna zmes",
+        "čista snov"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pesek vidimo posebej, zato je neenotna zmes.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_01_t5",
+      "type": "choice",
+      "prompt": "Sladkana voda je …",
+      "answers": [
+        "enotna zmes (raztopina)",
+        "neenotna zmes",
+        "čista snov"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Sladkorja v vodi ne vidimo, zato je enotna zmes.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_01_t6",
+      "type": "match",
+      "prompt": "Poveži.",
+      "pairs": [
+        {
+          "left": "zrak",
+          "right": "zmes plinov"
+        },
+        {
+          "left": "železo",
+          "right": "čista snov"
+        },
+        {
+          "left": "morska voda",
+          "right": "raztopina soli v vodi"
+        }
+      ],
+      "explanation": "Zrak je zmes plinov, železo čista snov, morska voda pa raztopina soli.",
+      "difficulty": 1
+    }
+  ]
+}
