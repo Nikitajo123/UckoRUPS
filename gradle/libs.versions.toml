@@ -11,6 +11,7 @@ composeBom = "2026.02.01"
 googleServices = "4.5.0"
 firebaseBom = "34.17.0"
 coroutines = "1.10.2"
+orgJson = "20240303"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,6 +32,7 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore" }
+org-json = { group = "org.json", name = "json", version.ref = "orgJson" }
 kotlinx-coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "coroutines" }
 
 [plugins]
