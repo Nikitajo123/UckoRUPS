@@ -14,6 +14,9 @@ class FirestoreContentRepository(
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 ) : ContentRepository {
 
+    private suspend fun ensureUid(): String =
+        auth.currentUser?.uid ?: auth.signInAnonymously().await().user!!.uid
+
     override suspend fun getSubjects(): List<Subject> =
         db.collection("subjects").get().await()
             .toObjects(Subject::class.java)
@@ -35,7 +38,7 @@ class FirestoreContentRepository(
             ?: error("Lesson not found: $lessonId")
 
     override suspend fun getProgress(): Map<String, LessonProgress> {
-        val uid = auth.currentUser?.uid ?: return emptyMap()
+        val uid = ensureUid()
         val docs = db.collection("users").document(uid).collection("progress").get().await()
         return docs.documents.associate { doc ->
             doc.id to (doc.toObject(LessonProgress::class.java) ?: LessonProgress())
@@ -43,6 +46,17 @@ class FirestoreContentRepository(
     }
 
     override suspend fun saveResult(lessonId: String, stars: Int, xp: Int, mistakes: List<String>) {
-        TODO("UQ-16")
+        val uid = ensureUid()
+        val ref = db.collection("users").document(uid).collection("progress").document(lessonId)
+        val old = ref.get().await().toObject(LessonProgress::class.java) ?: LessonProgress()
+        ref.set(
+            old.copy(
+                stars = maxOf(old.stars, stars),
+                attempts = old.attempts + 1,
+                bestScore = maxOf(old.bestScore, xp),
+                mistakes = mistakes,
+                completedAt = System.currentTimeMillis()
+            )
+        ).await()
     }
 }

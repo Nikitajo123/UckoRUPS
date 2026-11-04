@@ -1,0 +1,59 @@
+{
+  "id": "nar_snovi_igra",
+  "subjectId": "nar",
+  "chapterId": "nar_snovi",
+  "order": 6,
+  "title": "Plava ali potone",
+  "boss": false,
+  "explanation": {
+    "title": "",
+    "steps": []
+  },
+  "tasks": [
+    {
+      "id": "nar_snovi_igra_t1",
+      "type": "game",
+      "game": "plava_potone",
+      "prompt": "Ali predmet plava ali potone?",
+      "items": [
+        {
+          "text": "🔩 žebelj",
+          "category": "potone"
+        },
+        {
+          "text": "🍎 jabolko",
+          "category": "plava"
+        },
+        {
+          "text": "🔑 ključ",
+          "category": "potone"
+        },
+        {
+          "text": "🧊 led",
+          "category": "plava"
+        },
+        {
+          "text": "⚓ sidro",
+          "category": "potone"
+        },
+        {
+          "text": "🏀 žoga",
+          "category": "plava"
+        },
+        {
+          "text": "🔔 zvonec",
+          "category": "potone"
+        },
+        {
+          "text": "🍋 limona",
+          "category": "plava"
+        }
+      ],
+      "config": {
+        "why": "Železo ima večjo gostoto kot voda.|Jabolko vsebuje veliko zraka in ima manjšo gostoto kot voda.|Kovina ima večjo gostoto kot voda.|Led ima malo manjšo gostoto kot voda.|Sidro je iz težke kovine z veliko gostoto.|Žoga je napolnjena z zrakom.|Kovina ima večjo gostoto kot voda.|Limona ima manjšo gostoto kot voda."
+      },
+      "explanation": "Predmet plava, če ima manjšo gostoto kot voda, in potone, če ima večjo.",
+      "difficulty": 2
+    }
+  ]
+}

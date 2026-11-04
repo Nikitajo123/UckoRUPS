@@ -45,7 +45,9 @@ import si.uckoquiz.app.ui.settings.SettingsStore
 import si.uckoquiz.app.ui.subjects.SubjectsRoute
 import si.uckoquiz.app.ui.theme.UckoBlue
 import si.uckoquiz.app.ui.theme.UckoQuizTheme
+import si.uckoquiz.app.data.FirestoreContentRepository
 import java.time.LocalDate
+
 
 enum class Tab(val label: String, val emoji: String) {
     HOME("Domov", "🏠"),
@@ -106,9 +108,7 @@ fun MainTabs(
     // Izbrani predmet si delita Domov in Predmeti (dotik kartice odpre pot tega predmeta).
     var subjectId by rememberSaveable { mutableStateOf("mat") }
 
-    // Začasno vzorčna vsebina v pomnilniku. Ko bo vsa vsebina v Firestoru (UQ-20),
-    // to vrstico zamenjamo s FirestoreContentRepository().
-    val repository: ContentRepository = remember { SampleContentRepository() }
+    val repository: ContentRepository = remember { FirestoreContentRepository() }
     val scope = rememberCoroutineScope()
 
     // Izid zadnje lekcije (id lekcije in izid); dokler ni null, se kaže zaslon rezultata.

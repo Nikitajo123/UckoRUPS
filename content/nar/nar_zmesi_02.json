@@ -1,0 +1,133 @@
+{
+  "id": "nar_zmesi_02",
+  "subjectId": "nar",
+  "chapterId": "nar_zmesi",
+  "order": 2,
+  "title": "Raztopine",
+  "boss": false,
+  "explanation": {
+    "title": "Kaj je raztopina?",
+    "steps": [
+      "Raztopina nastane, ko se snov raztopi v tekočini.",
+      "Snov, ki se raztopi, je topljenec. Tekočina, v kateri se raztaplja, je topilo.",
+      "Sol in sladkor se v vodi raztopita, pesek in olje pa ne.",
+      "Raztapljanje pospešimo z mešanjem in s toplejšo vodo."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_zmesi_02_t1",
+      "type": "choice",
+      "prompt": "Kaj je topilo v slani vodi?",
+      "answers": [
+        "voda",
+        "sol",
+        "zrak"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Voda je topilo, sol pa topljenec.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_02_t2",
+      "type": "choice",
+      "prompt": "Katera snov se v vodi raztopi?",
+      "answers": [
+        "sladkor",
+        "pesek",
+        "kamenček"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Sladkor se raztopi v vodi.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_02_t3",
+      "type": "choice",
+      "prompt": "Kaj pospeši raztapljanje sladkorja v čaju?",
+      "answers": [
+        "mešanje",
+        "hlajenje",
+        "pokrivanje"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Mešanje in toplejša voda pospešita raztapljanje.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_02_t4",
+      "type": "drag",
+      "prompt": "Ali se snov raztopi v vodi?",
+      "categories": [
+        "Se raztopi",
+        "Se ne raztopi"
+      ],
+      "items": [
+        {
+          "text": "sol",
+          "category": "Se raztopi"
+        },
+        {
+          "text": "sladkor",
+          "category": "Se raztopi"
+        },
+        {
+          "text": "pesek",
+          "category": "Se ne raztopi"
+        },
+        {
+          "text": "olje",
+          "category": "Se ne raztopi"
+        },
+        {
+          "text": "kamenček",
+          "category": "Se ne raztopi"
+        }
+      ],
+      "explanation": "Sol in sladkor se raztopita, pesek, olje in kamenček pa ne.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_zmesi_02_t5",
+      "type": "match",
+      "prompt": "Poveži pojem z opisom.",
+      "pairs": [
+        {
+          "left": "topilo",
+          "right": "tekočina, v kateri se snov raztopi"
+        },
+        {
+          "left": "topljenec",
+          "right": "snov, ki se raztopi"
+        },
+        {
+          "left": "raztopina",
+          "right": "zmes topila in topljenca"
+        }
+      ],
+      "explanation": "Topilo in topljenec skupaj tvorita raztopino.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_02_t6",
+      "type": "choice",
+      "prompt": "Slano vodo pustimo, da voda izhlapi. Kaj ostane?",
+      "answers": [
+        "sol",
+        "pesek",
+        "nič"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Voda izhlapi, sol pa ostane v posodi.",
+      "difficulty": 2
+    }
+  ]
+}

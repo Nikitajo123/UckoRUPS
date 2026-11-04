@@ -1,0 +1,139 @@
+{
+  "id": "nar_snovi_02",
+  "subjectId": "nar",
+  "chapterId": "nar_snovi",
+  "order": 2,
+  "title": "Trdno, tekoče, plinasto",
+  "boss": false,
+  "explanation": {
+    "title": "Tri agregatna stanja",
+    "steps": [
+      "Snovi so lahko trdne, tekoče ali plinaste. Pravimo jim agregatna stanja.",
+      "Trdna snov ima stalno obliko, na primer led ali kamen.",
+      "Tekočina ima stalno prostornino, obliko pa prevzame po posodi, na primer voda ali mleko.",
+      "Plin nima stalne oblike in zapolni vso posodo, na primer zrak ali vodna para.",
+      "Voda je lahko v vseh treh stanjih: led, voda in vodna para."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_snovi_02_t1",
+      "type": "choice",
+      "prompt": "V katerem agregatnem stanju je led?",
+      "answers": [
+        "trdnem",
+        "tekočem",
+        "plinastem"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Led je zmrznjena voda, zato je trden.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_02_t2",
+      "type": "choice",
+      "prompt": "Katera snov zapolni vso posodo, v kateri je?",
+      "answers": [
+        "plin",
+        "trdna snov",
+        "tekočina"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Plin se razširi in zapolni ves prostor, ki mu je na voljo.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_02_t3",
+      "type": "choice",
+      "prompt": "Vodo prelijemo iz kozarca v skledo. Kaj se zgodi z njeno obliko?",
+      "answers": [
+        "prevzame obliko sklede",
+        "ostane v obliki kozarca",
+        "postane trdna"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Tekočina prevzame obliko posode, prostornina pa ostane enaka.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_02_t4",
+      "type": "match",
+      "prompt": "Poveži snov z agregatnim stanjem.",
+      "pairs": [
+        {
+          "left": "kamen",
+          "right": "trdno"
+        },
+        {
+          "left": "sok",
+          "right": "tekoče"
+        },
+        {
+          "left": "kisik",
+          "right": "plinasto"
+        }
+      ],
+      "explanation": "Kamen je trden, sok je tekočina, kisik je plin.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_02_t5",
+      "type": "drag",
+      "prompt": "Razvrsti snovi po agregatnih stanjih.",
+      "categories": [
+        "Trdno",
+        "Tekoče",
+        "Plinasto"
+      ],
+      "items": [
+        {
+          "text": "led",
+          "category": "Trdno"
+        },
+        {
+          "text": "železo",
+          "category": "Trdno"
+        },
+        {
+          "text": "olje",
+          "category": "Tekoče"
+        },
+        {
+          "text": "voda",
+          "category": "Tekoče"
+        },
+        {
+          "text": "zrak",
+          "category": "Plinasto"
+        },
+        {
+          "text": "vodna para",
+          "category": "Plinasto"
+        }
+      ],
+      "explanation": "Led in železo sta trdna, olje in voda tekoča, zrak in vodna para pa plina.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_snovi_02_t6",
+      "type": "choice",
+      "prompt": "Kako se imenuje prehod iz tekočega v trdno stanje?",
+      "answers": [
+        "strjevanje",
+        "taljenje",
+        "izhlapevanje"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pri strjevanju tekočina postane trdna, na primer voda postane led.",
+      "difficulty": 2
+    }
+  ]
+}

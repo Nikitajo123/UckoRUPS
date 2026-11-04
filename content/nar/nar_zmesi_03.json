@@ -1,0 +1,136 @@
+{
+  "id": "nar_zmesi_03",
+  "subjectId": "nar",
+  "chapterId": "nar_zmesi",
+  "order": 3,
+  "title": "Ločevanje zmesi",
+  "boss": false,
+  "explanation": {
+    "title": "Kako ločimo zmesi?",
+    "steps": [
+      "Zmesi ločimo glede na lastnosti snovi, ki so v njej.",
+      "S sejanjem ločimo snovi z različno velikimi zrni, na primer pesek in kamenčke.",
+      "S filtriranjem ločimo trdno snov od tekočine, na primer pesek in vodo.",
+      "Z izhlapevanjem iz raztopine dobimo raztopljeno snov, na primer sol iz slane vode.",
+      "Z magnetom ločimo železne predmete, z ločilnim lijem pa tekočini, ki se ne mešata, na primer olje in vodo."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_zmesi_03_t1",
+      "type": "match",
+      "prompt": "Poveži postopek z zmesjo.",
+      "pairs": [
+        {
+          "left": "sejanje",
+          "right": "pesek in kamenčki"
+        },
+        {
+          "left": "filtriranje",
+          "right": "pesek in voda"
+        },
+        {
+          "left": "izhlapevanje",
+          "right": "sol in voda"
+        }
+      ],
+      "explanation": "Vsak postopek izkoristi drugačno lastnost snovi.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_03_t2",
+      "type": "choice",
+      "prompt": "Kako ločimo železne opilke od peska?",
+      "answers": [
+        "z magnetom",
+        "s filtriranjem",
+        "z izhlapevanjem"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Magnet privlači železo.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_03_t3",
+      "type": "choice",
+      "prompt": "S katerim postopkom ločimo olje in vodo?",
+      "answers": [
+        "z ločilnim lijem",
+        "s sejanjem",
+        "z magnetom"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Olje plava na vodi, zato ju ločimo z ločilnim lijem.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_03_t4",
+      "type": "drag",
+      "prompt": "Kateri postopek uporabimo?",
+      "categories": [
+        "Sejanje",
+        "Filtriranje",
+        "Izhlapevanje",
+        "Magnet"
+      ],
+      "items": [
+        {
+          "text": "kamenčki in pesek",
+          "category": "Sejanje"
+        },
+        {
+          "text": "kava in voda",
+          "category": "Filtriranje"
+        },
+        {
+          "text": "pesek in voda",
+          "category": "Filtriranje"
+        },
+        {
+          "text": "sol iz slane vode",
+          "category": "Izhlapevanje"
+        },
+        {
+          "text": "žebljički in pesek",
+          "category": "Magnet"
+        }
+      ],
+      "explanation": "Izberemo postopek glede na lastnosti snovi v zmesi.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_zmesi_03_t5",
+      "type": "choice",
+      "prompt": "Kaj ostane na filtrirnem papirju, ko filtriramo vodo s peskom?",
+      "answers": [
+        "pesek",
+        "voda",
+        "sol"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pesek ostane na papirju, voda steče skozi.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_03_t6",
+      "type": "choice",
+      "prompt": "Kaj moramo narediti, da iz mešanice soli in peska dobimo čisto sol?",
+      "answers": [
+        "sol raztopimo, odfiltriramo pesek in vodo izhlapimo",
+        "samo stresemo",
+        "samo mešamo z magnetom"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Sol raztopimo v vodi, pesek odfiltriramo, vodo pa izhlapimo.",
+      "difficulty": 3
+    }
+  ]
+}

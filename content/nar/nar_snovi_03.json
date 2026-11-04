@@ -1,0 +1,131 @@
+{
+  "id": "nar_snovi_03",
+  "subjectId": "nar",
+  "chapterId": "nar_snovi",
+  "order": 3,
+  "title": "Gostota",
+  "boss": false,
+  "explanation": {
+    "title": "Gostota in plavanje",
+    "steps": [
+      "Gostota pove, koliko mase je v določeni prostornini snovi.",
+      "Gostota vode je približno 1 g/cm³.",
+      "Predmet z manjšo gostoto, kot jo ima voda, plava. Predmet z večjo gostoto potone.",
+      "Pri enaki prostornini je težji predmet iz snovi z večjo gostoto."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_snovi_03_t1",
+      "type": "choice",
+      "prompt": "Predmet ima manjšo gostoto kot voda. Kaj se zgodi, ko ga damo v vodo?",
+      "answers": [
+        "plava",
+        "potone",
+        "se raztopi"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Snov z manjšo gostoto, kot jo ima voda, plava na vodi.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_03_t2",
+      "type": "choice",
+      "prompt": "Železo ima večjo gostoto kot voda. Kaj naredi železni žebelj v vodi?",
+      "answers": [
+        "potone",
+        "plava",
+        "izhlapi"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Snov z večjo gostoto, kot jo ima voda, potone.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_03_t3",
+      "type": "choice",
+      "prompt": "Kolikšna je gostota vode?",
+      "answers": [
+        "približno 1 g/cm³",
+        "približno 10 g/cm³",
+        "približno 0,1 g/cm³"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Voda ima gostoto približno 1 g/cm³.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_snovi_03_t4",
+      "type": "drag",
+      "prompt": "Ali predmet v vodi plava ali potone?",
+      "categories": [
+        "Plava",
+        "Potone"
+      ],
+      "items": [
+        {
+          "text": "led",
+          "category": "Plava"
+        },
+        {
+          "text": "olje",
+          "category": "Plava"
+        },
+        {
+          "text": "jabolko",
+          "category": "Plava"
+        },
+        {
+          "text": "žebelj",
+          "category": "Potone"
+        },
+        {
+          "text": "kamen",
+          "category": "Potone"
+        },
+        {
+          "text": "ključ",
+          "category": "Potone"
+        }
+      ],
+      "explanation": "Led, olje in jabolko imajo manjšo gostoto kot voda, žebelj, kamen in ključ pa večjo.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_snovi_03_t5",
+      "type": "choice",
+      "prompt": "Dva predmeta imata enako prostornino. Prvi ima večjo maso. Kateri ima večjo gostoto?",
+      "answers": [
+        "prvi",
+        "drugi",
+        "enako"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Gostota je masa na prostornino. Pri enaki prostornini ima večjo gostoto predmet z večjo maso.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_snovi_03_t6",
+      "type": "choice",
+      "prompt": "Zakaj velika jeklena ladja plava?",
+      "answers": [
+        "ker je v njej veliko zraka, zato je njena povprečna gostota manjša od gostote vode",
+        "ker je jeklo lažje od vode",
+        "ker je ladja okrogla"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Ladja je znotraj votla in vsebuje veliko zraka, zato je njena povprečna gostota manjša kot gostota vode.",
+      "difficulty": 3
+    }
+  ]
+}
