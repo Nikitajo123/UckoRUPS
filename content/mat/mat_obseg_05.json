@@ -1,0 +1,143 @@
+{
+  "id": "mat_obseg_05",
+  "subjectId": "mat",
+  "chapterId": "mat_obseg",
+  "order": 5,
+  "title": "Obseg in ploščina okrog nas",
+  "boss": false,
+  "explanation": {
+    "title": "Kdaj obseg in kdaj ploščina?",
+    "steps": [
+      "Ko barvamo steno ali polagamo ploščice, računamo ploščino.",
+      "Ko postavljamo ograjo ali lepimo trak okrog nečesa, računamo obseg.",
+      "Pazi na enote: obseg v m ali cm, ploščina v m² ali cm²."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "mat_obseg_05_t1",
+      "type": "choice",
+      "prompt": "Ograja okrog igrišča: kaj računamo?",
+      "answers": [
+        "obseg",
+        "ploščino"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Ograja gre okrog roba, zato računamo obseg.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_05_t2",
+      "type": "choice",
+      "prompt": "Pleskanje stene: kaj računamo?",
+      "answers": [
+        "obseg",
+        "ploščino"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Barva pokrije celo steno, zato računamo ploščino.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_05_t3",
+      "type": "choice",
+      "prompt": "Stena meri 4 m × 3 m. 1 liter barve zadošča za 6 m². Koliko litrov barve potrebujemo?",
+      "answers": [
+        "2 litra",
+        "3 litre",
+        "12 litrov"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Stena ima 12 m², 12 : 6 = 2 litra.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_obseg_05_t4",
+      "type": "choice",
+      "prompt": "Kvadratno igrišče ima stranico 20 m. Koliko metrov ograje potrebujemo?",
+      "answers": [
+        "40 m",
+        "80 m",
+        "400 m"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "o = 4 · 20 m = 80 m.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_05_t5",
+      "type": "drag",
+      "prompt": "Obseg ali ploščina?",
+      "categories": [
+        "Obseg",
+        "Ploščina"
+      ],
+      "items": [
+        {
+          "text": "ograja",
+          "category": "Obseg"
+        },
+        {
+          "text": "preproga",
+          "category": "Ploščina"
+        },
+        {
+          "text": "trak",
+          "category": "Obseg"
+        },
+        {
+          "text": "ploščice",
+          "category": "Ploščina"
+        },
+        {
+          "text": "obroba",
+          "category": "Obseg"
+        },
+        {
+          "text": "barva",
+          "category": "Ploščina"
+        }
+      ],
+      "explanation": "Kar gre okrog roba, je obseg; kar pokrije površino, je ploščina.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_obseg_05_t6",
+      "type": "choice",
+      "prompt": "Tla kopalnice merijo 3 m × 2 m. Koliko m² ploščic potrebujemo?",
+      "answers": [
+        "5 m²",
+        "6 m²",
+        "10 m²"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "p = 3 · 2 = 6 m².",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_05_t7",
+      "type": "choice",
+      "prompt": "Okrog slike 30 cm × 20 cm nalepimo trak. Koliko cm traku potrebujemo?",
+      "answers": [
+        "50 cm",
+        "100 cm",
+        "600 cm"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "o = 2 · 30 + 2 · 20 = 100 cm.",
+      "difficulty": 2
+    }
+  ]
+}

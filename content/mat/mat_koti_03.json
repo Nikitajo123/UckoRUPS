@@ -1,0 +1,155 @@
+{
+  "id": "mat_koti_03",
+  "subjectId": "mat",
+  "chapterId": "mat_koti",
+  "order": 3,
+  "title": "Merjenje kotov",
+  "boss": false,
+  "explanation": {
+    "title": "Merjenje s kotomerom",
+    "steps": [
+      "Kote merimo s kotomerom. Središče kotomera položimo na vrh kota, ničlo pa na en krak.",
+      "Kote merimo v stopinjah (°). Pravi kot meri 90°, iztegnjeni kot 180°.",
+      "Polni kot meri 360°, to je cel krog."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "mat_koti_03_t1",
+      "type": "choice",
+      "prompt": "S čim merimo kote?",
+      "answers": [
+        "z ravnilom",
+        "s kotomerom",
+        "s šestilom"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Kotomer ima oznake od 0° do 180°.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_03_t2",
+      "type": "choice",
+      "prompt": "Koliko meri polni kot?",
+      "answers": [
+        "180°",
+        "270°",
+        "360°"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Polni kot je cel krog: 360°.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_03_t3",
+      "type": "choice",
+      "prompt": "Kam postavimo središče kotomera?",
+      "answers": [
+        "na vrh kota",
+        "na konec kraka",
+        "kamorkoli"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Središče kotomera mora biti na vrhu kota.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_03_t4",
+      "type": "match",
+      "prompt": "Poveži kot z njegovo velikostjo.",
+      "pairs": [
+        {
+          "left": "pravi kot",
+          "right": "90°"
+        },
+        {
+          "left": "iztegnjeni kot",
+          "right": "180°"
+        },
+        {
+          "left": "polni kot",
+          "right": "360°"
+        },
+        {
+          "left": "pol pravega kota",
+          "right": "45°"
+        }
+      ],
+      "explanation": "Pravi kot je 90°, iztegnjeni dva prava, polni štirje pravi.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_03_t5",
+      "type": "choice",
+      "prompt": "Kolikšen del polnega kota je pravi kot?",
+      "answers": [
+        "polovica",
+        "tretjina",
+        "četrtina"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "360° : 90° = 4, zato je pravi kot četrtina polnega kota.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_03_t6",
+      "type": "drag",
+      "prompt": "Razvrsti kote.",
+      "categories": [
+        "Manj kot 90°",
+        "Več kot 90°"
+      ],
+      "items": [
+        {
+          "text": "30°",
+          "category": "Manj kot 90°"
+        },
+        {
+          "text": "100°",
+          "category": "Več kot 90°"
+        },
+        {
+          "text": "75°",
+          "category": "Manj kot 90°"
+        },
+        {
+          "text": "150°",
+          "category": "Več kot 90°"
+        },
+        {
+          "text": "45°",
+          "category": "Manj kot 90°"
+        },
+        {
+          "text": "95°",
+          "category": "Več kot 90°"
+        }
+      ],
+      "explanation": "Primerjaj s pravim kotom (90°).",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_koti_03_t7",
+      "type": "choice",
+      "prompt": "Koliko pravih kotov je v polnem kotu?",
+      "answers": [
+        "2",
+        "3",
+        "4"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "4 · 90° = 360°.",
+      "difficulty": 2
+    }
+  ]
+}

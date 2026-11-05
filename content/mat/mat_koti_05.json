@@ -1,0 +1,133 @@
+{
+  "id": "mat_koti_05",
+  "subjectId": "mat",
+  "chapterId": "mat_koti",
+  "order": 5,
+  "title": "Koti na uri in kompasu",
+  "boss": false,
+  "explanation": {
+    "title": "Koti okrog nas",
+    "steps": [
+      "Urni kazalec se v 12 urah zavrti za 360°, zato je med sosednjima številkama na uri 30°.",
+      "Ob 3.00 kazalca oklepata 90°, ob 6.00 pa 180°.",
+      "Na kompasu je med severom in vzhodom pravi kot (90°), med severom in jugom pa iztegnjeni kot (180°)."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "mat_koti_05_t1",
+      "type": "choice",
+      "prompt": "Koliko stopinj je med dvema sosednjima številkama na uri?",
+      "answers": [
+        "15°",
+        "30°",
+        "60°"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "360° : 12 = 30°.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_05_t2",
+      "type": "choice",
+      "prompt": "Kakšen kot oklepata kazalca ob 9.00?",
+      "answers": [
+        "pravi",
+        "topi",
+        "iztegnjeni"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Ob 9.00 je med kazalcema 90°.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_05_t3",
+      "type": "match",
+      "prompt": "Poveži uro s kotom med kazalcema.",
+      "pairs": [
+        {
+          "left": "3.00",
+          "right": "90°"
+        },
+        {
+          "left": "6.00",
+          "right": "180°"
+        },
+        {
+          "left": "2.00",
+          "right": "60°"
+        },
+        {
+          "left": "1.00",
+          "right": "30°"
+        }
+      ],
+      "explanation": "Vsaka številka na uri je 30°.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_05_t4",
+      "type": "choice",
+      "prompt": "Obrneš se s severa proti vzhodu. Za koliko stopinj se obrneš?",
+      "answers": [
+        "45°",
+        "90°",
+        "180°"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Med severom in vzhodom je pravi kot.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_05_t5",
+      "type": "choice",
+      "prompt": "Med katerima smerema je iztegnjeni kot?",
+      "answers": [
+        "sever in vzhod",
+        "sever in jug",
+        "vzhod in jug"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Sever in jug sta nasprotni smeri: 180°.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_05_t6",
+      "type": "choice",
+      "prompt": "Kakšen kot oklepata kazalca ob 4.00?",
+      "answers": [
+        "ostri",
+        "pravi",
+        "topi"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "4 · 30° = 120°, to je topi kot.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_koti_05_t7",
+      "type": "choice",
+      "prompt": "Za koliko stopinj se zavrti minutni kazalec v pol ure?",
+      "answers": [
+        "90°",
+        "180°",
+        "360°"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "V eni uri se zavrti za 360°, v pol ure za 180°.",
+      "difficulty": 2
+    }
+  ]
+}

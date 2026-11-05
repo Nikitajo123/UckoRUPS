@@ -226,7 +226,7 @@ private fun EmptyLesson(onClose: () -> Unit, onSkip: () -> Unit) {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun LessonScreenPreview() {
-    val lesson = SampleContent.lessons.first { it.id == "mat_ulomki_01" }
+    val lesson = SampleContent.lessons.first { it.id == "mat_deljivost_01" }
     var state by remember { mutableStateOf(LessonEngine.start(lesson, now = 0L)) }
     UckoQuizTheme {
         LessonScreen(
@@ -245,7 +245,7 @@ private fun LessonScreenPreview() {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun BossLessonPreview() {
-    val lesson = SampleContent.lessons.first { it.id == "mat_decimalna_boss" }
+    val lesson = SampleContent.lessons.first { it.id == "mat_obseg_boss" }
     var state by remember { mutableStateOf(LessonEngine.start(lesson, now = 0L)) }
     UckoQuizTheme {
         LessonScreen(

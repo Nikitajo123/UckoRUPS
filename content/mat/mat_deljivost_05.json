@@ -1,0 +1,155 @@
+{
+  "id": "mat_deljivost_05",
+  "subjectId": "mat",
+  "chapterId": "mat_deljivost",
+  "order": 5,
+  "title": "Skupni delitelji in večkratniki",
+  "boss": false,
+  "explanation": {
+    "title": "Skupni delitelji in večkratniki",
+    "steps": [
+      "Skupni delitelji števil 12 in 18 so 1, 2, 3 in 6. Največji skupni delitelj je D(12, 18) = 6.",
+      "Skupni večkratniki števil 4 in 6 so 12, 24, 36 ... Najmanjši skupni večkratnik je v(4, 6) = 12.",
+      "Primer: avtobusa odpeljeta vsakih 4 in vsakih 6 minut. Spet skupaj odpeljeta čez 12 minut."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "mat_deljivost_05_t1",
+      "type": "choice",
+      "prompt": "Kateri je največji skupni delitelj števil 8 in 12?",
+      "answers": [
+        "2",
+        "4",
+        "24"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Delitelji 8: 1, 2, 4, 8. Delitelji 12: 1, 2, 3, 4, 6, 12. Največji skupni je 4.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_deljivost_05_t2",
+      "type": "choice",
+      "prompt": "Kateri je najmanjši skupni večkratnik števil 3 in 4?",
+      "answers": [
+        "7",
+        "12",
+        "24"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Večkratniki 3: 3, 6, 9, 12 ... Večkratniki 4: 4, 8, 12 ... Prvi skupni je 12.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_deljivost_05_t3",
+      "type": "match",
+      "prompt": "Poveži par z njegovim največjim skupnim deliteljem.",
+      "pairs": [
+        {
+          "left": "D(6, 9)",
+          "right": "3"
+        },
+        {
+          "left": "D(10, 15)",
+          "right": "5"
+        },
+        {
+          "left": "D(8, 16)",
+          "right": "8"
+        },
+        {
+          "left": "D(7, 14)",
+          "right": "7"
+        }
+      ],
+      "explanation": "Poišči največje število, ki deli obe števili.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_deljivost_05_t4",
+      "type": "choice",
+      "prompt": "Avtobus odpelje vsakih 6 minut, tramvaj vsakih 8 minut. Ob 8.00 odpeljeta skupaj. Čez koliko minut spet odpeljeta hkrati?",
+      "answers": [
+        "14",
+        "24",
+        "48"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "v(6, 8) = 24.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_deljivost_05_t5",
+      "type": "drag",
+      "prompt": "Ali je število skupni delitelj števil 12 in 18?",
+      "categories": [
+        "Skupni delitelj",
+        "Ni skupni delitelj"
+      ],
+      "items": [
+        {
+          "text": "2",
+          "category": "Skupni delitelj"
+        },
+        {
+          "text": "3",
+          "category": "Skupni delitelj"
+        },
+        {
+          "text": "6",
+          "category": "Skupni delitelj"
+        },
+        {
+          "text": "4",
+          "category": "Ni skupni delitelj"
+        },
+        {
+          "text": "9",
+          "category": "Ni skupni delitelj"
+        },
+        {
+          "text": "1",
+          "category": "Skupni delitelj"
+        }
+      ],
+      "explanation": "4 ne deli 18, 9 pa ne deli 12.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_deljivost_05_t6",
+      "type": "choice",
+      "prompt": "Maja ima 12 rdečih in 18 modrih kroglic. Naredi čim več enakih zapestnic, da ne ostane nobena kroglica. Koliko zapestnic naredi?",
+      "answers": [
+        "3",
+        "6",
+        "9"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "D(12, 18) = 6. Vsaka zapestnica ima 2 rdeči in 3 modre kroglice.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_deljivost_05_t7",
+      "type": "choice",
+      "prompt": "Kateri je najmanjši skupni večkratnik števil 5 in 10?",
+      "answers": [
+        "5",
+        "10",
+        "50"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "10 je večkratnik števila 5 in števila 10.",
+      "difficulty": 1
+    }
+  ]
+}

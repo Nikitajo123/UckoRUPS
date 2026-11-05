@@ -1,6 +1,4 @@
 [
-  { "id": "mat_ulomki", "subjectId": "mat", "order": 1, "title": "Ulomki" },
-  { "id": "mat_decimalna", "subjectId": "mat", "order": 2, "title": "Decimalna števila" },
   { "id": "mat_deljivost", "subjectId": "mat", "order": 3, "title": "Deljivost" },
   { "id": "mat_koti", "subjectId": "mat", "order": 4, "title": "Koti" },
   { "id": "mat_obseg", "subjectId": "mat", "order": 5, "title": "Obseg in ploščina" },
