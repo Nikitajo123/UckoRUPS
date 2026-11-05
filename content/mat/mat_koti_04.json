@@ -1,0 +1,133 @@
+{
+  "id": "mat_koti_04",
+  "subjectId": "mat",
+  "chapterId": "mat_koti",
+  "order": 4,
+  "title": "Računanje s koti",
+  "boss": false,
+  "explanation": {
+    "title": "Seštevamo in odštevamo kote",
+    "steps": [
+      "Kote lahko seštevamo: 35° + 55° = 90°.",
+      "Kote lahko odštevamo: 180° − 120° = 60°.",
+      "Kot lahko razpolovimo: polovica kota 80° je 40°."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "mat_koti_04_t1",
+      "type": "choice",
+      "prompt": "35° + 45° = ?",
+      "answers": [
+        "70°",
+        "80°",
+        "90°"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "35 + 45 = 80.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_04_t2",
+      "type": "choice",
+      "prompt": "180° − 135° = ?",
+      "answers": [
+        "35°",
+        "45°",
+        "55°"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "180 − 135 = 45.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_04_t3",
+      "type": "choice",
+      "prompt": "Koliko meri polovica kota 120°?",
+      "answers": [
+        "40°",
+        "60°",
+        "240°"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "120° : 2 = 60°.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_04_t4",
+      "type": "match",
+      "prompt": "Poveži račun in rezultat.",
+      "pairs": [
+        {
+          "left": "30° + 60°",
+          "right": "90°"
+        },
+        {
+          "left": "90° + 90°",
+          "right": "180°"
+        },
+        {
+          "left": "100° − 40°",
+          "right": "60°"
+        },
+        {
+          "left": "2 · 75°",
+          "right": "150°"
+        }
+      ],
+      "explanation": "Računamo kot z navadnimi števili, dodamo znak °.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_04_t5",
+      "type": "choice",
+      "prompt": "Kot α meri 25°. Koliko meri kot, ki je trikrat večji?",
+      "answers": [
+        "28°",
+        "75°",
+        "50°"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "3 · 25° = 75°.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_koti_04_t6",
+      "type": "choice",
+      "prompt": "Iztegnjeni kot razdelimo na dva dela. En del meri 110°. Koliko meri drugi del?",
+      "answers": [
+        "70°",
+        "80°",
+        "250°"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "180° − 110° = 70°.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_koti_04_t7",
+      "type": "choice",
+      "prompt": "Seštejemo kota 60° in 50°. Kakšen kot dobimo?",
+      "answers": [
+        "ostri",
+        "pravi",
+        "topi"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "60° + 50° = 110°, kar je topi kot.",
+      "difficulty": 2
+    }
+  ]
+}

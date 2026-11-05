@@ -1,0 +1,155 @@
+{
+  "id": "mat_obseg_03",
+  "subjectId": "mat",
+  "chapterId": "mat_obseg",
+  "order": 3,
+  "title": "Enote za ploščino",
+  "boss": false,
+  "explanation": {
+    "title": "Merske enote za ploščino",
+    "steps": [
+      "1 cm² je ploščina kvadrata s stranico 1 cm, 1 m² pa kvadrata s stranico 1 m.",
+      "1 dm² = 100 cm² in 1 m² = 100 dm².",
+      "Za velike površine: 1 a (ar) = 100 m² in 1 ha (hektar) = 100 a."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "mat_obseg_03_t1",
+      "type": "choice",
+      "prompt": "Koliko cm² je 1 dm²?",
+      "answers": [
+        "10 cm²",
+        "100 cm²",
+        "1000 cm²"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "1 dm = 10 cm, zato je 1 dm² = 10 · 10 = 100 cm².",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_03_t2",
+      "type": "choice",
+      "prompt": "Koliko dm² je 1 m²?",
+      "answers": [
+        "10 dm²",
+        "100 dm²",
+        "1000 dm²"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "1 m = 10 dm, zato je 1 m² = 100 dm².",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_03_t3",
+      "type": "match",
+      "prompt": "Poveži enako veliki ploščini.",
+      "pairs": [
+        {
+          "left": "1 m²",
+          "right": "100 dm²"
+        },
+        {
+          "left": "1 a",
+          "right": "100 m²"
+        },
+        {
+          "left": "1 ha",
+          "right": "100 a"
+        },
+        {
+          "left": "3 dm²",
+          "right": "300 cm²"
+        }
+      ],
+      "explanation": "Pri ploščini je med sosednjima enotama faktor 100.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_03_t4",
+      "type": "choice",
+      "prompt": "S katero enoto bi izmeril ploščino učilnice?",
+      "answers": [
+        "cm²",
+        "m²",
+        "ha"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Učilnica meri nekaj deset m².",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_03_t5",
+      "type": "drag",
+      "prompt": "V kateri enoti bi merili ploščino?",
+      "categories": [
+        "cm²",
+        "m²"
+      ],
+      "items": [
+        {
+          "text": "znamka",
+          "category": "cm²"
+        },
+        {
+          "text": "soba",
+          "category": "m²"
+        },
+        {
+          "text": "zvezek",
+          "category": "cm²"
+        },
+        {
+          "text": "vrt",
+          "category": "m²"
+        },
+        {
+          "text": "radirka",
+          "category": "cm²"
+        },
+        {
+          "text": "šola",
+          "category": "m²"
+        }
+      ],
+      "explanation": "Majhne stvari merimo v cm², prostore in zemljišča v m².",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_obseg_03_t6",
+      "type": "choice",
+      "prompt": "Koliko m² je 2 a?",
+      "answers": [
+        "20 m²",
+        "200 m²",
+        "2000 m²"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "1 a = 100 m², zato 2 a = 200 m².",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_obseg_03_t7",
+      "type": "choice",
+      "prompt": "Koliko cm² je 5 dm²?",
+      "answers": [
+        "50 cm²",
+        "500 cm²",
+        "5000 cm²"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "5 · 100 cm² = 500 cm².",
+      "difficulty": 2
+    }
+  ]
+}

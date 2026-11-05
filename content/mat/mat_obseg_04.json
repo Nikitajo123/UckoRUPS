@@ -1,0 +1,133 @@
+{
+  "id": "mat_obseg_04",
+  "subjectId": "mat",
+  "chapterId": "mat_obseg",
+  "order": 4,
+  "title": "Sestavljeni liki",
+  "boss": false,
+  "explanation": {
+    "title": "Lik razdelimo na pravokotnike",
+    "steps": [
+      "Lik, ki ni pravokotnik, lahko razdelimo na več pravokotnikov.",
+      "Ploščine delov seštejemo: p = p₁ + p₂.",
+      "Pri obsegu seštejemo samo stranice, ki so na robu lika."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "mat_obseg_04_t1",
+      "type": "choice",
+      "prompt": "Lik sestavljata pravokotnik 4 cm × 3 cm in kvadrat 2 cm × 2 cm. Koliko meri ploščina lika?",
+      "answers": [
+        "16 cm²",
+        "14 cm²",
+        "24 cm²"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "12 cm² + 4 cm² = 16 cm².",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_04_t2",
+      "type": "choice",
+      "prompt": "Iz kvadrata s stranico 6 cm izrežemo kvadrat s stranico 2 cm. Koliko meri ploščina ostanka?",
+      "answers": [
+        "32 cm²",
+        "34 cm²",
+        "24 cm²"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "36 cm² − 4 cm² = 32 cm².",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_obseg_04_t3",
+      "type": "choice",
+      "prompt": "Dva kvadrata s stranico 3 cm postavimo enega ob drugega. Koliko meri ploščina novega pravokotnika?",
+      "answers": [
+        "9 cm²",
+        "18 cm²",
+        "12 cm²"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "2 · 9 cm² = 18 cm².",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_04_t4",
+      "type": "choice",
+      "prompt": "Dva kvadrata s stranico 3 cm postavimo skupaj v pravokotnik 6 cm × 3 cm. Koliko meri njegov obseg?",
+      "answers": [
+        "18 cm",
+        "24 cm",
+        "12 cm"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "2 · 6 + 2 · 3 = 18 cm. Stranici, ki se dotikata, nista več na robu.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_obseg_04_t5",
+      "type": "match",
+      "prompt": "Poveži lik z njegovo ploščino.",
+      "pairs": [
+        {
+          "left": "pravokotnik 5 cm × 2 cm",
+          "right": "10 cm²"
+        },
+        {
+          "left": "dva pravokotnika 3 cm × 2 cm",
+          "right": "12 cm²"
+        },
+        {
+          "left": "kvadrata s stranicama 4 cm in 1 cm",
+          "right": "17 cm²"
+        },
+        {
+          "left": "pravokotnik 7 cm × 3 cm",
+          "right": "21 cm²"
+        }
+      ],
+      "explanation": "Pri sestavljenem liku seštejemo ploščine delov.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_04_t6",
+      "type": "choice",
+      "prompt": "Soba ima obliko črke L: del 5 m × 4 m in del 3 m × 2 m. Koliko m² preproge pokrije vso sobo?",
+      "answers": [
+        "26 m²",
+        "24 m²",
+        "30 m²"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "20 m² + 6 m² = 26 m².",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_obseg_04_t7",
+      "type": "choice",
+      "prompt": "Kako izračunamo ploščino sestavljenega lika?",
+      "answers": [
+        "seštejemo ploščine delov",
+        "pomnožimo vse stranice",
+        "seštejemo vse stranice"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Lik razdelimo na pravokotnike in seštejemo njihove ploščine.",
+      "difficulty": 1
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import si.uckoquiz.app.ui.sample.SampleContent
 
 /** Boss level matematike iz vzorčne vsebine: 3 srčki, brez razlage, brez namigov, brez ponovitev. */
 class BossLevelTest {
-    private val boss = SampleContent.lessons.first { it.id == "mat_decimalna_boss" }
+    private val boss = SampleContent.lessons.first { it.id == "mat_obseg_boss" }
 
     @Test
     fun bossLessonHasTasksAndIsMarked() {
@@ -25,7 +25,9 @@ class BossLevelTest {
     @Test
     fun wrongAnswerInBossGivesNoHintAndNoRetry() {
         val start = LessonEngine.start(boss, now = 0)
-        val wrong = LessonEngine.check(LessonEngine.answer(start, TaskAnswer.Choice(setOf(1))))
+        val first = (start.page as LessonPage.TaskPage).task
+        val wrongIndex = first.answers.indices.first { it !in first.correct }
+        val wrong = LessonEngine.check(LessonEngine.answer(start, TaskAnswer.Choice(setOf(wrongIndex))))
         assertEquals("", wrong.feedback!!.text)
         assertEquals(start.pages.size, wrong.pages.size)
         assertEquals(BOSS_HEARTS - 1, wrong.hearts)

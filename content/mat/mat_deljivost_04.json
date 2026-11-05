@@ -1,0 +1,154 @@
+{
+  "id": "mat_deljivost_04",
+  "subjectId": "mat",
+  "chapterId": "mat_deljivost",
+  "order": 4,
+  "title": "Praštevila",
+  "boss": false,
+  "explanation": {
+    "title": "Praštevila in sestavljena števila",
+    "steps": [
+      "Praštevilo ima natanko dva delitelja: 1 in samo sebe. Primeri: 2, 3, 5, 7, 11.",
+      "Sestavljeno število ima več kot dva delitelja, npr. 6 (delitelji 1, 2, 3, 6).",
+      "Število 1 ni ne praštevilo ne sestavljeno število. 2 je edino sodo praštevilo."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "mat_deljivost_04_t1",
+      "type": "choice",
+      "prompt": "Katero število je praštevilo?",
+      "answers": [
+        "9",
+        "13",
+        "15"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "13 ima samo delitelja 1 in 13.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_deljivost_04_t2",
+      "type": "choice",
+      "prompt": "Koliko deliteljev ima praštevilo?",
+      "answers": [
+        "enega",
+        "natanko dva",
+        "več kot dva"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Praštevilo je deljivo samo z 1 in s samim seboj.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_deljivost_04_t3",
+      "type": "drag",
+      "prompt": "Razvrsti števila.",
+      "categories": [
+        "Praštevilo",
+        "Sestavljeno število"
+      ],
+      "items": [
+        {
+          "text": "7",
+          "category": "Praštevilo"
+        },
+        {
+          "text": "12",
+          "category": "Sestavljeno število"
+        },
+        {
+          "text": "17",
+          "category": "Praštevilo"
+        },
+        {
+          "text": "21",
+          "category": "Sestavljeno število"
+        },
+        {
+          "text": "2",
+          "category": "Praštevilo"
+        },
+        {
+          "text": "25",
+          "category": "Sestavljeno število"
+        }
+      ],
+      "explanation": "21 = 3 · 7 in 25 = 5 · 5 sta sestavljeni števili.",
+      "difficulty": 2
+    },
+    {
+      "id": "mat_deljivost_04_t4",
+      "type": "choice",
+      "prompt": "Katero je edino sodo praštevilo?",
+      "answers": [
+        "2",
+        "4",
+        "10"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Vsa druga soda števila so deljiva z 2, zato imajo več kot dva delitelja.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_deljivost_04_t5",
+      "type": "match",
+      "prompt": "Poveži število z vsemi njegovimi delitelji.",
+      "pairs": [
+        {
+          "left": "11",
+          "right": "1, 11"
+        },
+        {
+          "left": "15",
+          "right": "1, 3, 5, 15"
+        },
+        {
+          "left": "4",
+          "right": "1, 2, 4"
+        },
+        {
+          "left": "19",
+          "right": "1, 19"
+        }
+      ],
+      "explanation": "11 in 19 sta praštevili, 15 in 4 pa sestavljeni števili.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_deljivost_04_t6",
+      "type": "choice",
+      "prompt": "Ali je 1 praštevilo?",
+      "answers": [
+        "Da",
+        "Ne"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Število 1 ima samo en delitelj, zato ni praštevilo.",
+      "difficulty": 1
+    },
+    {
+      "id": "mat_deljivost_04_t7",
+      "type": "choice",
+      "prompt": "Katero število NI praštevilo?",
+      "answers": [
+        "23",
+        "29",
+        "27"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "27 = 3 · 9, zato je sestavljeno število.",
+      "difficulty": 2
+    }
+  ]
+}
