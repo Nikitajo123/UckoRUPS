@@ -14,7 +14,7 @@ class ContentValidationTest {
 
     private val knownGames = setOf(
         "sentence_builder", "wordle_en", "plava_potone", "laboratorij", "decimalke_2048", "ulomki_kocke",
-        "hitro_razvrsti", "spomin",
+        "hitro_razvrsti", "spomin", "boss_fight",
     )
     private val taskTypes = setOf("choice", "match", "drag", "listen", "game")
 
@@ -186,6 +186,27 @@ class ContentValidationTest {
                         val sentences = t.array("answers").strings()
                         if (sentences.isEmpty()) err("needs answers (the sentences)")
                         cfg["hints"]?.let { if (parts(it) != sentences.size) err("config.hints needs one part per sentence") }
+                    }
+                    "boss_fight" -> {
+                        val questions = cfg["questions"]?.split("|")
+                        val options = cfg["options"]?.split("|")
+                        val correct = cfg["correct"]?.split("|")
+                        if (questions == null || options == null || correct == null) {
+                            err("needs config.questions, config.options and config.correct")
+                        } else {
+                            if (options.size != questions.size || correct.size != questions.size) {
+                                err("config.questions, options and correct need the same number of parts")
+                            }
+                            questions.indices.forEach { i ->
+                                val opts = options.getOrNull(i)?.split(";")?.map { it.trim() }.orEmpty()
+                                val c = correct.getOrNull(i)?.trim()?.toIntOrNull()
+                                if (opts.size < 2) err("question ${i + 1} needs at least 2 options")
+                                if (opts.toSet().size != opts.size) err("question ${i + 1} has duplicate options")
+                                if (c == null || c !in opts.indices) err("question ${i + 1}: correct index is missing or outside the options")
+                            }
+                            cfg["why"]?.let { if (parts(it) != questions.size) err("config.why needs one part per question") }
+                        }
+                        cfg["seconds"]?.let { if (it.toIntOrNull() == null) err("config.seconds must be a whole number") }
                     }
                     "hitro_razvrsti" -> {
                         val cats = t.array("categories").strings()
