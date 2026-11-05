@@ -50,7 +50,7 @@ private val CardGrey = Color(0xFFF2F2F2)
 
 /** Zgornja vrstica lekcije: X za izhod, vrstica napredka v barvi predmeta, srčki. */
 @Composable
-fun LessonTopBar(progress: Float, hearts: Int, color: Color, onClose: () -> Unit) {
+fun LessonTopBar(progress: Float, hearts: Int, color: Color, onClose: () -> Unit, showHearts: Boolean = true) {
     Row(
         Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -72,14 +72,17 @@ fun LessonTopBar(progress: Float, hearts: Int, color: Color, onClose: () -> Unit
             color = color,
             trackColor = TrackGrey,
         )
-        Spacer(Modifier.width(12.dp))
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.semantics(mergeDescendants = true) { contentDescription = "Srčki: $hearts" },
-        ) {
-            UckoIcon(UckoIconType.HEART, Modifier.size(22.dp), color = UckoRed)
-            Spacer(Modifier.width(4.dp))
-            Text("$hearts", color = UckoRed, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+        // Boss level skrije srčke lekcije: igra ima svoja življenja.
+        if (showHearts) {
+            Spacer(Modifier.width(12.dp))
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.semantics(mergeDescendants = true) { contentDescription = "Srčki: $hearts" },
+            ) {
+                UckoIcon(UckoIconType.HEART, Modifier.size(22.dp), color = UckoRed)
+                Spacer(Modifier.width(4.dp))
+                Text("$hearts", color = UckoRed, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+            }
         }
     }
 }

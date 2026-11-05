@@ -12,181 +12,19 @@
   "tasks": [
     {
       "id": "ang_home_boss_t1",
-      "type": "choice",
-      "prompt": "We ___ friends.",
-      "answers": [
-        "are",
-        "is",
-        "am"
-      ],
-      "correct": [
-        0
-      ],
-      "explanation": "Pri we uporabimo are.",
-      "difficulty": 1
-    },
-    {
-      "id": "ang_home_boss_t2",
-      "type": "match",
-      "prompt": "Poveži angleško in slovensko besedo.",
-      "pairs": [
-        {
-          "left": "bread",
-          "right": "kruh"
-        },
-        {
-          "left": "bathroom",
-          "right": "kopalnica"
-        },
-        {
-          "left": "rabbit",
-          "right": "zajec"
-        },
-        {
-          "left": "juice",
-          "right": "sok"
-        }
-      ],
-      "explanation": "Besede iz hrane, doma in živali.",
-      "difficulty": 1
-    },
-    {
-      "id": "ang_home_boss_t3",
-      "type": "choice",
-      "prompt": "My brother ___ got a bike.",
-      "answers": [
-        "has",
-        "have",
-        "is"
-      ],
-      "correct": [
-        0
-      ],
-      "explanation": "My brother je on, zato has got.",
-      "difficulty": 2
-    },
-    {
-      "id": "ang_home_boss_t4",
-      "type": "listen",
-      "prompt": "Poslušaj in izberi, kar slišiš.",
-      "answers": [
-        "The dog is under the table.",
-        "The dog is on the table.",
-        "The dogs are under the table."
-      ],
-      "correct": [
-        0
-      ],
-      "explanation": "Under the table pomeni pod mizo.",
-      "difficulty": 2,
-      "audioText": "The dog is under the table."
-    },
-    {
-      "id": "ang_home_boss_t5",
-      "type": "drag",
-      "prompt": "There is ali there are?",
-      "categories": [
-        "There is",
-        "There are"
-      ],
-      "items": [
-        {
-          "text": "a fridge",
-          "category": "There is"
-        },
-        {
-          "text": "an apple",
-          "category": "There is"
-        },
-        {
-          "text": "two mice",
-          "category": "There are"
-        },
-        {
-          "text": "three fish",
-          "category": "There are"
-        }
-      ],
-      "explanation": "Mice in fish sta tu množina, zato there are.",
-      "difficulty": 3
-    },
-    {
-      "id": "ang_home_boss_t6",
-      "type": "choice",
-      "prompt": "Kateri stavek je pravilen?",
-      "answers": [
-        "He can swim.",
-        "He can swims.",
-        "He cans swim.",
-        "He can to swim."
-      ],
-      "correct": [
-        0
-      ],
-      "explanation": "Za can pride glagol brez -s in brez to.",
-      "difficulty": 2
-    },
-    {
-      "id": "ang_home_boss_t7",
-      "type": "choice",
-      "prompt": "Ana ___ like milk.",
-      "answers": [
-        "doesn't",
-        "don't",
-        "isn't",
-        "not"
-      ],
-      "correct": [
-        0
-      ],
-      "explanation": "Pri she (Ana) je zanikanje doesn't.",
-      "difficulty": 2
-    },
-    {
-      "id": "ang_home_boss_t8",
-      "type": "choice",
-      "prompt": "One box, two …",
-      "answers": [
-        "boxes",
-        "boxs",
-        "boxies"
-      ],
-      "correct": [
-        0
-      ],
-      "explanation": "Besede na x dobijo -es: boxes.",
-      "difficulty": 2
-    },
-    {
-      "id": "ang_home_boss_t9",
-      "type": "choice",
-      "prompt": "Tom has a cat. ___ cat is black.",
-      "answers": [
-        "His",
-        "Her",
-        "Your",
-        "My"
-      ],
-      "correct": [
-        0
-      ],
-      "explanation": "Tom je on, zato his.",
-      "difficulty": 2
-    },
-    {
-      "id": "ang_home_boss_t10",
-      "type": "choice",
-      "prompt": "Prijatelj vpraša: »Is there a garden?« Vrt imate. Kaj odgovoriš?",
-      "answers": [
-        "Yes, there is.",
-        "Yes, there are.",
-        "Yes, it can.",
-        "Yes, I am."
-      ],
-      "correct": [
-        0
-      ],
-      "explanation": "Na Is there …? odgovorimo Yes, there is.",
+      "type": "game",
+      "game": "boss_fight",
+      "prompt": "Premagaj zmaja Slovničarja!",
+      "config": {
+        "bossName": "Zmaj Slovničar",
+        "bossIcon": "🐉",
+        "seconds": "20",
+        "questions": "My cat ___ fish.|Ana ne mara mleka. Ana ___ like milk.|One mouse, two ___.|There ___ three boxes under the bed.|Kateri stavek je pravilen?|Can your sister ride a horse? (Ne zna.)|Is there a fridge in the kitchen? (Je.)|Mačka je pod mizo. Kako to poveš?|Množina od »fox« je …|Kateri stavek je pravilen?|Tom ___ swim very well.|Kje je mleko? It's ___ the fridge.",
+        "options": "likes;like;is like;liking|doesn't;don't;isn't;not|mice;mouses;mousees;mouse|are;is;am|A fish can't walk.;A fish can't walks.;A fish don't can walk.|No, she can't.;No, she doesn't.;No, she isn't.;Yes, she can.|Yes, there is.;Yes, there are.;Yes, it can.;Yes, I am.|The cat is under the table.;The cat is on the table.;The cat is in the table.|foxes;foxs;foxies;fox|There are two rabbits in the garden.;There is two rabbits in the garden.;There are two rabbit in the garden.|can;cans;can to|in;on;under",
+        "correct": "0|0|0|0|0|0|0|0|0|0|0|0",
+        "why": "My cat je it, zato dodamo -s: likes.|Pri she (Ana) je zanikanje doesn't.|Mouse ima posebno množino: mice.|Boxes je množina, zato there are.|Za can pride glagol brez -s.|Kratek odgovor s can: No, she can't.|Na Is there …? odgovorimo Yes, there is.|Pod je under.|Besede na x dobijo -es: foxes.|Rabbits je množina, zato there are in rabbits z -s.|Can je pri vseh osebah enak, brez -s in brez to.|Mleko je znotraj hladilnika, zato in."
+      },
+      "explanation": "Boss level iz poglavja Food, Animals & Home.",
       "difficulty": 3
     }
   ]

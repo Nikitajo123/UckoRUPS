@@ -123,7 +123,13 @@ fun LessonScreen(
     // Boss level (UQ-39): temno ozadje in oznaka BOSS; pravila (3 srčki, brez namigov) so v LessonEngine.
     BossTheme(enabled = lesson.boss) {
         Column(Modifier.fillMaxSize().safeDrawingPadding()) {
-            LessonTopBar(progress = state.progress, hearts = state.hearts, color = color, onClose = onClose)
+            LessonTopBar(
+                progress = state.progress,
+                hearts = state.hearts,
+                color = color,
+                onClose = onClose,
+                showHearts = !lesson.boss,
+            )
             if (lesson.boss) {
                 Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) { BossBadge() }
             }
