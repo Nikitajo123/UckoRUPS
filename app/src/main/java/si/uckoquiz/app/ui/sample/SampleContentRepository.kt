@@ -209,11 +209,6 @@ object SampleContent {
             "lovec_na_kote", "Lovec na kote")
         addChapter("mat", "mat_obseg", listOf("Obseg", "Ploščina", "Enote za ploščino", "Sestavljeni liki", "Obseg in ploščina okrog nas"),
             "vrtnar", "Vrtnar", boss = "Geometrijski grad")
-        addChapter("ang", "ang_family", listOf("Pozdravi", "to be", "Družina", "my / your / his / her"),
-        addChapter("mat", "mat_ulomki", listOf("Del celote", "Ulomki s kockami", "Primerjanje", "Enakovredni ulomki"),
-            "ulomki_kocke", "Ulomki s kockami")
-        addChapter("mat", "mat_decimalna", listOf("Zapis", "Primerjanje", "Seštevanje in odštevanje"),
-            "decimalke_2048", "2048 z decimalkami", boss = "2048 – ulomki")
         addChapter("ang", "ang_family", listOf("Pozdravi", "to be", "Družina", "my / your / his / her", "Have got"),
             "sentence_builder", "Sentence Builder")
         addChapter("ang", "ang_school", listOf("Šolske potrebščine", "Ura in dnevi", "Present simple", "Moj dan", "Šolski predmeti"),
