@@ -1,0 +1,25 @@
+{
+  "id": "mat_koti_igra",
+  "subjectId": "mat",
+  "chapterId": "mat_koti",
+  "order": 6,
+  "title": "Lovilec kotov",
+  "boss": false,
+  "explanation": {
+    "title": "",
+    "steps": []
+  },
+  "tasks": [
+    {
+      "id": "mat_koti_igra_t1",
+      "type": "game",
+      "game": "koti_vrste",
+      "prompt": "Kakšen je ta kot?",
+      "config": {
+        "angles": "35|90|120|180|60|150|20|105|90|170"
+      },
+      "explanation": "Ostri je manjši od 90°, pravi meri 90°, topi je med 90° in 180°, iztegnjeni meri 180°.",
+      "difficulty": 2
+    }
+  ]
+}

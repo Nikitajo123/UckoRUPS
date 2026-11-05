@@ -1,0 +1,31 @@
+{
+  "id": "mat_obseg_boss",
+  "subjectId": "mat",
+  "chapterId": "mat_obseg",
+  "order": 7,
+  "title": "Veliki merilni izziv",
+  "boss": true,
+  "explanation": {
+    "title": "",
+    "steps": []
+  },
+  "tasks": [
+    {
+      "id": "mat_obseg_boss_t1",
+      "type": "game",
+      "game": "boss_fight",
+      "prompt": "Premagaj Robota Merilca!",
+      "config": {
+        "bossName": "Robot Merilec",
+        "bossIcon": "🤖",
+        "seconds": "30",
+        "questions": "Kvadrat ima obseg 36 cm. Koliko meri njegova ploščina?|Pravokotnik ima ploščino 48 cm². Ena stranica meri 8 cm. Koliko meri obseg?|Koliko cm² je 3 dm²?|Koliko dm² je 400 cm²?|Pravokotnik meri 2 m in 5 dm. Koliko meri obseg v dm?|Iz kvadrata s stranico 8 cm izrežemo pravokotnik 3 cm × 2 cm. Koliko meri ploščina ostanka?|Soba ima obliko črke L: del 6 m × 4 m in del 2 m × 3 m. Koliko meri ploščina sobe?|Vrt meri 12 m × 8 m. Vrata v ograji so široka 2 m. Koliko metrov ograje potrebujemo?|Stena meri 5 m × 3 m. Na njej je okno 1 m × 1 m. Koliko m² stene pobarvamo?|Dva kvadrata s stranico 4 cm postavimo skupaj v pravokotnik. Koliko meri njegov obseg?|Pravokotniku podvojimo obe stranici. Kolikokrat večja je ploščina?|Kvadrat ima enak obseg kot pravokotnik 8 cm × 2 cm. Koliko meri stranica kvadrata?",
+        "options": "81 cm²;36 cm²;9 cm²;144 cm²|28 cm;14 cm;56 cm;40 cm|300 cm²;30 cm²;3000 cm²|4 dm²;40 dm²;400 dm²|50 dm;14 dm;100 dm;7 dm|58 cm²;61 cm²;70 cm²;52 cm²|30 m²;15 m²;28 m²;20 m²|38 m;40 m;96 m;42 m|14 m²;15 m²;16 m²;13 m²|24 cm;32 cm;16 cm;20 cm|4-krat;2-krat;8-krat|5 cm;4 cm;10 cm;16 cm",
+        "correct": "0|0|0|0|0|0|0|0|0|0|0|0",
+        "why": "36 : 4 = 9 cm, p = 9 · 9 = 81 cm².|48 : 8 = 6 cm, o = 2 · 8 + 2 · 6 = 28 cm.|1 dm² = 100 cm², zato 3 dm² = 300 cm².|100 cm² = 1 dm², zato 400 cm² = 4 dm².|2 m = 20 dm, o = 2 · 20 + 2 · 5 = 50 dm.|64 cm² − 6 cm² = 58 cm².|24 m² + 6 m² = 30 m².|o = 2 · 12 + 2 · 8 = 40 m, brez vrat 40 − 2 = 38 m.|15 m² − 1 m² = 14 m².|Nastane pravokotnik 8 cm × 4 cm: o = 2 · 8 + 2 · 4 = 24 cm.|Ploščina je 2 · 2 = 4-krat večja.|Obseg je 2 · 8 + 2 · 2 = 20 cm, 20 : 4 = 5 cm."
+      },
+      "explanation": "Boss level iz poglavja Obseg in ploščina.",
+      "difficulty": 3
+    }
+  ]
+}

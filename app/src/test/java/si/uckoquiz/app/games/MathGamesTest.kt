@@ -1,86 +1,69 @@
 package si.uckoquiz.app.games
 
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import kotlin.random.Random
 
 class MathGamesTest {
 
-    // ---- 2048 z decimalkami (tiles in eighths: 1 = 0,125 ... 8 = 1,0) ----
+    // ---- Deljivostni stroj ----
 
     @Test
-    fun slideMergesEqualTilesOnce() {
-        val (line, merged) = slideLine(listOf(2, 2, 2, 2))
-        assertEquals(listOf(4, 4, 0, 0), line)
-        assertEquals(listOf(4, 4), merged)
+    fun divisorsFollowTheRules() {
+        assertEquals(setOf(2, 3, 5, 10), divisorsOf(120))
+        assertEquals(setOf(3, 5, 9), divisorsOf(135))
+        assertEquals(setOf(2, 3, 5, 9, 10), divisorsOf(3600))
+        assertEquals(emptySet<Int>(), divisorsOf(457))
     }
 
     @Test
-    fun slideMovesTilesWithoutMerging() {
-        val (line, merged) = slideLine(listOf(0, 1, 0, 2))
-        assertEquals(listOf(1, 2, 0, 0), line)
-        assertTrue(merged.isEmpty())
+    fun bigNumbersAreWrittenWithSpaces() {
+        assertEquals("1 000 000", formatNumber(1_000_000))
+        assertEquals("4 518", formatNumber(4518))
+        assertEquals("74", formatNumber(74))
     }
 
     @Test
-    fun twoHalvesMakeAWhole() {
-        val board = listOf(
-            4, 4, 0, 0,
-            0, 0, 0, 0,
-            0, 0, 0, 0,
-            0, 0, 0, 0,
-        )
-        val move = moveBoard(board, Direction.Right)
-        assertEquals(WHOLE, move.board[3])
-        assertEquals(listOf(WHOLE), move.merged)
-        assertTrue(move.moved)
+    fun divisibilityNumbersOutsideRangeAreSkipped() {
+        assertEquals(listOf(5, 1_000_000), parseDivisibilityNumbers(mapOf("numbers" to "5|0|abc|1000000|1000001")))
+    }
+
+    // ---- Lovilec kotov ----
+
+    @Test
+    fun angleKinds() {
+        assertEquals(AngleKind.OSTRI, angleKind(89))
+        assertEquals(AngleKind.PRAVI, angleKind(90))
+        assertEquals(AngleKind.TOPI, angleKind(91))
+        assertEquals(AngleKind.TOPI, angleKind(179))
+        assertEquals(AngleKind.IZTEGNJENI, angleKind(180))
     }
 
     @Test
-    fun moveUpUsesColumns() {
-        val board = listOf(
-            0, 0, 0, 0,
-            1, 0, 0, 0,
-            0, 0, 0, 0,
-            1, 0, 0, 0,
-        )
-        assertEquals(2, moveBoard(board, Direction.Up).board[0])
+    fun anglesOutsideRangeAreSkipped() {
+        assertEquals(listOf(35, 180), parseAngles(mapOf("angles" to "35|0|181|180")))
+    }
+
+    // ---- Gradbenik ----
+
+    @Test
+    fun rectangleQuestionHasRightAnswerAndFourDifferentOptions() {
+        repeat(20) { seed ->
+            val perimeter = rectQuestion(5, 3, askArea = false, random = Random(seed))
+            assertEquals(16, perimeter.answer)
+            assertEquals(4, perimeter.options.toSet().size)
+            assertTrue(perimeter.answer in perimeter.options)
+            assertTrue(15 in perimeter.options) // the area is the typical mistake
+
+            val area = rectQuestion(5, 3, askArea = true, random = Random(seed))
+            assertEquals(15, area.answer)
+            assertEquals(4, area.options.toSet().size)
+        }
     }
 
     @Test
-    fun fullBoardWithoutPairsHasNoMoves() {
-        val board = listOf(
-            1, 2, 1, 2,
-            2, 1, 2, 1,
-            1, 2, 1, 2,
-            2, 1, 2, 1,
-        )
-        assertFalse(hasMoves(board))
-    }
-
-    @Test
-    fun tilesShowAsDecimals() {
-        assertEquals("0,125", eighths(1))
-        assertEquals("0,25", eighths(2))
-        assertEquals("0,5", eighths(4))
-        assertEquals("1,0", eighths(8))
-    }
-
-    // ---- Ulomki s kockami ----
-
-    @Test
-    fun parsesSeveralFractions() {
-        assertEquals(listOf(3 to 8, 2 to 4), parseFractions(mapOf("fractions" to "3/8| 2/4")))
-    }
-
-    @Test
-    fun parsesSingleFractionFromNumeratorAndDenominator() {
-        assertEquals(listOf(3 to 8), parseFractions(mapOf("numerator" to "3", "denominator" to "8")))
-    }
-
-    @Test
-    fun skipsBadFractions() {
-        assertEquals(listOf(1 to 2), parseFractions(mapOf("fractions" to "1/2|9/4|x/3|5/20")))
+    fun parsesRectangles() {
+        assertEquals(listOf(5 to 3, 10 to 1), parseRects(mapOf("rects" to "5x3|11x2|10×1|x")))
     }
 }

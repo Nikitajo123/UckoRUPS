@@ -1,0 +1,25 @@
+{
+  "id": "mat_obseg_igra",
+  "subjectId": "mat",
+  "chapterId": "mat_obseg",
+  "order": 6,
+  "title": "Gradbenik",
+  "boss": false,
+  "explanation": {
+    "title": "",
+    "steps": []
+  },
+  "tasks": [
+    {
+      "id": "mat_obseg_igra_t1",
+      "type": "game",
+      "game": "obseg_ploscina",
+      "prompt": "Izračunaj obseg ali ploščino.",
+      "config": {
+        "rects": "5x3|6x2|7x3|4x2|8x3|5x5|9x2|6x4|3x2|10x3"
+      },
+      "explanation": "Obseg: o = 2 · a + 2 · b. Ploščina: p = a · b.",
+      "difficulty": 2
+    }
+  ]
+}

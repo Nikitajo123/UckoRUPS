@@ -53,8 +53,9 @@ fun MiniGame(task: Task, onFinish: (GameResult) -> Unit) {
         "wordle_en" -> WordleGame(task, finishOnce)                   // UQ-50
         "plava_potone" -> FloatOrSinkGame(task, finishOnce)           // UQ-51
         "laboratorij" -> LabGame(task, finishOnce)                    // UQ-52
-        "decimalke_2048" -> Decimal2048Game(task, finishOnce)         // UQ-53
-        "ulomki_kocke" -> FractionCubesGame(task, finishOnce)         // UQ-55
+        "deljivost_stroj" -> DivisibilityGame(task, finishOnce)       // matematika: Deljivost
+        "koti_vrste" -> AngleGame(task, finishOnce)                   // matematika: Koti
+        "obseg_ploscina" -> RectangleGame(task, finishOnce)           // matematika: Obseg in ploščina
         "hitro_razvrsti" -> SortRushGame(task, finishOnce)            // naravoslovje: Raziskujemo snovi
         "boss_fight" -> BossFightGame(task, finishOnce)               // boss level na koncu predmeta
         "spomin" -> MemoryGame(task, finishOnce)                      // angleščina: Food, Animals & Home
@@ -120,10 +121,10 @@ private fun MiniGamePreview() {
         Surface(Modifier.fillMaxWidth()) {
             MiniGame(
                 task = Task(
-                    id = "mat_ulomki_01_t4",
+                    id = "mat_koti_igra_t1",
                     type = "game",
-                    game = "ulomki_kocke",
-                    prompt = "Sestavi ulomek 3/8.",
+                    game = "koti_vrste",
+                    prompt = "Kakšen je ta kot?",
                 ),
                 onFinish = {},
             )
