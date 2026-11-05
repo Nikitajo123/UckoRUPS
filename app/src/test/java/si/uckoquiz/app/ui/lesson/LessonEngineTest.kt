@@ -52,6 +52,25 @@ class LessonEngineTest {
         assertTrue(outcome.unlocksNextChapter)
     }
 
+    /** Zlat krogec samo brez napake; z napako (tudi popravljeno) barva predmeta. */
+    @Test
+    fun onlyLessonWithoutMistakesIsPerfect() {
+        assertTrue(started().solve(right).solve(right).outcome!!.perfect)
+        val withMistake = started().solve(wrong).solve(right).solve(right).outcome!!
+        assertFalse(withMistake.perfect)
+        assertTrue(withMistake.stars > 0)
+    }
+
+    @Test
+    fun gameWithSomeMissesIsNotPerfect() {
+        val game = Lesson(id = "g", tasks = listOf(Task(id = "g_t1", type = "game", game = "spomin")))
+        val start = LessonEngine.start(game, now = 0)
+        val partly = LessonEngine.next(LessonEngine.gameFinished(start, correct = 5, total = 6), now = 0).outcome!!
+        assertFalse(partly.perfect)
+        val full = LessonEngine.next(LessonEngine.gameFinished(start, correct = 6, total = 6), now = 0).outcome!!
+        assertTrue(full.perfect)
+    }
+
     @Test
     fun wrongAnswerCostsHeartAndRepeatsTaskAtTheEnd() {
         val afterWrong = LessonEngine.check(LessonEngine.answer(started(), wrong))

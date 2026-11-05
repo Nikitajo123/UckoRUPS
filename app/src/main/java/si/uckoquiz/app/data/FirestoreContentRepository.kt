@@ -45,7 +45,7 @@ class FirestoreContentRepository(
         }
     }
 
-    override suspend fun saveResult(lessonId: String, stars: Int, xp: Int, mistakes: List<String>) {
+    override suspend fun saveResult(lessonId: String, stars: Int, xp: Int, mistakes: List<String>, perfect: Boolean) {
         val uid = ensureUid()
         val ref = db.collection("users").document(uid).collection("progress").document(lessonId)
         val old = ref.get().await().toObject(LessonProgress::class.java) ?: LessonProgress()
@@ -55,7 +55,8 @@ class FirestoreContentRepository(
                 attempts = old.attempts + 1,
                 bestScore = maxOf(old.bestScore, xp),
                 mistakes = mistakes,
-                completedAt = System.currentTimeMillis()
+                completedAt = System.currentTimeMillis(),
+                perfect = old.perfect || perfect
             )
         ).await()
     }

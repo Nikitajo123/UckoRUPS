@@ -14,6 +14,8 @@ data class PathNode(
     val kind: NodeKind,
     val state: NodeState,
     val stars: Int,
+    /** Opravljeno brez napake: zlat krogec. Z napakami: barva predmeta. */
+    val perfect: Boolean = false,
 )
 
 // Eno poglavje na poti- naslov poglavja in njegovi krogci
@@ -57,6 +59,7 @@ fun buildPath(
                     else -> NodeState.LOCKED
                 },
                 stars = stars.coerceIn(0, 3),
+                perfect = stars > 0 && progress[lesson.id]?.perfect == true,
             )
         }
         PathSection(chapter, nodes)

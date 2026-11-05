@@ -124,21 +124,19 @@
     },
     {
       "id": "ang_school_04_t6",
-      "type": "game",
-      "game": "wordle_en",
-      "prompt": "Guess the 5-letter word.",
-      "explanation": "Besede iz šole in dneva.",
-      "difficulty": 2,
+      "type": "choice",
+      "prompt": "Prijatelj vpraša: »What time do you go to bed?« Kaj odgovoriš?",
       "answers": [
-        "LUNCH",
-        "CLOCK",
-        "SLEEP",
-        "MUSIC",
-        "CLASS"
+        "At nine o'clock.",
+        "On Monday.",
+        "In my bedroom.",
+        "I go to school."
       ],
-      "config": {
-        "hints": "kosilo|ura|spati|glasba|razred"
-      }
+      "correct": [
+        0
+      ],
+      "explanation": "What time vpraša po uri, zato odgovorimo z uro: at nine o'clock.",
+      "difficulty": 2
     }
   ]
 }

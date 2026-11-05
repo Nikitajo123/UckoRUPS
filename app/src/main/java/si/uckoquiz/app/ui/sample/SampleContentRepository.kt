@@ -26,8 +26,10 @@ object SampleContent {
         Chapter(id = "mat_decimalna", subjectId = "mat", order = 2, title = "Decimalna števila"),
         Chapter(id = "ang_family", subjectId = "ang", order = 1, title = "Hello & Family"),
         Chapter(id = "ang_school", subjectId = "ang", order = 2, title = "School & Daily Routine"),
+        Chapter(id = "ang_home", subjectId = "ang", order = 3, title = "Food, Animals & Home"),
         Chapter(id = "nar_snovi", subjectId = "nar", order = 1, title = "Lastnosti snovi"),
         Chapter(id = "nar_zmesi", subjectId = "nar", order = 2, title = "Zmesi in ločevanje"),
+        Chapter(id = "nar_raziskujemo", subjectId = "nar", order = 3, title = "Raziskujemo snovi"),
     )
 
     /** Prva prava lekcija (enaka kot content/mat/mat_ulomki_01.json), da se zaslon lekcije lahko preizkusi. */
@@ -128,14 +130,18 @@ object SampleContent {
             "ulomki_kocke", "Ulomki s kockami")
         addChapter("mat", "mat_decimalna", listOf("Zapis", "Primerjanje", "Seštevanje in odštevanje"),
             "decimalke_2048", "2048 z decimalkami", boss = "2048 – ulomki")
-        addChapter("ang", "ang_family", listOf("Pozdravi", "to be", "Družina", "my / your / his / her"),
+        addChapter("ang", "ang_family", listOf("Pozdravi", "to be", "Družina", "my / your / his / her", "Have got"),
             "sentence_builder", "Sentence Builder")
-        addChapter("ang", "ang_school", listOf("Šolske potrebščine", "Ura in dnevi", "Present simple", "Moj dan"),
-            "wordle_en", "Wordle EN", boss = "A Day in London")
+        addChapter("ang", "ang_school", listOf("Šolske potrebščine", "Ura in dnevi", "Present simple", "Moj dan", "Šolski predmeti"),
+            "wordle_en", "Wordle EN")
+        addChapter("ang", "ang_home", listOf("Hrana in pijača", "Živali", "Can / can't", "Moj dom", "In, on, under"),
+            "spomin", "Spomin", boss = "Veliki izziv")
         addChapter("nar", "nar_snovi", listOf("Kaj je snov", "Trdno, tekoče, plinasto", "Gostota", "Prevodnost", "Magnetnost"),
             "plava_potone", "Plava ali potone")
-        addChapter("nar", "nar_zmesi", listOf("Čiste snovi in zmesi", "Raztopine", "Ločevanje zmesi"),
-            "laboratorij", "Laboratorij", boss = "Skrivnostni laboratorij")
+        addChapter("nar", "nar_zmesi", listOf("Čiste snovi in zmesi", "Raztopine", "Ločevanje zmesi", "Usedanje in odlivanje", "Zmesi okoli nas"),
+            "laboratorij", "Laboratorij")
+        addChapter("nar", "nar_raziskujemo", listOf("Topne in netopne snovi", "Hitrost raztapljanja", "Homogene in heterogene zmesi", "Spremembe stanj", "Gostota tekočin"),
+            "hitro_razvrsti", "Hitro razvrsti", boss = "Skrivnostni laboratorij")
     }.map {
         when (it.id) {
             ulomki01.id -> ulomki01
@@ -147,7 +153,7 @@ object SampleContent {
 
     // Napredek za prikaz: nekaj opravljenih lekcij, da se vidijo vsa stanja krogcev
     val demoProgress = mapOf(
-        "mat_ulomki_01" to LessonProgress(stars = 3),
+        "mat_ulomki_01" to LessonProgress(stars = 3, perfect = true),
         "mat_ulomki_02" to LessonProgress(stars = 2),
         "ang_family_01" to LessonProgress(stars = 1),
     )
@@ -195,13 +201,14 @@ class SampleContentRepository(
 
     override suspend fun getProgress(): Map<String, LessonProgress> = progress.toMap()
 
-    override suspend fun saveResult(lessonId: String, stars: Int, xp: Int, mistakes: List<String>) {
+    override suspend fun saveResult(lessonId: String, stars: Int, xp: Int, mistakes: List<String>, perfect: Boolean) {
         val old = progress[lessonId] ?: LessonProgress()
         progress[lessonId] = old.copy(
             stars = maxOf(old.stars, stars),
             attempts = old.attempts + 1,
             mistakes = mistakes,
             completedAt = System.currentTimeMillis(),
+            perfect = old.perfect || perfect,
         )
     }
 }

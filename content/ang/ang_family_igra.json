@@ -1,0 +1,33 @@
+{
+  "id": "ang_family_igra",
+  "subjectId": "ang",
+  "chapterId": "ang_family",
+  "order": 6,
+  "title": "Sentence Builder",
+  "boss": false,
+  "explanation": {
+    "title": "",
+    "steps": []
+  },
+  "tasks": [
+    {
+      "id": "ang_family_igra_t1",
+      "type": "game",
+      "game": "sentence_builder",
+      "prompt": "Build the sentence.",
+      "explanation": "My, your, his in her stojijo pred samostalnikom.",
+      "difficulty": 2,
+      "answers": [
+        "My sister is twelve years old.",
+        "His name is Luka.",
+        "Her brother is tall.",
+        "This is my family.",
+        "I have got a dog."
+      ],
+      "config": {
+        "hints": "Moja sestra je stara 12 let.|Njegovo ime je Luka.|Njen brat je visok.|To je moja družina.|Imam psa.",
+        "extra": "your,are,he,am"
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "nar_raziskujemo_igra",
+  "subjectId": "nar",
+  "chapterId": "nar_raziskujemo",
+  "order": 6,
+  "title": "Hitro razvrsti",
+  "boss": false,
+  "explanation": {
+    "title": "",
+    "steps": []
+  },
+  "tasks": [
+    {
+      "id": "nar_raziskujemo_igra_t1",
+      "type": "game",
+      "game": "hitro_razvrsti",
+      "prompt": "Ali se snov v vodi raztopi? Hitro!",
+      "categories": [
+        "Se raztopi",
+        "Se ne raztopi"
+      ],
+      "items": [
+        {
+          "text": "🧂 sol",
+          "category": "Se raztopi"
+        },
+        {
+          "text": "🍬 sladkor",
+          "category": "Se raztopi"
+        },
+        {
+          "text": "💊 šumeča tableta",
+          "category": "Se raztopi"
+        },
+        {
+          "text": "🧃 sirup",
+          "category": "Se raztopi"
+        },
+        {
+          "text": "🍵 sladkor v prahu",
+          "category": "Se raztopi"
+        },
+        {
+          "text": "🏖️ pesek",
+          "category": "Se ne raztopi"
+        },
+        {
+          "text": "🫒 olje",
+          "category": "Se ne raztopi"
+        },
+        {
+          "text": "🍚 riž",
+          "category": "Se ne raztopi"
+        },
+        {
+          "text": "🪙 kovanec",
+          "category": "Se ne raztopi"
+        },
+        {
+          "text": "🪨 kamenček",
+          "category": "Se ne raztopi"
+        }
+      ],
+      "config": {
+        "seconds": "60"
+      },
+      "explanation": "Topne snovi se v vodi raztopijo, netopne ostanejo vidne.",
+      "difficulty": 2
+    }
+  ]
+}

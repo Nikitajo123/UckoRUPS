@@ -41,6 +41,16 @@ class LearningPathTest {
     }
 
     @Test
+    fun onlyPerfectDoneLessonIsGold() {
+        val progress = mapOf(
+            "a" to LessonProgress(stars = 3, perfect = true),
+            "b" to LessonProgress(stars = 2, perfect = false),
+        )
+        val nodes = buildPath(chapters, lessons, progress).flatMap { it.nodes }
+        assertEquals(listOf(true, false, false), nodes.map { it.perfect })
+    }
+
+    @Test
     fun kindsAndOrderAreCorrect() {
         val nodes = buildPath(chapters, lessons, emptyMap()).flatMap { it.nodes }
         assertEquals(listOf("a", "b", "c"), nodes.map { it.lessonId })

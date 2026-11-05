@@ -1,0 +1,144 @@
+{
+  "id": "ang_home_01",
+  "subjectId": "ang",
+  "chapterId": "ang_home",
+  "order": 1,
+  "title": "Hrana in pijača",
+  "boss": false,
+  "explanation": {
+    "title": "I like apples",
+    "steps": [
+      "apple = jabolko, bread = kruh, cheese = sir, egg = jajce.",
+      "milk = mleko, water = voda, juice = sok.",
+      "I like = rad imam. I don't like = ne maram.",
+      "Pri he in she: he likes, she doesn't like.",
+      "Primer: I like pizza. My brother doesn't like fish."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_home_01_t1",
+      "type": "match",
+      "prompt": "Poveži angleško in slovensko besedo.",
+      "pairs": [
+        {
+          "left": "bread",
+          "right": "kruh"
+        },
+        {
+          "left": "cheese",
+          "right": "sir"
+        },
+        {
+          "left": "milk",
+          "right": "mleko"
+        },
+        {
+          "left": "egg",
+          "right": "jajce"
+        }
+      ],
+      "explanation": "To so besede, ki jih srečaš pri zajtrku in malici.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_01_t2",
+      "type": "choice",
+      "prompt": "Kako se reče »sok« po angleško?",
+      "answers": [
+        "juice",
+        "water",
+        "milk"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Juice je sok, water je voda.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_01_t3",
+      "type": "drag",
+      "prompt": "Hrana ali pijača?",
+      "categories": [
+        "Food",
+        "Drink"
+      ],
+      "items": [
+        {
+          "text": "bread",
+          "category": "Food"
+        },
+        {
+          "text": "apple",
+          "category": "Food"
+        },
+        {
+          "text": "cheese",
+          "category": "Food"
+        },
+        {
+          "text": "water",
+          "category": "Drink"
+        },
+        {
+          "text": "milk",
+          "category": "Drink"
+        },
+        {
+          "text": "tea",
+          "category": "Drink"
+        }
+      ],
+      "explanation": "Food je hrana, drink pa pijača.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_01_t4",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "I like bananas.",
+        "I don't like bananas.",
+        "I like apples."
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "I don't like pomeni ne maram.",
+      "difficulty": 2,
+      "audioText": "I don't like bananas."
+    },
+    {
+      "id": "ang_home_01_t5",
+      "type": "choice",
+      "prompt": "Maja ___ chocolate.",
+      "answers": [
+        "likes",
+        "like",
+        "is like"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Maja je ona (she), zato dodamo -s: likes.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_home_01_t6",
+      "type": "choice",
+      "prompt": "Luka ne mara rib. Kako to poveš?",
+      "answers": [
+        "Luka doesn't like fish.",
+        "Luka don't like fish.",
+        "Luka isn't like fish.",
+        "Luka likes fish."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pri he je zanikanje doesn't like.",
+      "difficulty": 3
+    }
+  ]
+}

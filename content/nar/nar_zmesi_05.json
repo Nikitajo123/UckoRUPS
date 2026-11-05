@@ -1,0 +1,144 @@
+{
+  "id": "nar_zmesi_05",
+  "subjectId": "nar",
+  "chapterId": "nar_zmesi",
+  "order": 5,
+  "title": "Zmesi okoli nas",
+  "boss": false,
+  "explanation": {
+    "title": "Zmesi so povsod",
+    "steps": [
+      "Večina snovi okoli nas so zmesi.",
+      "Zrak je zmes plinov. Največ je dušika, za dihanje rabimo kisik.",
+      "Prst je zmes peska, gline, vode, zraka in ostankov rastlin.",
+      "Primer: limonada je zmes vode, sladkorja in limoninega soka.",
+      "Ko ločujemo odpadke, tudi ločujemo zmes."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_zmesi_05_t1",
+      "type": "choice",
+      "prompt": "Kaj od naštetega je zmes?",
+      "answers": [
+        "prst",
+        "železo",
+        "destilirana voda"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Prst vsebuje pesek, glino, vodo in zrak. Železo in destilirana voda sta čisti snovi.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_05_t2",
+      "type": "choice",
+      "prompt": "Kateri plin iz zraka rabimo za dihanje?",
+      "answers": [
+        "kisik",
+        "dušik",
+        "vodno paro"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Dušika je v zraku največ, a za dihanje rabimo kisik.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_05_t3",
+      "type": "match",
+      "prompt": "Poveži zmes z njenimi sestavinami.",
+      "pairs": [
+        {
+          "left": "zrak",
+          "right": "dušik, kisik in drugi plini"
+        },
+        {
+          "left": "morska voda",
+          "right": "voda in sol"
+        },
+        {
+          "left": "prst",
+          "right": "pesek, glina in ostanki rastlin"
+        },
+        {
+          "left": "limonada",
+          "right": "voda, sladkor in limonin sok"
+        }
+      ],
+      "explanation": "Vse štiri so zmesi, ker vsebujejo več snovi.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_05_t4",
+      "type": "drag",
+      "prompt": "Po malici ločuješ odpadke. Kam spada kaj?",
+      "categories": [
+        "Papir",
+        "Embalaža",
+        "Biološki odpadki"
+      ],
+      "items": [
+        {
+          "text": "papirnata vrečka",
+          "category": "Papir"
+        },
+        {
+          "text": "časopis",
+          "category": "Papir"
+        },
+        {
+          "text": "plastenka",
+          "category": "Embalaža"
+        },
+        {
+          "text": "pločevinka",
+          "category": "Embalaža"
+        },
+        {
+          "text": "olupek banane",
+          "category": "Biološki odpadki"
+        },
+        {
+          "text": "jabolčni ogrizek",
+          "category": "Biološki odpadki"
+        }
+      ],
+      "explanation": "Ločene odpadke lahko predelajo in snovi ponovno uporabijo.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_05_t5",
+      "type": "choice",
+      "prompt": "Zakaj je limonada zmes?",
+      "answers": [
+        "ker vsebuje več snovi",
+        "ker je tekoča",
+        "ker je sladka",
+        "ker je v kozarcu"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Zmes ima dve ali več snovi. Tekoča je lahko tudi čista snov, na primer destilirana voda.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_zmesi_05_t6",
+      "type": "choice",
+      "prompt": "Kako iz suhe prsti na vrtu ločiš kamenčke?",
+      "answers": [
+        "s sejanjem",
+        "z magnetom",
+        "z izhlapevanjem"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Kamenčki so večji od zrn prsti, zato ostanejo na situ.",
+      "difficulty": 2
+    }
+  ]
+}

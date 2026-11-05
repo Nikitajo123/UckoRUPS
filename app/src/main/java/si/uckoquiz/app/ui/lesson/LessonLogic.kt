@@ -51,10 +51,21 @@ fun isAnswerComplete(task: Task, answer: TaskAnswer): Boolean = when (answer) {
 /** Ali je odgovor pravilen. */
 fun isAnswerCorrect(task: Task, answer: TaskAnswer): Boolean = when (answer) {
     is TaskAnswer.Choice -> isChoiceCorrect(task, answer.selected)
-    is TaskAnswer.Match -> isAnswerComplete(task, answer) && answer.pairs.all { (left, right) -> left == right }
+    is TaskAnswer.Match -> isAnswerComplete(task, answer) && answer.pairs.all { (left, right) -> isMatchPairCorrect(task, left, right) }
     is TaskAnswer.Drag -> isAnswerComplete(task, answer) &&
             answer.placed.all { (item, category) -> task.items.getOrNull(item)?.category == category }
     TaskAnswer.None -> false
+}
+
+/**
+ * Ali je levi pojem [left] pravilno povezan z desnim pojmom para [right].
+ * Primerja besedilo, ne samo položaj: pri "we = are" in "they = are" sta oba "are" pravilna za obe osebi.
+ */
+fun isMatchPairCorrect(task: Task, left: Int, right: Int): Boolean {
+    if (left == right) return true
+    val l = task.pairs.getOrNull(left) ?: return false
+    val r = task.pairs.getOrNull(right) ?: return false
+    return l.right == r.right || l.left == r.left
 }
 
 /**
@@ -97,6 +108,8 @@ data class LessonOutcome(
     val stars: Int = 0,
     val xp: Int = 0,
     val boss: Boolean = false,
+    /** Vse naloge pravilno v prvem poskusu (in vse točke v mini igri): krogec na poti postane zlat. */
+    val perfect: Boolean = false,
 ) {
     val passed: Boolean get() = heartsLeft > 0
 

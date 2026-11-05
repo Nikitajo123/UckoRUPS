@@ -1,0 +1,32 @@
+{
+  "id": "ang_school_igra",
+  "subjectId": "ang",
+  "chapterId": "ang_school",
+  "order": 6,
+  "title": "Wordle EN",
+  "boss": false,
+  "explanation": {
+    "title": "",
+    "steps": []
+  },
+  "tasks": [
+    {
+      "id": "ang_school_igra_t1",
+      "type": "game",
+      "game": "wordle_en",
+      "prompt": "Guess the 5-letter word.",
+      "explanation": "Besede iz šole in dneva.",
+      "difficulty": 2,
+      "answers": [
+        "LUNCH",
+        "CLOCK",
+        "SLEEP",
+        "MUSIC",
+        "CLASS"
+      ],
+      "config": {
+        "hints": "kosilo|ura|spati|glasba|razred"
+      }
+    }
+  ]
+}

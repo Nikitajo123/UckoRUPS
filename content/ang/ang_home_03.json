@@ -1,0 +1,145 @@
+{
+  "id": "ang_home_03",
+  "subjectId": "ang",
+  "chapterId": "ang_home",
+  "order": 3,
+  "title": "Can / can't",
+  "boss": false,
+  "explanation": {
+    "title": "A bird can fly",
+    "steps": [
+      "Can pomeni znam ali lahko. Can't pomeni ne znam.",
+      "Can je enak pri vseh osebah: I can, she can, they can.",
+      "Za can glagol nima -s: she can swim, ne she can swims.",
+      "Vprašanje: Can you swim? Yes, I can. / No, I can't.",
+      "Primer: A fish can swim. It can't walk."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_home_03_t1",
+      "type": "choice",
+      "prompt": "A bird ___ fly.",
+      "answers": [
+        "can",
+        "can't",
+        "cans"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Ptica zna leteti: a bird can fly.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_03_t2",
+      "type": "drag",
+      "prompt": "Ali riba to zna?",
+      "categories": [
+        "A fish can",
+        "A fish can't"
+      ],
+      "items": [
+        {
+          "text": "swim",
+          "category": "A fish can"
+        },
+        {
+          "text": "eat",
+          "category": "A fish can"
+        },
+        {
+          "text": "walk",
+          "category": "A fish can't"
+        },
+        {
+          "text": "climb",
+          "category": "A fish can't"
+        },
+        {
+          "text": "run",
+          "category": "A fish can't"
+        },
+        {
+          "text": "sing",
+          "category": "A fish can't"
+        }
+      ],
+      "explanation": "Riba zna plavati in jesti, ne zna pa hoditi, plezati, teči ali peti.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_03_t3",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "I can't ride a horse.",
+        "I can ride a horse.",
+        "I can ride a bike."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Can't pomeni ne znam.",
+      "difficulty": 2,
+      "audioText": "I can't ride a horse."
+    },
+    {
+      "id": "ang_home_03_t4",
+      "type": "match",
+      "prompt": "Poveži žival z dejavnostjo.",
+      "pairs": [
+        {
+          "left": "a bird",
+          "right": "can fly"
+        },
+        {
+          "left": "a fish",
+          "right": "can swim"
+        },
+        {
+          "left": "a cat",
+          "right": "can climb trees"
+        },
+        {
+          "left": "a horse",
+          "right": "can run fast"
+        }
+      ],
+      "explanation": "Vsaka žival zna nekaj posebnega.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_03_t5",
+      "type": "choice",
+      "prompt": "Kateri stavek je pravilen?",
+      "answers": [
+        "She can swim.",
+        "She can swims.",
+        "She cans swim.",
+        "She can to swim."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Za can pride osnovna oblika glagola brez -s in brez to.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_home_03_t6",
+      "type": "choice",
+      "prompt": "Can your dog swim? Pes zna plavati. Kaj odgovoriš?",
+      "answers": [
+        "Yes, it can.",
+        "Yes, it does.",
+        "No, it can't.",
+        "Yes, it is."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Kratek odgovor: Yes, it can. Pes je it.",
+      "difficulty": 3
+    }
+  ]
+}
