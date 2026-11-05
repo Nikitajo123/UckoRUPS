@@ -1,0 +1,25 @@
+{
+  "id": "mat_deljivost_igra",
+  "subjectId": "mat",
+  "chapterId": "mat_deljivost",
+  "order": 6,
+  "title": "Deljivostni stroj",
+  "boss": false,
+  "explanation": {
+    "title": "",
+    "steps": []
+  },
+  "tasks": [
+    {
+      "id": "mat_deljivost_igra_t1",
+      "type": "game",
+      "game": "deljivost_stroj",
+      "prompt": "S katerimi števili je deljivo? Izberi vse.",
+      "config": {
+        "numbers": "74|250|99|135|457|120|1011|4518|7205|3600"
+      },
+      "explanation": "Za 2, 5 in 10 poglej zadnjo števko, za 3 in 9 vsoto števk.",
+      "difficulty": 2
+    }
+  ]
+}

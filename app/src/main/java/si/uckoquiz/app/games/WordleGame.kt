@@ -42,7 +42,10 @@ import si.uckoquiz.app.domain.Task
  *
  * Content (in the lesson JSON):
  *   "answers": the words, one per round, e.g. ["RULER", "PAPER", "CHAIR"] (5 letters each)
- *   "config.hints": optional hints, separated by |, same order, e.g. "ravnilo|papir|stol"
+ *   "config.categories": optional category shown while guessing, separated by |, same order,
+ *                        e.g. "šolske potrebščine|šola|pohištvo" (a clue, not the answer)
+ *   "config.hints": optional Slovenian translation, separated by |, same order, e.g. "ravnilo|papir|stol".
+ *                   Shown only after the round, so it does not give the word away.
  *   "config.maxTries": optional, default 6
  * Any 5 letters are accepted as a guess (no dictionary), so the game stays simple for kids.
  */
@@ -54,6 +57,7 @@ fun WordleGame(task: Task, onFinish: (GameResult) -> Unit) {
             .ifEmpty { listOf("RULER") }
     }
     val hints = remember(task.id) { task.config["hints"]?.split("|")?.map { it.trim() } ?: emptyList() }
+    val categories = remember(task.id) { task.config["categories"]?.split("|")?.map { it.trim() } ?: emptyList() }
     val maxTries = remember(task.id) { task.config["maxTries"]?.toIntOrNull()?.coerceIn(3, 8) ?: 6 }
     val session = rememberGameSession(total = words.size)
     var round by remember(task.id) { mutableIntStateOf(0) }
@@ -120,7 +124,8 @@ fun WordleGame(task: Task, onFinish: (GameResult) -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text("Beseda ${round + 1} / ${words.size}", color = color, fontWeight = FontWeight.Bold)
-            hints.getOrNull(round)?.takeIf { it.isNotEmpty() }?.let {
+            // Only the category while guessing; the translation would give the word away.
+            categories.getOrNull(round)?.takeIf { it.isNotEmpty() }?.let {
                 Text("Namig: $it", color = Color.Gray)
             }
             Spacer(Modifier.height(12.dp))
@@ -297,7 +302,7 @@ private fun WordlePreview() {
                     game = "wordle_en",
                     prompt = "Guess the 5-letter word.",
                     answers = listOf("RULER", "PAPER", "CHAIR"),
-                    config = mapOf("hints" to "ravnilo|papir|stol"),
+                    config = mapOf("categories" to "šolske potrebščine|šola|pohištvo", "hints" to "ravnilo|papir|stol"),
                 ),
                 onFinish = {},
             )

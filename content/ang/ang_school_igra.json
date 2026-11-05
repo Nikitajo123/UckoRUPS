@@ -25,6 +25,7 @@
         "CLASS"
       ],
       "config": {
+        "categories": "hrana|čas|dnevna rutina|šolski predmet|šola",
         "hints": "kosilo|ura|spati|glasba|razred"
       }
     }

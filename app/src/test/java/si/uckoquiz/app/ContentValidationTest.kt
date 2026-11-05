@@ -13,7 +13,8 @@ import java.io.File
 class ContentValidationTest {
 
     private val knownGames = setOf(
-        "sentence_builder", "wordle_en", "plava_potone", "laboratorij", "decimalke_2048", "ulomki_kocke",
+        "sentence_builder", "wordle_en", "plava_potone", "laboratorij",
+        "deljivost_stroj", "koti_vrste", "obseg_ploscina",
         "hitro_razvrsti", "spomin", "boss_fight",
     )
     private val taskTypes = setOf("choice", "match", "drag", "listen", "game")
@@ -181,6 +182,8 @@ class ContentValidationTest {
                         if (words.isEmpty()) err("needs answers (the words)")
                         if (words.any { it.trim().length != 5 }) err("every word must have exactly 5 letters")
                         cfg["hints"]?.let { if (parts(it) != words.size) err("config.hints needs one part per word") }
+                        cfg["categories"]?.let { if (parts(it) != words.size) err("config.categories needs one part per word") }
+                            ?: warn("no config.categories: the player gets no clue while guessing")
                     }
                     "sentence_builder" -> {
                         val sentences = t.array("answers").strings()
@@ -223,15 +226,25 @@ class ContentValidationTest {
                         if (words.toSet().size != words.size) err("every card text must be different")
                         cfg["seconds"]?.let { if (it.toIntOrNull() == null) err("config.seconds must be a whole number") }
                     }
-                    "decimalke_2048" -> {
-                        cfg["wholes"]?.let { if (it.toIntOrNull() == null) err("config.wholes must be a whole number") }
+                    "deljivost_stroj" -> {
+                        val nums = cfg["numbers"]?.split("|")?.map { it.trim().toIntOrNull() }
+                        if (nums.isNullOrEmpty()) err("needs config.numbers")
+                        else if (nums.any { it == null || it !in 1..1_000_000 }) err("config.numbers must be whole numbers from 1 to 1 000 000")
                     }
-                    "ulomki_kocke" -> {
-                        val fractions = cfg["fractions"]
-                        if (fractions != null) {
-                            if (!fractions.split("|").all { Regex("\\d+/\\d+").matches(it.trim()) }) err("config.fractions must look like 1/2|3/8")
-                        } else if (cfg["numerator"]?.toIntOrNull() == null || cfg["denominator"]?.toIntOrNull() == null) {
-                            err("needs config.numerator and config.denominator, or config.fractions")
+                    "koti_vrste" -> {
+                        val angles = cfg["angles"]?.split("|")?.map { it.trim().toIntOrNull() }
+                        if (angles.isNullOrEmpty()) err("needs config.angles")
+                        else if (angles.any { it == null || it !in 1..180 }) err("config.angles must be whole degrees from 1 to 180")
+                        else if (angles.any { it != 90 && it in 85..95 }) warn("angles close to 90° are hard to tell apart on screen")
+                    }
+                    "obseg_ploscina" -> {
+                        val rects = cfg["rects"]?.split("|")?.map { p -> p.lowercase().split("x").map { it.trim().toIntOrNull() } }
+                        if (rects.isNullOrEmpty()) err("needs config.rects")
+                        else rects.forEach { s ->
+                            val a = s.getOrNull(0)
+                            val b = s.getOrNull(1)
+                            if (s.size != 2 || a == null || b == null || a !in 1..10 || b !in 1..10) err("config.rects must look like 5x3, sides 1 to 10")
+                            else if (a * b == 2 * a + 2 * b) err("${a}x$b has the same obseg and ploščina, which is confusing")
                         }
                     }
                 }
