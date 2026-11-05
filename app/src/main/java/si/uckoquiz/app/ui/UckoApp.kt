@@ -46,6 +46,7 @@ import si.uckoquiz.app.ui.subjects.SubjectsRoute
 import si.uckoquiz.app.ui.theme.UckoBlue
 import si.uckoquiz.app.ui.theme.UckoQuizTheme
 import si.uckoquiz.app.data.FirestoreContentRepository
+import si.uckoquiz.app.ui.settings.ReminderEffect
 import java.time.LocalDate
 
 
@@ -67,6 +68,7 @@ fun UckoApp() {
         mutableStateOf(store.load()?.let { ProgressRules.refreshForToday(it, LocalDate.now()) }?.also { store.save(it) })
     }
     var settings by remember { mutableStateOf(settingsStore.load()) }
+    ReminderEffect(profileReady = profile != null, settings = settings)
 
     UckoQuizTheme(darkTheme = settings.darkMode) {
         CompositionLocalProvider(LocalAppSettings provides settings) {
