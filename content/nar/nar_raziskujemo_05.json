@@ -1,0 +1,139 @@
+{
+  "id": "nar_raziskujemo_05",
+  "subjectId": "nar",
+  "chapterId": "nar_raziskujemo",
+  "order": 5,
+  "title": "Gostota tekočin",
+  "boss": false,
+  "explanation": {
+    "title": "Katera tekočina je zgoraj?",
+    "steps": [
+      "Tudi tekočine imajo različno gostoto.",
+      "Tekočina z manjšo gostoto plava na tekočini z večjo gostoto.",
+      "Olje plava na vodi. Med v vodi potone.",
+      "Slana voda ima večjo gostoto kot navadna voda.",
+      "Primer: jajce v vodi iz pipe potone. V zelo slani vodi pa plava."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_raziskujemo_05_t1",
+      "type": "choice",
+      "prompt": "Olje vliješ v kozarec vode. Kje bo olje?",
+      "answers": [
+        "na vrhu",
+        "na dnu",
+        "raztopljeno v vodi"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Olje ima manjšo gostoto kot voda, zato plava na vrhu.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_raziskujemo_05_t2",
+      "type": "drag",
+      "prompt": "Ali plava na vodi ali potone?",
+      "categories": [
+        "Plava",
+        "Potone"
+      ],
+      "items": [
+        {
+          "text": "olje",
+          "category": "Plava"
+        },
+        {
+          "text": "kocka ledu",
+          "category": "Plava"
+        },
+        {
+          "text": "sveča",
+          "category": "Plava"
+        },
+        {
+          "text": "med",
+          "category": "Potone"
+        },
+        {
+          "text": "kovanec",
+          "category": "Potone"
+        },
+        {
+          "text": "frnikola",
+          "category": "Potone"
+        }
+      ],
+      "explanation": "Olje, led in sveča imajo manjšo gostoto kot voda. Med, kovanec in frnikola večjo.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_raziskujemo_05_t3",
+      "type": "choice",
+      "prompt": "Kaj se zgodi z jajcem v zelo slani vodi?",
+      "answers": [
+        "plava",
+        "potone",
+        "se raztopi"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Slana voda ima večjo gostoto, zato jajce plava.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_05_t4",
+      "type": "match",
+      "prompt": "Poveži tekočino z mestom v kozarcu z vodo.",
+      "pairs": [
+        {
+          "left": "olje",
+          "right": "plava na vrhu"
+        },
+        {
+          "left": "med",
+          "right": "potone na dno"
+        },
+        {
+          "left": "sladkor",
+          "right": "se raztopi"
+        }
+      ],
+      "explanation": "Olje ima manjšo gostoto, med večjo. Sladkor pa je topen.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_05_t5",
+      "type": "choice",
+      "prompt": "Zakaj v morju lažje plavaš kot v bazenu?",
+      "answers": [
+        "ker ima slana voda večjo gostoto",
+        "ker je morje globlje",
+        "ker so v morju valovi",
+        "ker je morska voda toplejša"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Sol poveča gostoto vode, zato te bolj nosi.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_05_t6",
+      "type": "choice",
+      "prompt": "V kozarec vliješ med, vodo in olje. Kakšen je vrstni red od spodaj navzgor?",
+      "answers": [
+        "med, voda, olje",
+        "olje, voda, med",
+        "voda, med, olje"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Na dnu je tekočina z največjo gostoto (med), na vrhu z najmanjšo (olje).",
+      "difficulty": 3
+    }
+  ]
+}

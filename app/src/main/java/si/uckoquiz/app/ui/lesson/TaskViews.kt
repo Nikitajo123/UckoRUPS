@@ -157,7 +157,7 @@ fun MatchTask(
 
     fun lookFor(matchedLeft: Int?, matchedRight: Int?, isSelected: Boolean): TileLook = when {
         matchedLeft != null && matchedRight != null && checked ->
-            if (matchedLeft == matchedRight) TileLook.CORRECT else TileLook.WRONG
+            if (isMatchPairCorrect(task, matchedLeft, matchedRight)) TileLook.CORRECT else TileLook.WRONG
         matchedLeft != null && matchedRight != null -> TileLook.DONE
         isSelected -> TileLook.SELECTED
         else -> TileLook.DEFAULT

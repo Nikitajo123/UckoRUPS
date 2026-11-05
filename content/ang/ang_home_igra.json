@@ -1,0 +1,51 @@
+{
+  "id": "ang_home_igra",
+  "subjectId": "ang",
+  "chapterId": "ang_home",
+  "order": 6,
+  "title": "Spomin",
+  "boss": false,
+  "explanation": {
+    "title": "",
+    "steps": []
+  },
+  "tasks": [
+    {
+      "id": "ang_home_igra_t1",
+      "type": "game",
+      "game": "spomin",
+      "prompt": "Najdi angleško besedo in njen prevod.",
+      "pairs": [
+        {
+          "left": "apple",
+          "right": "jabolko"
+        },
+        {
+          "left": "cheese",
+          "right": "sir"
+        },
+        {
+          "left": "rabbit",
+          "right": "zajec"
+        },
+        {
+          "left": "horse",
+          "right": "konj"
+        },
+        {
+          "left": "kitchen",
+          "right": "kuhinja"
+        },
+        {
+          "left": "under",
+          "right": "pod"
+        }
+      ],
+      "config": {
+        "seconds": "90"
+      },
+      "explanation": "Besede iz poglavja: hrana, živali in dom.",
+      "difficulty": 2
+    }
+  ]
+}

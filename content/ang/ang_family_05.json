@@ -1,0 +1,144 @@
+{
+  "id": "ang_family_05",
+  "subjectId": "ang",
+  "chapterId": "ang_family",
+  "order": 5,
+  "title": "Have got",
+  "boss": false,
+  "explanation": {
+    "title": "I have got a brother",
+    "steps": [
+      "Have got pomeni imeti.",
+      "I / you / we / they have got. Kratko: I've got.",
+      "He / she / it has got. Kratko: she's got.",
+      "Zanikanje: I haven't got, she hasn't got.",
+      "Primer: Luka has got a sister. He hasn't got a brother."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_family_05_t1",
+      "type": "choice",
+      "prompt": "I ___ got a dog.",
+      "answers": [
+        "have",
+        "has",
+        "am"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pri I uporabimo have got.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_05_t2",
+      "type": "choice",
+      "prompt": "My sister ___ got a cat.",
+      "answers": [
+        "has",
+        "have",
+        "is"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "My sister je ona (she), zato has got.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_05_t3",
+      "type": "match",
+      "prompt": "Poveži osebo in pravilno obliko.",
+      "pairs": [
+        {
+          "left": "I",
+          "right": "have got"
+        },
+        {
+          "left": "he",
+          "right": "has got"
+        },
+        {
+          "left": "we",
+          "right": "have got"
+        },
+        {
+          "left": "she",
+          "right": "has got"
+        }
+      ],
+      "explanation": "Has got je samo pri he, she in it.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_family_05_t4",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "I have got two brothers.",
+        "I have got two sisters.",
+        "He has got two brothers."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Two brothers pomeni dva brata.",
+      "difficulty": 1,
+      "audioText": "I have got two brothers."
+    },
+    {
+      "id": "ang_family_05_t5",
+      "type": "drag",
+      "prompt": "Have got ali has got?",
+      "categories": [
+        "have got",
+        "has got"
+      ],
+      "items": [
+        {
+          "text": "you",
+          "category": "have got"
+        },
+        {
+          "text": "they",
+          "category": "have got"
+        },
+        {
+          "text": "Ana and I",
+          "category": "have got"
+        },
+        {
+          "text": "my dad",
+          "category": "has got"
+        },
+        {
+          "text": "it",
+          "category": "has got"
+        },
+        {
+          "text": "Grandma",
+          "category": "has got"
+        }
+      ],
+      "explanation": "Ana and I je mi (we), zato have got. My dad in Grandma sta ena oseba, zato has got.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_family_05_t6",
+      "type": "choice",
+      "prompt": "Tim nima sestre. Kako to poveš?",
+      "answers": [
+        "Tim hasn't got a sister.",
+        "Tim haven't got a sister.",
+        "Tim isn't got a sister.",
+        "Tim has got a sister."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Tim je on, zato zanikanje hasn't got.",
+      "difficulty": 2
+    }
+  ]
+}

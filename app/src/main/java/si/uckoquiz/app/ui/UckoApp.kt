@@ -46,6 +46,7 @@ import si.uckoquiz.app.ui.subjects.SubjectsRoute
 import si.uckoquiz.app.ui.theme.UckoBlue
 import si.uckoquiz.app.ui.theme.UckoQuizTheme
 import si.uckoquiz.app.data.FirestoreContentRepository
+import si.uckoquiz.app.ui.settings.ReminderEffect
 import java.time.LocalDate
 
 
@@ -67,6 +68,7 @@ fun UckoApp() {
         mutableStateOf(store.load()?.let { ProgressRules.refreshForToday(it, LocalDate.now()) }?.also { store.save(it) })
     }
     var settings by remember { mutableStateOf(settingsStore.load()) }
+    ReminderEffect(profileReady = profile != null, settings = settings)
 
     UckoQuizTheme(darkTheme = settings.darkMode) {
         CompositionLocalProvider(LocalAppSettings provides settings) {
@@ -153,7 +155,7 @@ fun MainTabs(
             onFinished = { outcome ->
                 scope.launch {
                     // Zvezdice in XP izračuna LessonEngine (UQ-34); nato zaslon rezultata (UQ-35).
-                    repository.saveResult(lessonId, outcome.stars, outcome.xp, outcome.mistakes)
+                    repository.saveResult(lessonId, outcome.stars, outcome.xp, outcome.mistakes, outcome.perfect)
                     // UQ-38: XP, niz in srčki se shranijo v profil, zato jih Domov, Rezultat in Profil pokažejo.
                     onProfileChange(ProgressRules.afterLesson(profile, outcome, LocalDate.now(), practice))
                     result = lessonId to outcome

@@ -25,6 +25,19 @@ class LessonLogicTest {
         assertFalse(isChoiceCorrect(task, setOf(0, 1)))
     }
 
+    /** Napaka iz ang_family_02: "we" in "they" sta oba "are", zato je vsak "are" pravilen. */
+    @Test
+    fun matchWithSameRightWordAcceptsEitherTile() {
+        val toBe = Task(
+            id = "m", type = "match",
+            pairs = listOf(MatchPair("I", "am"), MatchPair("she", "is"), MatchPair("we", "are"), MatchPair("they", "are")),
+        )
+        val swapped = TaskAnswer.Match(mapOf(0 to 0, 1 to 1, 2 to 3, 3 to 2))
+        assertTrue(isAnswerCorrect(toBe, swapped))
+        val wrong = TaskAnswer.Match(mapOf(0 to 2, 1 to 1, 2 to 0, 3 to 3))
+        assertFalse(isAnswerCorrect(toBe, wrong))
+    }
+
     @Test
     fun correctAnswerTextForWrongPanel() {
         assertEquals("3/8", correctAnswerText(task))

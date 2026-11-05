@@ -1,0 +1,144 @@
+{
+  "id": "ang_home_04",
+  "subjectId": "ang",
+  "chapterId": "ang_home",
+  "order": 4,
+  "title": "Moj dom",
+  "boss": false,
+  "explanation": {
+    "title": "There is a sofa",
+    "steps": [
+      "kitchen = kuhinja, bedroom = spalnica, bathroom = kopalnica, living room = dnevna soba.",
+      "There is = je (ena stvar). There is a bed.",
+      "There are = so (več stvari). There are two chairs.",
+      "Vprašanje: Is there a TV? Are there any books?",
+      "Primer: In my bedroom there is a bed. There are three posters."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_home_04_t1",
+      "type": "match",
+      "prompt": "Poveži prostor in prevod.",
+      "pairs": [
+        {
+          "left": "kitchen",
+          "right": "kuhinja"
+        },
+        {
+          "left": "bedroom",
+          "right": "spalnica"
+        },
+        {
+          "left": "bathroom",
+          "right": "kopalnica"
+        },
+        {
+          "left": "living room",
+          "right": "dnevna soba"
+        }
+      ],
+      "explanation": "To so prostori v hiši ali stanovanju.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_04_t2",
+      "type": "choice",
+      "prompt": "Kje kuhamo kosilo?",
+      "answers": [
+        "in the kitchen",
+        "in the bathroom",
+        "in the bedroom"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Kitchen je kuhinja.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_04_t3",
+      "type": "drag",
+      "prompt": "There is ali there are?",
+      "categories": [
+        "There is",
+        "There are"
+      ],
+      "items": [
+        {
+          "text": "a sofa",
+          "category": "There is"
+        },
+        {
+          "text": "a lamp",
+          "category": "There is"
+        },
+        {
+          "text": "one table",
+          "category": "There is"
+        },
+        {
+          "text": "two beds",
+          "category": "There are"
+        },
+        {
+          "text": "four chairs",
+          "category": "There are"
+        },
+        {
+          "text": "some books",
+          "category": "There are"
+        }
+      ],
+      "explanation": "Za eno stvar je there is, za več stvari there are.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_home_04_t4",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "There are two windows.",
+        "There is one window.",
+        "There are three windows."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Two windows pomeni dve okni.",
+      "difficulty": 1,
+      "audioText": "There are two windows."
+    },
+    {
+      "id": "ang_home_04_t5",
+      "type": "choice",
+      "prompt": "There ___ three cats in the garden.",
+      "answers": [
+        "are",
+        "is",
+        "am"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Mačke so tri, torej več stvari: there are.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_home_04_t6",
+      "type": "choice",
+      "prompt": "Kako vprašaš, ali je v sobi televizor?",
+      "answers": [
+        "Is there a TV?",
+        "Are there a TV?",
+        "There is a TV?",
+        "Is a TV there is?"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "V vprašanju is pride na začetek: Is there a TV?",
+      "difficulty": 3
+    }
+  ]
+}

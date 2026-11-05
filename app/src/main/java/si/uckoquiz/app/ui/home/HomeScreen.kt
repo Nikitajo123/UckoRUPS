@@ -247,7 +247,8 @@ private fun PathNodeItem(node: PathNode, offsetDp: Int, color: Color, onClick: (
     val fill = when (node.state) {
         NodeState.LOCKED -> LockedGrey
         NodeState.CURRENT -> color
-        NodeState.DONE -> UckoGold
+        // Zlato samo, če je bila lekcija rešena brez napake; sicer barva predmeta.
+        NodeState.DONE -> if (node.perfect) UckoGold else color
     }
     val icon = when {
         node.kind == NodeKind.BOSS -> UckoIconType.CASTLE

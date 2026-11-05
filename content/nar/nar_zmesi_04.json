@@ -1,0 +1,139 @@
+{
+  "id": "nar_zmesi_04",
+  "subjectId": "nar",
+  "chapterId": "nar_zmesi",
+  "order": 4,
+  "title": "Usedanje in odlivanje",
+  "boss": false,
+  "explanation": {
+    "title": "Počakaj, da se usede",
+    "steps": [
+      "Težka netopna snov se v mirni vodi usede na dno. To je usedanje.",
+      "Nato vodo previdno odlijemo v drugo posodo. To je odlivanje.",
+      "Primer: blatno vodo pustimo stati 10 minut. Blato je na dnu, zgoraj je bistra voda.",
+      "Vodo odlijemo, nato jo še filtriramo. Tako dobimo čisto vodo.",
+      "Raztopljene snovi, na primer sol, se ne usedejo."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_zmesi_04_t1",
+      "type": "choice",
+      "prompt": "Kaj se zgodi, če kozarec blatne vode pustimo stati pri miru?",
+      "answers": [
+        "blato se usede na dno",
+        "blato splava na vrh",
+        "voda izhlapi v eni minuti"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Delci blata so težji od vode. Zato se počasi usedejo na dno.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_04_t2",
+      "type": "choice",
+      "prompt": "Kako se imenuje postopek, ko vodo previdno prelijemo stran od usedline?",
+      "answers": [
+        "odlivanje",
+        "izhlapevanje",
+        "sejanje"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pri odlivanju tekočino prelijemo stran. Usedlina ostane v posodi.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_04_t3",
+      "type": "match",
+      "prompt": "Poveži postopek z opisom.",
+      "pairs": [
+        {
+          "left": "usedanje",
+          "right": "trdna snov se zbere na dnu"
+        },
+        {
+          "left": "odlivanje",
+          "right": "tekočino prelijemo v drugo posodo"
+        },
+        {
+          "left": "filtriranje",
+          "right": "trdna snov ostane na papirju"
+        }
+      ],
+      "explanation": "Pogosto jih uporabimo zaporedoma: usedanje, odlivanje, filtriranje.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_zmesi_04_t4",
+      "type": "drag",
+      "prompt": "Ali se snov v vodi usede na dno?",
+      "categories": [
+        "Se usede",
+        "Se ne usede"
+      ],
+      "items": [
+        {
+          "text": "pesek",
+          "category": "Se usede"
+        },
+        {
+          "text": "kamenčki",
+          "category": "Se usede"
+        },
+        {
+          "text": "blato",
+          "category": "Se usede"
+        },
+        {
+          "text": "raztopljena sol",
+          "category": "Se ne usede"
+        },
+        {
+          "text": "raztopljen sladkor",
+          "category": "Se ne usede"
+        },
+        {
+          "text": "olje",
+          "category": "Se ne usede"
+        }
+      ],
+      "explanation": "Težke netopne snovi se usedejo. Raztopljene se ne, olje pa plava na vrhu.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_zmesi_04_t5",
+      "type": "choice",
+      "prompt": "Zakaj soli ne ločimo od vode z usedanjem?",
+      "answers": [
+        "ker je sol raztopljena in se ne usede",
+        "ker je sol težja od vode",
+        "ker sol plava na vodi"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Raztopljena sol se ne usede. Dobimo jo z izhlapevanjem vode.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_zmesi_04_t6",
+      "type": "choice",
+      "prompt": "Na izletu zajameš blatno vodo iz potoka. Kateri vrstni red je pravilen?",
+      "answers": [
+        "usedanje, odlivanje, filtriranje",
+        "filtriranje, usedanje, odlivanje",
+        "odlivanje, usedanje, filtriranje",
+        "izhlapevanje, usedanje, odlivanje"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Najprej počakamo, da se blato usede. Nato vodo odlijemo in še filtriramo.",
+      "difficulty": 3
+    }
+  ]
+}

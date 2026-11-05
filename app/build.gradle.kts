@@ -65,4 +65,5 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.kotlinx.coroutines.play.services)
     testImplementation(libs.org.json)
+    implementation(libs.androidx.work.runtime)
 }

@@ -1,0 +1,138 @@
+{
+  "id": "nar_raziskujemo_02",
+  "subjectId": "nar",
+  "chapterId": "nar_raziskujemo",
+  "order": 2,
+  "title": "Hitrost raztapljanja",
+  "boss": false,
+  "explanation": {
+    "title": "Kako sladkor raztopimo hitreje?",
+    "steps": [
+      "Topna snov se raztopi hitreje, če mešamo.",
+      "Hitreje se raztopi tudi v topli vodi.",
+      "Drobna zrnca se raztopijo hitreje kot velik kos.",
+      "Primer: kocka sladkorja v hladnem čaju se raztaplja dolgo. Sipki sladkor v toplem čaju pa hitro.",
+      "Pri poskusu spremenimo samo eno stvar. Tako vemo, kaj je vplivalo."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_raziskujemo_02_t1",
+      "type": "choice",
+      "prompt": "Kaj pospeši raztapljanje sladkorja v čaju?",
+      "answers": [
+        "mešanje",
+        "pokrivanje skodelice",
+        "hlajenje čaja"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Z mešanjem sladkor hitreje pride v stik z vodo.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_raziskujemo_02_t2",
+      "type": "choice",
+      "prompt": "V kateri vodi se sol raztopi najhitreje?",
+      "answers": [
+        "v topli",
+        "v hladni",
+        "v ledeni"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "V topli vodi se snovi raztapljajo hitreje.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_raziskujemo_02_t3",
+      "type": "drag",
+      "prompt": "Ali se sladkor raztopi hitro ali počasi?",
+      "categories": [
+        "Hitro",
+        "Počasi"
+      ],
+      "items": [
+        {
+          "text": "sipki sladkor v topli vodi",
+          "category": "Hitro"
+        },
+        {
+          "text": "sladkor in mešanje",
+          "category": "Hitro"
+        },
+        {
+          "text": "sladkor v prahu",
+          "category": "Hitro"
+        },
+        {
+          "text": "kocka sladkorja v hladni vodi",
+          "category": "Počasi"
+        },
+        {
+          "text": "sladkor brez mešanja",
+          "category": "Počasi"
+        },
+        {
+          "text": "velik kos sladkorja",
+          "category": "Počasi"
+        }
+      ],
+      "explanation": "Toplota, mešanje in drobna zrna pospešijo raztapljanje.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_02_t4",
+      "type": "match",
+      "prompt": "Poveži, kaj narediš, s posledico.",
+      "pairs": [
+        {
+          "left": "mešam",
+          "right": "raztaplja se hitreje"
+        },
+        {
+          "left": "ohladim vodo",
+          "right": "raztaplja se počasneje"
+        },
+        {
+          "left": "kocko zdrobim",
+          "right": "drobna zrna se raztopijo hitreje"
+        }
+      ],
+      "explanation": "Mešanje in drobna zrna pospešita raztapljanje, hladna voda ga upočasni.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_02_t5",
+      "type": "choice",
+      "prompt": "Kaj se raztopi hitreje: kocka sladkorja ali žlička sipkega sladkorja?",
+      "answers": [
+        "sipki sladkor",
+        "kocka sladkorja",
+        "oba enako hitro"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Drobna zrna imajo več stika z vodo kot en velik kos.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_02_t6",
+      "type": "choice",
+      "prompt": "Maja preverja, ali toplota pospeši raztapljanje. Kaj mora biti v obeh kozarcih enako?",
+      "answers": [
+        "količina vode in sladkorja ter mešanje",
+        "temperatura vode",
+        "nič, vse je lahko različno"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Spremeni samo temperaturo. Drugo mora biti enako, da je poskus pošten.",
+      "difficulty": 3
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "id": "nar_raziskujemo_boss",
+  "subjectId": "nar",
+  "chapterId": "nar_raziskujemo",
+  "order": 7,
+  "title": "Skrivnostni laboratorij",
+  "boss": true,
+  "explanation": {
+    "title": "",
+    "steps": []
+  },
+  "tasks": [
+    {
+      "id": "nar_raziskujemo_boss_t1",
+      "type": "choice",
+      "prompt": "Kaj ima stalno prostornino, obliko pa prevzame po posodi?",
+      "answers": [
+        "tekočina",
+        "trdna snov",
+        "plin"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Tekočina prevzame obliko posode.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_raziskujemo_boss_t2",
+      "type": "drag",
+      "prompt": "Ali plava na vodi ali potone?",
+      "categories": [
+        "Plava",
+        "Potone"
+      ],
+      "items": [
+        {
+          "text": "jabolko",
+          "category": "Plava"
+        },
+        {
+          "text": "olje",
+          "category": "Plava"
+        },
+        {
+          "text": "kovanec",
+          "category": "Potone"
+        },
+        {
+          "text": "med",
+          "category": "Potone"
+        }
+      ],
+      "explanation": "Jabolko in olje imata manjšo gostoto kot voda, kovanec in med večjo.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_boss_t3",
+      "type": "choice",
+      "prompt": "Kateri predmet privlači magnet?",
+      "answers": [
+        "jeklena sponka",
+        "aluminijasta folija",
+        "lesen svinčnik",
+        "stekleni kozarec"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Magnet privlači železo in jeklo, aluminija pa ne.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_boss_t4",
+      "type": "drag",
+      "prompt": "Prevodnik ali izolator električnega toka?",
+      "categories": [
+        "Prevodnik",
+        "Izolator"
+      ],
+      "items": [
+        {
+          "text": "baker",
+          "category": "Prevodnik"
+        },
+        {
+          "text": "aluminij",
+          "category": "Prevodnik"
+        },
+        {
+          "text": "guma",
+          "category": "Izolator"
+        },
+        {
+          "text": "steklo",
+          "category": "Izolator"
+        }
+      ],
+      "explanation": "Kovine prevajajo električni tok, guma in steklo pa ne.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_boss_t5",
+      "type": "match",
+      "prompt": "Poveži zmes s postopkom ločevanja.",
+      "pairs": [
+        {
+          "left": "železni opilki in pesek",
+          "right": "magnet"
+        },
+        {
+          "left": "olje in voda",
+          "right": "ločilni lij"
+        },
+        {
+          "left": "sol in voda",
+          "right": "izhlapevanje"
+        },
+        {
+          "left": "blatna voda",
+          "right": "usedanje in odlivanje"
+        }
+      ],
+      "explanation": "Postopek izberemo glede na lastnosti snovi v zmesi.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_boss_t6",
+      "type": "choice",
+      "prompt": "Kako iz zmesi soli in peska dobiš čisto sol?",
+      "answers": [
+        "raztopim, filtriram, izhlapim",
+        "filtriram, raztopim, izhlapim",
+        "izhlapim, raztopim, filtriram",
+        "samo presejem"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Sol se raztopi, pesek ostane na filtru, iz vode izhlapimo sol.",
+      "difficulty": 3
+    },
+    {
+      "id": "nar_raziskujemo_boss_t7",
+      "type": "choice",
+      "prompt": "Čaj s sladkorjem je …",
+      "answers": [
+        "homogena zmes",
+        "heterogena zmes",
+        "čista snov"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Raztopljenega sladkorja ne vidimo, zato je zmes homogena.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_boss_t8",
+      "type": "choice",
+      "prompt": "Kaj NE pospeši raztapljanja sladkorja?",
+      "answers": [
+        "hladna voda",
+        "mešanje",
+        "topla voda",
+        "drobna zrna"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Hladna voda raztapljanje upočasni. Ostalo ga pospeši.",
+      "difficulty": 3
+    },
+    {
+      "id": "nar_raziskujemo_boss_t9",
+      "type": "match",
+      "prompt": "Poveži spremembo s primerom.",
+      "pairs": [
+        {
+          "left": "taljenje",
+          "right": "snežak spomladi"
+        },
+        {
+          "left": "strjevanje",
+          "right": "voda v zamrzovalniku"
+        },
+        {
+          "left": "izhlapevanje",
+          "right": "luža po dežju izgine"
+        },
+        {
+          "left": "kondenzacija",
+          "right": "rosno ogledalo v kopalnici"
+        }
+      ],
+      "explanation": "Pri vsaki spremembi snov ostane ista, spremeni se le stanje.",
+      "difficulty": 3
+    },
+    {
+      "id": "nar_raziskujemo_boss_t10",
+      "type": "choice",
+      "prompt": "V vodo dodajaš sladkor. Nekaj ga ostane na dnu. Kakšna je raztopina?",
+      "answers": [
+        "nasičena",
+        "heterogena",
+        "netopna"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Nasičena raztopina ne more raztopiti nič več sladkorja.",
+      "difficulty": 3
+    }
+  ]
+}

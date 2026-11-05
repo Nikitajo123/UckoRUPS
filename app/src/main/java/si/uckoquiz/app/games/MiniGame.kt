@@ -53,8 +53,10 @@ fun MiniGame(task: Task, onFinish: (GameResult) -> Unit) {
         "wordle_en" -> WordleGame(task, finishOnce)                   // UQ-50
         "plava_potone" -> FloatOrSinkGame(task, finishOnce)           // UQ-51
         "laboratorij" -> LabGame(task, finishOnce)                    // UQ-52
-        // "decimalke_2048" -> Decimal2048Game(task, finishOnce)         // UQ-53
-        // "ulomki_kocke" -> FractionCubesGame(task, finishOnce)         // UQ-55
+        "decimalke_2048" -> Decimal2048Game(task, finishOnce)         // UQ-53
+        "ulomki_kocke" -> FractionCubesGame(task, finishOnce)         // UQ-55
+        "hitro_razvrsti" -> SortRushGame(task, finishOnce)            // naravoslovje: Raziskujemo snovi
+        "spomin" -> MemoryGame(task, finishOnce)                      // angleščina: Food, Animals & Home
         else -> DemoGame(task, finishOnce)
     }
 }

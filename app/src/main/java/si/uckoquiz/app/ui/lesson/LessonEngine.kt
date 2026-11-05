@@ -24,6 +24,8 @@ data class LessonState(
     val correct: Int = 0,
     val scored: Int = 0,
     val mistakes: List<String> = emptyList(),
+    /** Ostane true, dokler ni nobene napake (tudi delno rešena mini igra je napaka). */
+    val allCorrect: Boolean = true,
     val answer: TaskAnswer = TaskAnswer.None,
     val feedback: LessonFeedback? = null,
     val outcome: LessonOutcome? = null,
@@ -81,7 +83,8 @@ object LessonEngine {
         val ok = total > 0 && correct * 10 >= total * 6
         val hint = if (state.boss) "" else page.task.explanation
         val feedback = LessonFeedback(ok, if (ok) "Odlično!" else "Skoraj!", "$correct od $total pravilnih. $hint".trim())
-        return score(state, page, ok, feedback)
+        val scored = score(state, page, ok, feedback)
+        return if (correct < total) scored.copy(allCorrect = false) else scored
     }
 
     /** Gumb NAPREJ (po razlagi ali povratni informaciji) ali PRESKOČI. Na koncu izračuna izid. */
@@ -118,6 +121,7 @@ object LessonEngine {
             scored = state.scored + if (firstTry) 1 else 0,
             hearts = if (ok) state.hearts else state.hearts - 1,
             mistakes = if (!ok && firstTry) state.mistakes + page.task.id else state.mistakes,
+            allCorrect = state.allCorrect && ok,
             feedback = feedback,
         )
     }
@@ -149,6 +153,7 @@ object LessonEngine {
             stars = stars,
             xp = lessonXp(stars, state.correct, state.boss),
             boss = state.boss,
+            perfect = passed && state.allCorrect && state.mistakes.isEmpty(),
         )
     }
 }

@@ -1,0 +1,142 @@
+{
+  "id": "ang_home_05",
+  "subjectId": "ang",
+  "chapterId": "ang_home",
+  "order": 5,
+  "title": "In, on, under",
+  "boss": false,
+  "explanation": {
+    "title": "Where is the cat?",
+    "steps": [
+      "in = v. The book is in the bag.",
+      "on = na. The cup is on the table.",
+      "under = pod. The ball is under the bed.",
+      "Vprašamo: Where is the cat? Kje je mačka?",
+      "Primer: The cat is under the table. The phone is on the sofa."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_home_05_t1",
+      "type": "match",
+      "prompt": "Poveži predlog in prevod.",
+      "pairs": [
+        {
+          "left": "in",
+          "right": "v"
+        },
+        {
+          "left": "on",
+          "right": "na"
+        },
+        {
+          "left": "under",
+          "right": "pod"
+        }
+      ],
+      "explanation": "In, on in under povedo, kje je stvar.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_05_t2",
+      "type": "choice",
+      "prompt": "Žoga je pod posteljo. The ball is ___ the bed.",
+      "answers": [
+        "under",
+        "on",
+        "in"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pod je under.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_05_t3",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "The cat is on the sofa.",
+        "The cat is under the sofa.",
+        "The hat is on the sofa."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "On the sofa pomeni na kavču.",
+      "difficulty": 2,
+      "audioText": "The cat is on the sofa."
+    },
+    {
+      "id": "ang_home_05_t4",
+      "type": "drag",
+      "prompt": "Kje je stvar?",
+      "categories": [
+        "in",
+        "on",
+        "under"
+      ],
+      "items": [
+        {
+          "text": "milk – fridge",
+          "category": "in"
+        },
+        {
+          "text": "pencils – pencil case",
+          "category": "in"
+        },
+        {
+          "text": "picture – wall",
+          "category": "on"
+        },
+        {
+          "text": "plate – table",
+          "category": "on"
+        },
+        {
+          "text": "shoes – bed",
+          "category": "under"
+        },
+        {
+          "text": "dog – table",
+          "category": "under"
+        }
+      ],
+      "explanation": "Mleko je v hladilniku, slika na steni, čevlji pod posteljo.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_home_05_t5",
+      "type": "choice",
+      "prompt": "Zvezki so v torbi. The notebooks are ___ the schoolbag.",
+      "answers": [
+        "in",
+        "on",
+        "under",
+        "at"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Kar je znotraj nečesa, je in.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_home_05_t6",
+      "type": "choice",
+      "prompt": "Kateri stavek je pravilen?",
+      "answers": [
+        "My keys are on the table.",
+        "My keys is on the table.",
+        "My keys are on table the.",
+        "My keys on the table are."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Keys je množina, zato are. Za predlogom pride the in nato stvar.",
+      "difficulty": 3
+    }
+  ]
+}
