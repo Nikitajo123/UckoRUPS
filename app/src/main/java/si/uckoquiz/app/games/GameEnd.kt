@@ -1,5 +1,6 @@
 package si.uckoquiz.app.games
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -14,9 +16,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import si.uckoquiz.app.R
 
 /** 1 to 3 stars from the share of correct answers (same rule for every game). */
 fun starsFor(result: GameResult): Int {
@@ -41,8 +45,11 @@ fun GameEnd(result: GameResult, onContinue: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        // TODO(UQ-48): replace with the Učko image (happy when stars >= 2, sad otherwise)
-        Text(if (stars >= 2) "🐱" else "😿", fontSize = 72.sp)
+        Image(
+            painter = painterResource(if (stars >= 2) R.drawable.ucko_happy else R.drawable.ucko_sad),
+            contentDescription = if (stars >= 2) "Učko je vesel" else "Učko je žalosten",
+            modifier = Modifier.size(140.dp),
+        )
         Spacer(Modifier.height(16.dp))
         Text("Igra končana!", fontSize = 28.sp, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(16.dp))
