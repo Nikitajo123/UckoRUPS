@@ -1,0 +1,139 @@
+{
+  "id": "nar_raziskujemo_03",
+  "subjectId": "nar",
+  "chapterId": "nar_raziskujemo",
+  "order": 3,
+  "title": "Homogene in heterogene zmesi",
+  "boss": false,
+  "explanation": {
+    "title": "Ali vidiš sestavine?",
+    "steps": [
+      "Homogena zmes je enotna. Sestavin ne vidimo, na primer sladkana voda.",
+      "Heterogena zmes je neenotna. Sestavine vidimo, na primer müsli ali pesek v vodi.",
+      "Primer: sok brez koščkov je homogen. Sadna solata je heterogena.",
+      "Raztopina je vedno homogena zmes.",
+      "Heterogene zmesi pogosto ločimo s sejanjem ali filtriranjem."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_raziskujemo_03_t1",
+      "type": "choice",
+      "prompt": "Pri kateri zmesi vidimo posamezne sestavine?",
+      "answers": [
+        "pri heterogeni",
+        "pri homogeni",
+        "pri raztopini"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pri heterogeni zmesi sestavine vidimo, pri homogeni ne.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_raziskujemo_03_t2",
+      "type": "drag",
+      "prompt": "Ali je zmes homogena ali heterogena?",
+      "categories": [
+        "Homogena",
+        "Heterogena"
+      ],
+      "items": [
+        {
+          "text": "slana voda",
+          "category": "Homogena"
+        },
+        {
+          "text": "čaj s sladkorjem",
+          "category": "Homogena"
+        },
+        {
+          "text": "zrak",
+          "category": "Homogena"
+        },
+        {
+          "text": "müsli",
+          "category": "Heterogena"
+        },
+        {
+          "text": "pesek v vodi",
+          "category": "Heterogena"
+        },
+        {
+          "text": "olje na vodi",
+          "category": "Heterogena"
+        }
+      ],
+      "explanation": "Pri slani vodi, sladkem čaju in zraku sestavin ne vidimo. Pri ostalih jih.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_03_t3",
+      "type": "choice",
+      "prompt": "Za malico imaš sadno solato. Kakšna zmes je to?",
+      "answers": [
+        "heterogena",
+        "homogena",
+        "čista snov"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Koščke jabolka, banane in hruške lepo vidimo.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_raziskujemo_03_t4",
+      "type": "match",
+      "prompt": "Poveži pojem s primerom.",
+      "pairs": [
+        {
+          "left": "homogena zmes",
+          "right": "sladkana voda"
+        },
+        {
+          "left": "heterogena zmes",
+          "right": "kamenčki in pesek"
+        },
+        {
+          "left": "čista snov",
+          "right": "destilirana voda"
+        }
+      ],
+      "explanation": "Čista snov ima eno samo snov. Zmes jih ima več.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_raziskujemo_03_t5",
+      "type": "choice",
+      "prompt": "Kaj velja za vsako raztopino?",
+      "answers": [
+        "je homogena zmes",
+        "je heterogena zmes",
+        "je čista snov",
+        "vedno je slana"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "V raztopini raztopljene snovi ne vidimo, zato je homogena.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_03_t6",
+      "type": "choice",
+      "prompt": "Pesek v vodi je heterogena zmes. Kako ga ločiš od vode?",
+      "answers": [
+        "s filtriranjem",
+        "z magnetom",
+        "z mešanjem"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pesek ostane na filtrirnem papirju, voda steče skozi.",
+      "difficulty": 2
+    }
+  ]
+}

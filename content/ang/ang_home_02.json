@@ -1,0 +1,144 @@
+{
+  "id": "ang_home_02",
+  "subjectId": "ang",
+  "chapterId": "ang_home",
+  "order": 2,
+  "title": "Živali",
+  "boss": false,
+  "explanation": {
+    "title": "One cat, two cats",
+    "steps": [
+      "dog = pes, cat = mačka, rabbit = zajec, bird = ptica, horse = konj.",
+      "Množina: navadno dodamo -s. One dog, two dogs.",
+      "Za s, x, ch in sh dodamo -es. One fox, two foxes.",
+      "Nekaj besed je posebnih: one mouse, two mice. One fish, two fish.",
+      "Primer: I have got two rabbits and a fish."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_home_02_t1",
+      "type": "match",
+      "prompt": "Poveži žival in prevod.",
+      "pairs": [
+        {
+          "left": "rabbit",
+          "right": "zajec"
+        },
+        {
+          "left": "horse",
+          "right": "konj"
+        },
+        {
+          "left": "bird",
+          "right": "ptica"
+        },
+        {
+          "left": "mouse",
+          "right": "miš"
+        }
+      ],
+      "explanation": "To so pogoste živali doma in na kmetiji.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_02_t2",
+      "type": "choice",
+      "prompt": "Množina od »dog« je …",
+      "answers": [
+        "dogs",
+        "doges",
+        "dog"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Navadno samo dodamo -s: dogs.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_02_t3",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "I have got a cat.",
+        "I have got a hat.",
+        "I have got two cats."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A cat pomeni ena mačka.",
+      "difficulty": 1,
+      "audioText": "I have got a cat."
+    },
+    {
+      "id": "ang_home_02_t4",
+      "type": "drag",
+      "prompt": "Dodamo -s ali -es?",
+      "categories": [
+        "-s",
+        "-es"
+      ],
+      "items": [
+        {
+          "text": "cat",
+          "category": "-s"
+        },
+        {
+          "text": "horse",
+          "category": "-s"
+        },
+        {
+          "text": "bird",
+          "category": "-s"
+        },
+        {
+          "text": "fox",
+          "category": "-es"
+        },
+        {
+          "text": "bus",
+          "category": "-es"
+        },
+        {
+          "text": "box",
+          "category": "-es"
+        }
+      ],
+      "explanation": "Besede na s in x dobijo -es: foxes, buses, boxes.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_home_02_t5",
+      "type": "choice",
+      "prompt": "One mouse, two …",
+      "answers": [
+        "mice",
+        "mouses",
+        "mousees",
+        "mouse"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Mouse ima posebno množino: mice.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_home_02_t6",
+      "type": "choice",
+      "prompt": "Ana has got three ___.",
+      "answers": [
+        "fish",
+        "fishs",
+        "fishes"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Fish je v množini enako: one fish, three fish.",
+      "difficulty": 3
+    }
+  ]
+}

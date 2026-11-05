@@ -6,6 +6,8 @@
   { "id": "mat_obseg", "subjectId": "mat", "order": 5, "title": "Obseg in ploščina" },
   { "id": "ang_family", "subjectId": "ang", "order": 1, "title": "Hello & Family" },
   { "id": "ang_school", "subjectId": "ang", "order": 2, "title": "School & Daily Routine" },
+  { "id": "ang_home", "subjectId": "ang", "order": 3, "title": "Food, Animals & Home" },
   { "id": "nar_snovi", "subjectId": "nar", "order": 1, "title": "Lastnosti snovi" },
-  { "id": "nar_zmesi", "subjectId": "nar", "order": 2, "title": "Zmesi in ločevanje" }
+  { "id": "nar_zmesi", "subjectId": "nar", "order": 2, "title": "Zmesi in ločevanje" },
+  { "id": "nar_raziskujemo", "subjectId": "nar", "order": 3, "title": "Raziskujemo snovi" }
 ]

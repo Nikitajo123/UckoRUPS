@@ -1,0 +1,193 @@
+{
+  "id": "ang_home_boss",
+  "subjectId": "ang",
+  "chapterId": "ang_home",
+  "order": 7,
+  "title": "Veliki izziv",
+  "boss": true,
+  "explanation": {
+    "title": "",
+    "steps": []
+  },
+  "tasks": [
+    {
+      "id": "ang_home_boss_t1",
+      "type": "choice",
+      "prompt": "We ___ friends.",
+      "answers": [
+        "are",
+        "is",
+        "am"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pri we uporabimo are.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_boss_t2",
+      "type": "match",
+      "prompt": "Poveži angleško in slovensko besedo.",
+      "pairs": [
+        {
+          "left": "bread",
+          "right": "kruh"
+        },
+        {
+          "left": "bathroom",
+          "right": "kopalnica"
+        },
+        {
+          "left": "rabbit",
+          "right": "zajec"
+        },
+        {
+          "left": "juice",
+          "right": "sok"
+        }
+      ],
+      "explanation": "Besede iz hrane, doma in živali.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_home_boss_t3",
+      "type": "choice",
+      "prompt": "My brother ___ got a bike.",
+      "answers": [
+        "has",
+        "have",
+        "is"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "My brother je on, zato has got.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_home_boss_t4",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "The dog is under the table.",
+        "The dog is on the table.",
+        "The dogs are under the table."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Under the table pomeni pod mizo.",
+      "difficulty": 2,
+      "audioText": "The dog is under the table."
+    },
+    {
+      "id": "ang_home_boss_t5",
+      "type": "drag",
+      "prompt": "There is ali there are?",
+      "categories": [
+        "There is",
+        "There are"
+      ],
+      "items": [
+        {
+          "text": "a fridge",
+          "category": "There is"
+        },
+        {
+          "text": "an apple",
+          "category": "There is"
+        },
+        {
+          "text": "two mice",
+          "category": "There are"
+        },
+        {
+          "text": "three fish",
+          "category": "There are"
+        }
+      ],
+      "explanation": "Mice in fish sta tu množina, zato there are.",
+      "difficulty": 3
+    },
+    {
+      "id": "ang_home_boss_t6",
+      "type": "choice",
+      "prompt": "Kateri stavek je pravilen?",
+      "answers": [
+        "He can swim.",
+        "He can swims.",
+        "He cans swim.",
+        "He can to swim."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Za can pride glagol brez -s in brez to.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_home_boss_t7",
+      "type": "choice",
+      "prompt": "Ana ___ like milk.",
+      "answers": [
+        "doesn't",
+        "don't",
+        "isn't",
+        "not"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pri she (Ana) je zanikanje doesn't.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_home_boss_t8",
+      "type": "choice",
+      "prompt": "One box, two …",
+      "answers": [
+        "boxes",
+        "boxs",
+        "boxies"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Besede na x dobijo -es: boxes.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_home_boss_t9",
+      "type": "choice",
+      "prompt": "Tom has a cat. ___ cat is black.",
+      "answers": [
+        "His",
+        "Her",
+        "Your",
+        "My"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Tom je on, zato his.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_home_boss_t10",
+      "type": "choice",
+      "prompt": "Prijatelj vpraša: »Is there a garden?« Vrt imate. Kaj odgovoriš?",
+      "answers": [
+        "Yes, there is.",
+        "Yes, there are.",
+        "Yes, it can.",
+        "Yes, I am."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Na Is there …? odgovorimo Yes, there is.",
+      "difficulty": 3
+    }
+  ]
+}

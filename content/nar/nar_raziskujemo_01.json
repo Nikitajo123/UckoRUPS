@@ -1,0 +1,139 @@
+{
+  "id": "nar_raziskujemo_01",
+  "subjectId": "nar",
+  "chapterId": "nar_raziskujemo",
+  "order": 1,
+  "title": "Topne in netopne snovi",
+  "boss": false,
+  "explanation": {
+    "title": "Se raztopi ali ne?",
+    "steps": [
+      "Snov, ki se v vodi raztopi, je topna. Na primer sol in sladkor.",
+      "Snov, ki se v vodi ne raztopi, je netopna. Na primer pesek in olje.",
+      "Primer: v kozarec vode stresemo žličko sladkorja in premešamo. Sladkorja ne vidimo več.",
+      "Če dodajamo vedno več sladkorja, se nekoč ne raztaplja več.",
+      "Taki raztopini rečemo nasičena. Odvečni sladkor ostane na dnu."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_raziskujemo_01_t1",
+      "type": "choice",
+      "prompt": "Katera snov je v vodi topna?",
+      "answers": [
+        "sol",
+        "pesek",
+        "olje"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Sol se v vodi raztopi. Pesek in olje sta netopna.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_raziskujemo_01_t2",
+      "type": "drag",
+      "prompt": "Ali je snov v vodi topna?",
+      "categories": [
+        "Topna",
+        "Netopna"
+      ],
+      "items": [
+        {
+          "text": "sladkor",
+          "category": "Topna"
+        },
+        {
+          "text": "sol",
+          "category": "Topna"
+        },
+        {
+          "text": "šumeča tableta",
+          "category": "Topna"
+        },
+        {
+          "text": "pesek",
+          "category": "Netopna"
+        },
+        {
+          "text": "riž",
+          "category": "Netopna"
+        },
+        {
+          "text": "olje",
+          "category": "Netopna"
+        }
+      ],
+      "explanation": "Sladkor, sol in šumeča tableta se raztopijo. Pesek, riž in olje ostanejo vidni.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_raziskujemo_01_t3",
+      "type": "choice",
+      "prompt": "Sladkor premešaš v vodi in ga ne vidiš več. Kje je?",
+      "answers": [
+        "raztopljen v vodi",
+        "izginil je",
+        "izhlapel je"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Sladkor je še v vodi, le da ga ne vidimo. Voda je zato sladka.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_raziskujemo_01_t4",
+      "type": "match",
+      "prompt": "Poveži besedo z razlago.",
+      "pairs": [
+        {
+          "left": "topna snov",
+          "right": "v vodi se raztopi"
+        },
+        {
+          "left": "netopna snov",
+          "right": "v vodi se ne raztopi"
+        },
+        {
+          "left": "nasičena raztopina",
+          "right": "snov se ne raztaplja več"
+        }
+      ],
+      "explanation": "Nasičena raztopina ne more raztopiti nič več snovi.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_01_t5",
+      "type": "choice",
+      "prompt": "V vodo dodajaš sol. Nekaj soli ostane na dnu. Kaj to pomeni?",
+      "answers": [
+        "raztopina je nasičena",
+        "sol je netopna",
+        "voda je umazana",
+        "sol je pretežka"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Sol je topna, a voda je ne more raztopiti neomejeno. Raztopina je nasičena.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_01_t6",
+      "type": "choice",
+      "prompt": "Kako dokažeš, da je v vodi raztopljena sol?",
+      "answers": [
+        "vodo izhlapim in sol ostane",
+        "vodo prefiltriram in sol ostane na papirju",
+        "z magnetom potegnem sol ven"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Raztopljena sol gre skozi filtrirni papir. Po izhlapevanju pa ostane v posodi.",
+      "difficulty": 3
+    }
+  ]
+}

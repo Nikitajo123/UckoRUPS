@@ -65,5 +65,6 @@ data class LessonProgress(
     val attempts: Int = 0,
     val bestScore: Int = 0,
     val mistakes: List<String> = emptyList(), // task ids
-    val completedAt: Long = 0
+    val completedAt: Long = 0,
+    val perfect: Boolean = false // vsaj enkrat rešeno brez napake -> zlat krogec
 )

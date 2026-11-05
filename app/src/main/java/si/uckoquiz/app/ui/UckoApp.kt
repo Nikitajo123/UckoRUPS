@@ -153,7 +153,7 @@ fun MainTabs(
             onFinished = { outcome ->
                 scope.launch {
                     // Zvezdice in XP izračuna LessonEngine (UQ-34); nato zaslon rezultata (UQ-35).
-                    repository.saveResult(lessonId, outcome.stars, outcome.xp, outcome.mistakes)
+                    repository.saveResult(lessonId, outcome.stars, outcome.xp, outcome.mistakes, outcome.perfect)
                     // UQ-38: XP, niz in srčki se shranijo v profil, zato jih Domov, Rezultat in Profil pokažejo.
                     onProfileChange(ProgressRules.afterLesson(profile, outcome, LocalDate.now(), practice))
                     result = lessonId to outcome

@@ -1,0 +1,145 @@
+{
+  "id": "ang_school_05",
+  "subjectId": "ang",
+  "chapterId": "ang_school",
+  "order": 5,
+  "title": "Šolski predmeti",
+  "boss": false,
+  "explanation": {
+    "title": "My school subjects",
+    "steps": [
+      "Maths = matematika, English = angleščina, Science = naravoslovje.",
+      "Art = likovna umetnost, Music = glasba, PE = šport.",
+      "Predmete pišemo z veliko začetnico.",
+      "Primer: I like Art. I don't like Maths.",
+      "Primer: We have got Music on Monday."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "ang_school_05_t1",
+      "type": "match",
+      "prompt": "Poveži predmet in prevod.",
+      "pairs": [
+        {
+          "left": "Maths",
+          "right": "matematika"
+        },
+        {
+          "left": "Art",
+          "right": "likovna umetnost"
+        },
+        {
+          "left": "PE",
+          "right": "šport"
+        },
+        {
+          "left": "Science",
+          "right": "naravoslovje"
+        }
+      ],
+      "explanation": "PE je kratica za Physical Education.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_05_t2",
+      "type": "choice",
+      "prompt": "Pri katerem predmetu pojemo?",
+      "answers": [
+        "Music",
+        "Maths",
+        "Science"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Music je glasba.",
+      "difficulty": 1
+    },
+    {
+      "id": "ang_school_05_t3",
+      "type": "listen",
+      "prompt": "Poslušaj in izberi, kar slišiš.",
+      "answers": [
+        "I like Art.",
+        "I like Maths.",
+        "I don't like Art."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "I like Art pomeni Rad imam likovno.",
+      "difficulty": 1,
+      "audioText": "I like Art."
+    },
+    {
+      "id": "ang_school_05_t4",
+      "type": "drag",
+      "prompt": "Kaj potrebuješ pri predmetu?",
+      "categories": [
+        "Maths",
+        "Art",
+        "PE"
+      ],
+      "items": [
+        {
+          "text": "ruler",
+          "category": "Maths"
+        },
+        {
+          "text": "calculator",
+          "category": "Maths"
+        },
+        {
+          "text": "paints",
+          "category": "Art"
+        },
+        {
+          "text": "crayons",
+          "category": "Art"
+        },
+        {
+          "text": "ball",
+          "category": "PE"
+        },
+        {
+          "text": "trainers",
+          "category": "PE"
+        }
+      ],
+      "explanation": "Paints so barve, crayons voščenke, trainers pa športni copati.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_school_05_t5",
+      "type": "choice",
+      "prompt": "She ___ Science.",
+      "answers": [
+        "likes",
+        "like",
+        "liking"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pri she dodamo -s: she likes.",
+      "difficulty": 2
+    },
+    {
+      "id": "ang_school_05_t6",
+      "type": "choice",
+      "prompt": "Kateri stavek je pravilen?",
+      "answers": [
+        "We have got English on Tuesday.",
+        "We has got English on Tuesday.",
+        "We have got english on tuesday.",
+        "We have got English in Tuesday."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pri we je have got. Predmet in dan pišemo z veliko. Pred dnem je on.",
+      "difficulty": 3
+    }
+  ]
+}

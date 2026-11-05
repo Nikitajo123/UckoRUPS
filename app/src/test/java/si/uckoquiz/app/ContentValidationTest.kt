@@ -13,7 +13,8 @@ import java.io.File
 class ContentValidationTest {
 
     private val knownGames = setOf(
-        "sentence_builder", "wordle_en", "plava_potone", "laboratorij", "decimalke_2048", "ulomki_kocke"
+        "sentence_builder", "wordle_en", "plava_potone", "laboratorij", "decimalke_2048", "ulomki_kocke",
+        "hitro_razvrsti", "spomin",
     )
     private val taskTypes = setOf("choice", "match", "drag", "listen", "game")
 
@@ -138,11 +139,7 @@ class ContentValidationTest {
             "match" -> {
                 val pairs = t.array("pairs").objects()
                 if (pairs.size < 2) err("needs at least 2 pairs")
-                val leftsUnique = pairs.map { it.getString("left") }.toSet().size == pairs.size
-                val rightsUnique = pairs.map { it.getString("right") }.toSet().size == pairs.size
-                if (!leftsUnique || !rightsUnique) {
-                    warn("the same word appears twice on one side; the app checks matches by position, so a correct answer can be marked wrong")
-                }
+                // The same word twice on one side (we = are, they = are) is fine: the app compares the text.
             }
             "drag" -> {
                 val cats = t.array("categories").strings()
@@ -189,6 +186,21 @@ class ContentValidationTest {
                         val sentences = t.array("answers").strings()
                         if (sentences.isEmpty()) err("needs answers (the sentences)")
                         cfg["hints"]?.let { if (parts(it) != sentences.size) err("config.hints needs one part per sentence") }
+                    }
+                    "hitro_razvrsti" -> {
+                        val cats = t.array("categories").strings()
+                        val items = t.array("items").objects()
+                        if (cats.size != 2) err("needs exactly 2 categories")
+                        if (items.size < 4) err("needs at least 4 items")
+                        if (items.any { it.getString("category") !in cats }) err("an item has a category that is not in 'categories'")
+                        cfg["seconds"]?.let { if (it.toIntOrNull() == null) err("config.seconds must be a whole number") }
+                    }
+                    "spomin" -> {
+                        val pairs = t.array("pairs").objects()
+                        if (pairs.size !in 2..8) err("needs 2 to 8 pairs")
+                        val words = pairs.flatMap { listOf(it.getString("left"), it.getString("right")) }
+                        if (words.toSet().size != words.size) err("every card text must be different")
+                        cfg["seconds"]?.let { if (it.toIntOrNull() == null) err("config.seconds must be a whole number") }
                     }
                     "decimalke_2048" -> {
                         cfg["wholes"]?.let { if (it.toIntOrNull() == null) err("config.wholes must be a whole number") }

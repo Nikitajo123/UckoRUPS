@@ -1,0 +1,143 @@
+{
+  "id": "nar_raziskujemo_04",
+  "subjectId": "nar",
+  "chapterId": "nar_raziskujemo",
+  "order": 4,
+  "title": "Spremembe stanj",
+  "boss": false,
+  "explanation": {
+    "title": "Led, voda, para",
+    "steps": [
+      "Taljenje: trdna snov postane tekoča. Led se stali v vodo.",
+      "Strjevanje: tekočina postane trdna. Voda v zamrzovalniku zmrzne.",
+      "Izhlapevanje: tekočina postane plin. Luža po dežju izgine.",
+      "Kondenzacija: plin postane tekočina. Para se na hladnem ogledalu spremeni v kapljice.",
+      "Primer: kocka ledu na mizi se stali. Ko voda izhlapi, je na mizi suho."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "nar_raziskujemo_04_t1",
+      "type": "choice",
+      "prompt": "Sladoled na soncu postane tekoč. Kako se imenuje ta sprememba?",
+      "answers": [
+        "taljenje",
+        "strjevanje",
+        "kondenzacija"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Ko trdna snov postane tekoča, se tali.",
+      "difficulty": 1
+    },
+    {
+      "id": "nar_raziskujemo_04_t2",
+      "type": "match",
+      "prompt": "Poveži spremembo z opisom.",
+      "pairs": [
+        {
+          "left": "taljenje",
+          "right": "trdno → tekoče"
+        },
+        {
+          "left": "strjevanje",
+          "right": "tekoče → trdno"
+        },
+        {
+          "left": "izhlapevanje",
+          "right": "tekoče → plinasto"
+        },
+        {
+          "left": "kondenzacija",
+          "right": "plinasto → tekoče"
+        }
+      ],
+      "explanation": "Taljenje in strjevanje sta nasprotna, prav tako izhlapevanje in kondenzacija.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_04_t3",
+      "type": "drag",
+      "prompt": "Katera sprememba se zgodi?",
+      "categories": [
+        "Taljenje",
+        "Strjevanje",
+        "Izhlapevanje"
+      ],
+      "items": [
+        {
+          "text": "snežak spomladi",
+          "category": "Taljenje"
+        },
+        {
+          "text": "čokolada v roki",
+          "category": "Taljenje"
+        },
+        {
+          "text": "voda v modelčku za led",
+          "category": "Strjevanje"
+        },
+        {
+          "text": "luža pozimi",
+          "category": "Strjevanje"
+        },
+        {
+          "text": "mokra majica na soncu",
+          "category": "Izhlapevanje"
+        },
+        {
+          "text": "luža po dežju",
+          "category": "Izhlapevanje"
+        }
+      ],
+      "explanation": "Toplota tali in izhlapeva, mraz pa strjuje.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_04_t4",
+      "type": "choice",
+      "prompt": "Po tuširanju je ogledalo rosno. Kaj se je zgodilo?",
+      "answers": [
+        "para se je kondenzirala v kapljice",
+        "ogledalo se je stalilo",
+        "voda je izhlapela iz ogledala"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Topla vodna para se na hladnem ogledalu spremeni v kapljice vode.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_04_t5",
+      "type": "choice",
+      "prompt": "Mokro perilo se hitreje posuši …",
+      "answers": [
+        "na toplem in vetrovnem dnevu",
+        "na hladnem in mirnem dnevu",
+        "v zaprti vrečki"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Toplota in veter pospešita izhlapevanje.",
+      "difficulty": 2
+    },
+    {
+      "id": "nar_raziskujemo_04_t6",
+      "type": "choice",
+      "prompt": "Kocka ledu se v kozarcu stali. Kaj se zgodi s snovjo?",
+      "answers": [
+        "še vedno je voda, le v drugem stanju",
+        "postane druga snov",
+        "izgine"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Led in voda sta ista snov. Spremeni se samo agregatno stanje.",
+      "difficulty": 3
+    }
+  ]
+}
